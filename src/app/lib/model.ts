@@ -11,17 +11,18 @@
  */
 
 export type User = {
-    user_id: number;
+    user_id: string;
     username: string;
     email: string;
     password: string;
 }
 
 export type Post = {
-
+    id: string;
     user_id: string;
     title: string;
     image: string;
+    content: string
     createdAt: Date;
     upvotes: number;
     comments: Comment[]
@@ -30,7 +31,6 @@ export type Post = {
 export type Comment = {
 
     user_id: string;
-    userId: string;
     postId: string;
     content: string;
     createdAt: Date;

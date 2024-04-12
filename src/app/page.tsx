@@ -1,16 +1,14 @@
 import Image from "next/image";
-import { poppins } from "./ui/fonts";
+import { ForumSkeleton } from "./ui/skeletons";
+import {posts, users} from "@/app/lib/placeholder_data";
+import Forum from "./ui/homepage/Forum";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-        <div className="w-full min-h-screen mx-auto shadow-lg flex-col flex">
-            <div className="text-center w-full">
-                <h1 className={poppins.className + " text-[120px]"}>Yumex.</h1>
-            </div>
-            <div className="w-full">
-              
-            </div>
+        <div className="w-full lg:w-[50%] min-h-screen mx-auto flex-col flex">
+            {/* <ForumSkeleton/> */}
+            <Forum users={users} posts={posts}/>
         </div>
     </main>
   );
