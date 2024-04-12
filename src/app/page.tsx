@@ -6,7 +6,7 @@ import Forum from "./ui/homepage/Forum";
 export default function Home() {
   return (
     <main className="min-h-screen">
-        <div className="w-full lg:w-[50%] min-h-screen mx-auto flex-col flex">
+        <div className="w-full lg:w-[100%] min-h-screen mx-auto flex-col flex">
             {/* <ForumSkeleton/> */}
             <Forum users={users} posts={posts}/>
         </div>
