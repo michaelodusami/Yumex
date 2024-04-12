@@ -28,10 +28,10 @@ export const posts = [
 	{
 		id: "7a9b7c6d-5e4f-3g2h-1i0j-9k8l7m6n5o4p",
 		user_id: users[1].user_id,
-		title: "Exploring the Beauty of Nature",
+		title: "New Salad From Jones Restaurant 🥒 🥒",
 		content:
-			"lorfsoinfiudsnd ssbddkjdbfsnksdjfbf sdjkbsfkjbfdsbfskfsdk bfdskbdfskbfsdkkdfbkjdsk",
-		image: "/exampleimg.webp",
+			"Introducing the 'Green Symphony' salad, a culinary masterpiece that tantalizes the taste buds with a harmonious blend of crisp, garden-fresh greens, delicately tossed in a symphony of flavors. Picture a verdant garden on a summer's day, where each bite is a burst of vibrant colors and textures, accompanied by a melody of tangy vinaigrettes and savory toppings. It's not just a salad; it's a culinary composition that leaves you craving an encore with every forkful",
+		image: "/examplesalad.jpg",
 		createdAt: new Date("2023-05-16T14:45:00"),
 		upvotes: 0,
 		comments: [],
@@ -39,10 +39,10 @@ export const posts = [
 	{
 		id: "3q2w3e4r-5t6y-7u8i-9o0p-1a2s3d4f5g6h",
 		user_id: users[0].user_id,
-		title: "My Favorite Hobby: Painting",
+		title: "Choclate Cake!!",
 		content:
-			"lorfsoinfiudsnd ssbddkjdbfsnksdjfbf sdjkbsfkjbfdsbfskfsdk bfdskbdfskbfsdkkdfbkjdsk",
-		image: "/exampleimg.webp",
+			'Behold the "Heavenly Dream Cake" - a decadent creation that transcends the boundaries of ordinary confectionery. Imagine layers of moist, velvety sponge cake, lovingly enrobed in a blanket of rich, creamy frosting that whispers promises of pure indulgence. With each forkful, youre transported to a realm of pure bliss, where the sweetness dances on your palate like a melody, and every bite is a journey to the celestial heights of dessert perfection. Its not just a cake. its a divine revelation that leaves you yearning for just one more heavenly slice.',
+		image: "/examplecake.jpg",
 		createdAt: new Date("2023-05-17T09:00:00"),
 		upvotes: 0,
 		comments: [],
