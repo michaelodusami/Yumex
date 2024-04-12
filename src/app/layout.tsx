@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {inter} from "@/app/ui/fonts"
 import "./globals.css";
+import Nav from "./ui/nav";
 
 
 export const metadata: Metadata = {
@@ -15,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className + "antialiased"}>{children}</body>
+      <body className={inter.className + "antialiased md:px-5 md:py-3 lg:px-16 lg:py-3"}>
+        <Nav/>
+        {children}
+      </body>
     </html>
   );
 }
