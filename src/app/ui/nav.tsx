@@ -14,7 +14,7 @@ export default function Nav() {
                 <span className="ml-10">Home</span>
                 <HomeIcon className="absolute left-3 top-1/2 h-[20px] w-[20px] -translate-y-1/2"/>
                 </div>
-             
+
             </Link>
             <Link href="/create" className={poppins.className}>
                 <div className="relative">
