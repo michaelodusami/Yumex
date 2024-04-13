@@ -4,14 +4,37 @@ import { categories } from "@/app/lib/model";
 import { categoryColors } from "../colors";
 import { useState } from "react";
 
-const CreateForm: React.FC = () => {
+interface CreateFormProps {
+	setFormData: React.Dispatch<
+		React.SetStateAction<{
+			title: string;
+			content: string;
+			file: string;
+			category: string;
+		}>
+	>;
+}
+
+const CreateForm: React.FC<CreateFormProps> = ({ setFormData }) => {
 	const [selectedCategory, setSelectedCategory] = useState(Object.entries(categories)[0][0]);
 
-	const handleCategoryChange = (event) => {
-		setSelectedCategory(event.target.value);
+	const handleCategoryChange = (e) => {
+		setSelectedCategory(e.target.value);
+		setFormData((prevFormData) => ({
+			...prevFormData,
+			category: e.target.value,
+		}));
 	};
+
+	const handleFormDataChange = (e) => {
+		setFormData((prevFormData) => ({
+			...prevFormData,
+			[e.target.name]: e.target.value,
+		}));
+	};
+
 	return (
-		<div className="bg-white p-4 rounded-md shadow h-full">
+		<div className="bg-white p-4 rounded-md shadow">
 			{/* title */}
 			{/* <div className="mb-4 h-6 w-1/3 bg-gray-200 animate-pulse"></div> */}
 			<div className="mb-4">
@@ -26,6 +49,7 @@ const CreateForm: React.FC = () => {
 						placeholder="Tasty, Delicious Burgers..."
 						name="title"
 						id="title"
+						onChange={handleFormDataChange}
 						className="h-full w-full p-2 border rounded-md placeholder:text-gray-300"
 					/>
 				</div>
@@ -36,9 +60,10 @@ const CreateForm: React.FC = () => {
 				</div>
 				<div className="h-20 w-full bg-gray-200 focus:animate-none">
 					<textarea
-						name="description"
-						id="description"
+						name="content"
+						id="content"
 						placeholder="These burgers were amazing!"
+						onChange={handleFormDataChange}
 						className="w-full h-full p-2 border rounded-md resize-none placeholder:text-gray-300"
 					></textarea>
 				</div>
