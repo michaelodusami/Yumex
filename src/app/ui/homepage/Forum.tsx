@@ -1,5 +1,5 @@
 import {Post, User} from "../../lib/model"
-import { getUserName } from "@/app/lib/utils";
+import { getUserName, getFormattedDate } from "@/app/lib/utils";
 import Image from "next/image";
 import { clsx } from "clsx";
 import { categoryColors } from "../colors";
@@ -26,7 +26,8 @@ return (
             {/* content (description) */}
             <p className={clsx("mb-4 line-clamp-2", {"text-white dark:text-black" : post.content === ""})}>{post.content ? post.content : defaultContentText}</p>
             {/* user information */}
-            <div className="flex items-center space-x-2">
+            <p className="text-sm">Posted At: {getFormattedDate(post.createdAt)}</p>
+            <div className="flex items-center space-x-2 mt-5">
               {/* user profile pic */}
               <Image
                 src={"/userlogo.png"}

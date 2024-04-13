@@ -11,3 +11,9 @@ export const getUserName = (userId: string): string => {
 };
 
 
+/**
+ * For The Date
+ */
+export const getFormattedDate = (date: Date) : string => {
+    return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
+}
