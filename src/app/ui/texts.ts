@@ -1,2 +1,2 @@
 
-export const defaultContentText = "Empty Text"
+export const defaultContentText = "..."
