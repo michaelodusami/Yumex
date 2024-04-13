@@ -38,6 +38,7 @@ The following **additional** features are implemented:
 -   [ ] Users can view posts and comments, but to upvote, create, add or any manipulation. User must create an account
 -   [ ] Users will be able to connect their google information so login with google
 -   [ ] Users will be able to sort food by category of food (similar to uber eats)
+-   [ ] There will be a category of food associated with each post
 
 ## Video Walkthrough
 
