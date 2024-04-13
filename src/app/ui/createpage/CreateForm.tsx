@@ -23,10 +23,10 @@ const CreateForm: React.FC = () => {
 				<div className="h-10 w-full focus:animate-none">
 					<input
 						type="text"
-						placeholder="Title goes here..."
+						placeholder="Tasty, Delicious Burgers..."
 						name="title"
 						id="title"
-						className="h-full w-full p-2 border rounded-md"
+						className="h-full w-full p-2 border rounded-md placeholder:text-gray-300"
 					/>
 				</div>
 			</div>
@@ -38,7 +38,8 @@ const CreateForm: React.FC = () => {
 					<textarea
 						name="description"
 						id="description"
-						className="w-full h-full p-2 border rounded-md resize-none"
+						placeholder="These burgers were amazing!"
+						className="w-full h-full p-2 border rounded-md resize-none placeholder:text-gray-300"
 					></textarea>
 				</div>
 			</div>
@@ -51,7 +52,7 @@ const CreateForm: React.FC = () => {
 						name="category"
 						id="category"
 						value={selectedCategory}
-						className="h-full w-full rounded-md text-center p-2"
+						className="h-full w-full rounded-md text-center"
 						onChange={handleCategoryChange}
 						style={{ backgroundColor: categoryColors[selectedCategory] }}
 					>
