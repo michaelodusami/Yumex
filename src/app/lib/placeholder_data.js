@@ -1,3 +1,5 @@
+import { categories } from "./model";
+
 export const users = [
 	{
 		user_id: "410544b2-4001-4271-9855-fec4b6a6442a",
@@ -29,6 +31,7 @@ export const posts = [
 		image: "/exampleimg.webp",
 		createdAt: new Date("2023-05-15T10:30:00"),
 		upvotes: 0,
+		category: categories.italian,
 		comments: [],
 	},
 	{
@@ -40,6 +43,7 @@ export const posts = [
 		image: "/examplesalad.jpg",
 		createdAt: new Date("2023-05-16T14:45:00"),
 		upvotes: 0,
+		category: categories.healthy,
 		comments: [],
 	},
 	{
@@ -50,6 +54,7 @@ export const posts = [
 			'Behold the "Heavenly Dream Cake" - a decadent creation that transcends the boundaries of ordinary confectionery. Imagine layers of moist, velvety sponge cake, lovingly enrobed in a blanket of rich, creamy frosting that whispers promises of pure indulgence. With each forkful, youre transported to a realm of pure bliss, where the sweetness dances on your palate like a melody, and every bite is a journey to the celestial heights of dessert perfection. Its not just a cake. its a divine revelation that leaves you yearning for just one more heavenly slice.',
 		image: "/examplecake.jpg",
 		createdAt: new Date("2023-05-17T09:00:00"),
+		category: categories.desserts,
 		upvotes: 0,
 		comments: [],
 	},
@@ -61,6 +66,7 @@ export const posts = [
 			"Crispy batons of golden perfection, seasoned to savory perfection and served hot.",
 		image: "/examplefries.jpg",
 		createdAt: new Date("2023-05-17T09:00:00"),
+		category: categories.american,
 		upvotes: 0,
 		comments: [],
 	},
@@ -72,6 +78,7 @@ export const posts = [
 			"Fluffy clouds of fried dough, glazed to perfection and adorned with a sprinkle of sweetness.",
 		image: "/exampledonut.jpg",
 		createdAt: new Date("2023-05-17T09:00:00"),
+		category: categories.pastry,
 		upvotes: 0,
 		comments: [],
 	},
@@ -82,6 +89,40 @@ export const posts = [
 		content:
 			"Slices of bread, lightly toasted to a golden hue, offering a warm and comforting crunch with every bite.",
 		image: "/exampletoast.jpg",
+		category: categories.pastry,
+		createdAt: new Date("2023-05-17T09:00:00"),
+		upvotes: 0,
+		comments: [],
+	},
+	{
+		id: "31234q2w34836r-5t6y-7u8i-9o0p-1a2s3d4f5g6h",
+		user_id: users[0].user_id,
+		title: "Jollof Rice 🍞 ",
+		content: "",
+		image: "/examplejollof.webp",
+		category: categories.african,
+		createdAt: new Date("2023-05-17T09:00:00"),
+		upvotes: 0,
+		comments: [],
+	},
+	{
+		id: "432ha34q2w34836r-5t6y-7u8i-9o0p-1a2s3d4f5g6h",
+		user_id: users[1].user_id,
+		title: "TACOOOO ",
+		content: "Delicious Taco | Gracias",
+		image: "/exampletaco.jpg",
+		category: categories.mexican,
+		createdAt: new Date("2023-05-17T09:00:00"),
+		upvotes: 0,
+		comments: [],
+	},
+	{
+		id: "1ag2332ha34q2w34836r-5t6y-7u8i-9o0p-1a2s3d4f5g6h",
+		user_id: users[1].user_id,
+		title: "Fried TNT Roll",
+		content: "This taste amazing!!!!",
+		image: "/examplesushi.jpg",
+		category: categories.asian,
 		createdAt: new Date("2023-05-17T09:00:00"),
 		upvotes: 0,
 		comments: [],
