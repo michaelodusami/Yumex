@@ -1,23 +1,22 @@
 'use client';
 
 import {Post, User} from "../../lib/model"
-import { getUserName, getFormattedDate, handleUpvote } from "@/app/lib/utils";
+import { getUserName, getFormattedDate, getSortedPostsByLastCreated, getSortedPostsByUpvotes} from "@/app/lib/utils";
 import Image from "next/image";
 import { clsx } from "clsx";
 import { categoryColors } from "../colors";
 import {defaultContentText} from "../texts";
 import { ChevronDoubleUpIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import {posts} from "@/app/lib/placeholder_data";
+
 
 interface ForumProps {
     posts: Post[];
-    users: User[];
 }
 
-const Forum: React.FC = () => {
+const Forum: React.FC<ForumProps> = ({posts}) => {
 
-const [initialPosts, setPosts] = useState(posts);
+const [initialPosts, setPosts] = useState(getSortedPostsByLastCreated());
 
 const handleUpvote = (postId: string) => {
   setPosts((prevPosts) => {
@@ -33,10 +32,29 @@ const handleUpvote = (postId: string) => {
   });
 };
 
+const handleSorting = (event) => {
+  const sortBy = event.target.value;
+  if (sortBy === 'last created') {
+      setPosts(getSortedPostsByLastCreated())
+  } else if (sortBy === 'upvotes') {
+    setPosts(getSortedPostsByUpvotes())
+  }
+}
+
 return (
     <div className="container mx-auto px-4 py-8">
     <div className="mb-8">
-        <div className="h-8 w-full rounded bg-gray-200 dark:bg-white animate-pulse"></div>
+        <div className="h-8 w-[100%] rounded dark:bg-white ">
+   
+          <div className="h-full md:w-[50%] lg:w-[50%] w-[full] flex items-center">
+          <p className="lg:w-[10%] w-full">Sort By: </p>
+          <select onChange={handleSorting} name="sort-post-option" id="sort-post-option" className="h-full lg:w-[30%] md:w-[30%] w-full rounded-r-sm block">
+            <option value="last created">Last Created</option>
+            <option value="upvotes">Upvotes</option>
+          </select>
+          </div>
+         
+        </div>
     </div>
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
     {initialPosts.map((post) => (
