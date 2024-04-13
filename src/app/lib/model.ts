@@ -25,6 +25,7 @@ export type Post = {
     content: string
     createdAt: Date;
     upvotes: number;
+    category: string
     comments: Comment[]
 }
 
@@ -42,3 +43,13 @@ export type Upvote = {
     createdAt: Date;
 }
 
+export const categories = {
+    "asian": "asian",
+    "mexican": "mexican",
+    "italian": "italian",
+    "american": "american",
+    "african": "african",
+    "desserts": "desserts",
+    "healthy": "healthy",
+    "pastry": "pastry",
+}
