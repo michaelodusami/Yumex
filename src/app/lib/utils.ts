@@ -1,6 +1,5 @@
-import { User } from "./model";
-import { Category } from "./model";
-import { users } from "./placeholder_data";
+import { User, Post } from "./model";
+import { users, posts } from "./placeholder_data";
 
 /**
  * For The User
@@ -8,6 +7,16 @@ import { users } from "./placeholder_data";
 export const getUserName = (userId: string): string => {
     const user = users.find((obj) => obj.user_id === userId);
     return user ? user.username : "";
+};
+
+/**
+ * For Upvotes
+ */
+export const handleUpvote = (postId: string): void => {
+    const post = posts.find((post) => post.id === postId);
+    if (post) {
+        post.upvotes += 1;
+    } 
 };
 
 
