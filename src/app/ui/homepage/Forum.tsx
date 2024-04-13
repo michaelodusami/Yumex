@@ -64,7 +64,7 @@ return (
             {/* title */}
             <h2 className="mb-2 text-xl font-bold line-clamp-1">{post.title}</h2>
             {/* content (description) */}
-            <p className={clsx("mb-4 line-clamp-2", {"text-white dark:text-black" : post.content === ""})}>{post.content ? post.content : defaultContentText}</p>
+            <p className={clsx("mb-4 max-h-10 h-full overflow-hidden", {"text-white dark:text-black" : post.content === ""})}>{post.content ? post.content : defaultContentText}</p>
             {/* user information */}
             <div className="w-full flex justify-between">
               <p>Upvotes: {post.upvotes}</p>
