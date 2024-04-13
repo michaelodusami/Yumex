@@ -5,50 +5,47 @@ import { users, posts } from "./placeholder_data";
  * For The User
  */
 export const getUserName = (userId: string): string => {
-    const user = users.find((obj) => obj.user_id === userId);
-    return user ? user.username : "";
+	const user = users.find((obj) => obj.user_id === userId);
+	return user ? user.username : "";
 };
 
 /*
  * For Upvotes
  */
 export const handleUpvote = (postId: string): void => {
-    const post = posts.find((post) => post.id === postId);
-    if (post) {
-        post.upvotes += 1;
-    } 
+	const post = posts.find((post) => post.id === postId);
+	if (post) {
+		post.upvotes += 1;
+	}
 };
-
 
 /*
  * For The Date
  */
-export const getFormattedDate = (date: Date) : string => {
-    return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
-}
-
+export const getFormattedDate = (date: Date): string => {
+	return date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear();
+};
 
 /*
- * 
+ *
  * For Posts
  */
 
+export const getSortedPostsByLastCreated = (): Post[] => {
+	const sortedPosts = posts.slice().sort((a, b): number => {
+		return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+	});
+	return sortedPosts;
+};
 
-export const getSortedPostsByLastCreated = () : Post[] =>  {
-    const sortedPosts = posts.slice().sort((a, b): number  => {
-        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-    });
-    return sortedPosts;
-}
+export const getSortedPostsByUpvotes = (): Post[] => {
+	const sortedPosts = posts.slice().sort((a, b) => b.upvotes - a.upvotes);
+	return sortedPosts;
+};
 
-export const getSortedPostsByUpvotes = () : Post[] =>  {
-    const sortedPosts = posts.slice().sort((a, b) => b.upvotes - a.upvotes);
-    return sortedPosts;
-}
-
-export const filterPostTitles = (searchQuery : string) : Post[] => {
-    const filteredPosts = posts.filter((post) =>
-        post.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    return filteredPosts;
-}
+export const filterPostTitles = (searchQuery: string): Post[] => {
+	const filteredPosts = posts.filter((post) =>
+		post.title.toLowerCase().includes(searchQuery.toLowerCase())
+	);
+	return filteredPosts;
+};
