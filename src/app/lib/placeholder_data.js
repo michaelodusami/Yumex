@@ -79,7 +79,7 @@ export const posts = [
 		image: "/exampledonut.jpg",
 		createdAt: new Date("2023-05-17T09:00:00"),
 		category: categories.pastry,
-		upvotes: 0,
+		upvotes: 22,
 		comments: [],
 	},
 	{
@@ -91,7 +91,7 @@ export const posts = [
 		image: "/exampletoast.jpg",
 		category: categories.pastry,
 		createdAt: new Date("2023-05-17T09:00:00"),
-		upvotes: 0,
+		upvotes: 234,
 		comments: [],
 	},
 	{
@@ -102,7 +102,7 @@ export const posts = [
 		image: "/examplejollof.webp",
 		category: categories.african,
 		createdAt: new Date("2023-05-17T09:00:00"),
-		upvotes: 0,
+		upvotes: 1,
 		comments: [],
 	},
 	{
