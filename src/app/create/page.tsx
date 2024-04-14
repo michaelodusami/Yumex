@@ -7,20 +7,56 @@ import PostPreview from "../ui/createpage/PostPreview";
 import { poppins } from "../ui/fonts";
 import { useState } from "react";
 import { FormData } from "../lib/interfaces";
+import { uploadFile, getIdFromUser } from "../lib/data";
 import CreatePostSuccess from "../ui/createpage/CreatePostSuccess";
+import { supabase } from "../lib/server";
 
 export default function Page() {
 	const [isPostCreated, setIsPostCreated] = useState<Boolean>(false);
+	const [errorMessage, setErrorMessage] = useState("");
 
 	const [formData, setFormData] = useState<FormData>({
 		title: "",
 		content: "",
 		category: "",
 		file: null,
-		filePath: "",
+		post_image_filepath: "",
 	});
 
-	const handleCreatePost = (e: React.ChangeEvent<HTMLInputElement>) => {};
+	const handleCreatePost = async (e) => {
+		e.preventDefault();
+		if (formData.title === "") {
+			setErrorMessage("Title Required");
+		} else if (!formData.file) {
+			setErrorMessage("Image Required");
+		} else {
+			// upload image and if successful, upload formdata, then set success true
+			const isUploaded = await uploadFile(formData.file, formData.post_image_filepath);
+			if (isUploaded) {
+				const user_id = await getIdFromUser();
+				const { data, error } = await supabase
+					.from("Posts")
+					.insert({
+						user_id: user_id,
+						title: formData.title,
+						content: formData.content,
+						upvotes: 0,
+						category: formData.category,
+						post_image_filepath: formData.post_image_filepath,
+					})
+					.select();
+				if (error) {
+					console.log(error);
+					setErrorMessage("Post Creation Failed");
+				} else {
+					setErrorMessage("");
+					setIsPostCreated(true);
+				}
+			} else {
+				setErrorMessage("FIle Must Be Of Type <jpg, jpeg, png, webp>.");
+			}
+		}
+	};
 
 	if (isPostCreated) {
 		return <CreatePostSuccess />;
@@ -37,7 +73,7 @@ export default function Page() {
 						title={formData.title}
 						content={formData.content}
 						category={formData.category}
-						filePath={formData.filePath}
+						post_image_filepath={formData.post_image_filepath}
 					/>
 				</div>
 				<div className="flex flex-col flex-1 gap-5 ">
@@ -59,6 +95,7 @@ export default function Page() {
 						>
 							<button
 								type="button"
+								onClick={handleCreatePost}
 								className="border rounded-md p-2 text-xl bg-green-300 w-full hover:font-bold transition-all"
 							>
 								Create
@@ -67,6 +104,7 @@ export default function Page() {
 					</div>
 				</div>
 			</div>
+			{errorMessage !== "" ? <p>Error: {errorMessage}</p> : null}
 		</main>
 	);
 }
