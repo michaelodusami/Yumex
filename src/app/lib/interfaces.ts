@@ -3,5 +3,5 @@ export interface FormData {
 	content: string;
 	category: string;
 	file: File | null;
-	filePath: string;
+	post_image_filepath: string;
 }
