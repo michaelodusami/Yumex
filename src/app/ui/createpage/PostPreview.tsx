@@ -1,27 +1,38 @@
+"use client";
+
 import Image from "next/image";
 import { postPreviewContentText, postPreviewTitleText, postPreviewImageFile } from "../texts";
 import { clsx } from "clsx";
 import { getFormattedDate } from "@/app/lib/utils";
 import { ChevronDoubleUpIcon } from "@heroicons/react/16/solid";
 import { categoryColors } from "../colors";
+import { FormData } from "@/app/lib/interfaces";
+import { supabase } from "@/app/lib/server";
+import { useState, useEffect } from "react";
+import { getEmailFromUser } from "@/app/lib/data";
+import { getUserNameUpToEmailSymbol } from "@/app/lib/utils";
 
-interface PostPreviewProps {
-	file: string;
-	title: string;
-	content: string;
-	category: string;
-}
+const PostPreview: React.FC<FormData> = ({ file, title, content, category }) => {
+	const [userEmail, setUserEmail] = useState<string | null>(null);
 
-const PostPreview: React.FC<PostPreviewProps> = ({ file, title, content, category }) => {
+	useEffect(() => {
+		const fetchUserEmail = async () => {
+			const email = await getEmailFromUser();
+			setUserEmail(email);
+		};
+
+		fetchUserEmail();
+	}, []);
+
 	return (
 		<div className="rounded-lg dark:shadow-neutral-800 p-4 shadow relative">
 			{/* food image */}
 			<Image
-				src={file !== "" ? file : postPreviewImageFile}
+				src={file !== null ? URL.createObjectURL(file) : postPreviewImageFile}
 				width={1296}
 				height={728}
 				alt={"Sample Preview Image"}
-				className="mb-4 h-48 w-full rounded object-cover md:h-[20rem] lg:h-[30rem]"
+				className="mb-4 h-48 w-full rounded object-cover md:h-[20rem] lg:h-[20rem]"
 			/>
 			{/* title */}
 			<h2 className="mb-2 text-xl font-bold line-clamp-1">
@@ -56,7 +67,9 @@ const PostPreview: React.FC<PostPreviewProps> = ({ file, title, content, categor
 				/>
 				<div className="flex justify-between w-full items-center">
 					{/* user who created it */}
-					<span className="">{"Username"}</span>
+					<span className="">
+						{userEmail ? getUserNameUpToEmailSymbol(userEmail) : "Temp User"}
+					</span>
 					{/* category tag of what type of food it is */}
 					<span
 						style={{
