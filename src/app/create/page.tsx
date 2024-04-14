@@ -6,17 +6,29 @@ import ImageUploader from "@/app/ui/createpage/ImageUploader";
 import PostPreview from "../ui/createpage/PostPreview";
 import { poppins } from "../ui/fonts";
 import { useState } from "react";
+import { FormData } from "../lib/interfaces";
+import CreatePostSuccess from "../ui/createpage/CreatePostSuccess";
+
 export default function Page() {
-	const [formData, setFormData] = useState({
+	const [isPostCreated, setIsPostCreated] = useState<Boolean>(false);
+
+	const [formData, setFormData] = useState<FormData>({
 		title: "",
 		content: "",
 		category: "",
-		file: "",
+		file: null,
+		filePath: "",
 	});
+
+	const handleCreatePost = (e: React.ChangeEvent<HTMLInputElement>) => {};
+
+	if (isPostCreated) {
+		return <CreatePostSuccess />;
+	}
 
 	return (
 		<main className="min-h-screen">
-			<div className="w-full mx-auto flex flex-col lg:flex-row gap-5 p-5 h-[80%]">
+			<div className="w-full lg:w-[90%] mx-auto flex flex-col lg:flex-row gap-5 p-5">
 				{/* Post Previw */}
 				<div className="lg:w-[50%] xl:w-[40%] w-full">
 					{/* <PostSkeleton /> */}
@@ -25,6 +37,7 @@ export default function Page() {
 						title={formData.title}
 						content={formData.content}
 						category={formData.category}
+						filePath={formData.filePath}
 					/>
 				</div>
 				<div className="flex flex-col flex-1 gap-5 ">
@@ -46,7 +59,7 @@ export default function Page() {
 						>
 							<button
 								type="button"
-								className="border rounded-md mt-5 p-2 text-xl bg-green-300 w-1/3 h-20"
+								className="border rounded-md p-2 text-xl bg-green-300 w-full hover:font-bold transition-all"
 							>
 								Create
 							</button>
