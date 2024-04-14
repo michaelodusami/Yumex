@@ -4,10 +4,6 @@ import { users, posts } from "./placeholder_data";
 /*
  * For The User
  */
-export const getUserName = (userId: string): string => {
-	const user = users.find((obj) => obj.user_id === userId);
-	return user ? user.username : "";
-};
 
 export const getUserNameUpToEmailSymbol = (userEmail: string): string => {
 	const symbolPos = userEmail.indexOf("@");
@@ -20,9 +16,6 @@ export const getUserNameUpToEmailSymbol = (userEmail: string): string => {
  */
 export const handleUpvote = (postId: string): void => {
 	const post = posts.find((post) => post.id === postId);
-	if (post) {
-		post.upvotes += 1;
-	}
 };
 
 /*
