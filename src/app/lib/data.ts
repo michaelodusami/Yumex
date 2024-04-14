@@ -83,3 +83,13 @@ export const uploadFile = async (file: File | null, filePath: string) => {
 	}
 	return false;
 };
+
+/**
+ * Gets a single post from the database based on the post id
+ * @param post_id
+ * @returns
+ */
+export const fetchPost = async (post_id: string) => {
+	const { data } = await supabase.from("Posts").select().eq("id", post_id);
+	return data;
+};
