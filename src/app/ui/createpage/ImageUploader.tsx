@@ -2,27 +2,22 @@
 
 import { ArrowUpTrayIcon } from "@heroicons/react/16/solid";
 import { poppins } from "../fonts";
+import { FormData } from "@/app/lib/interfaces";
 
 interface ImageUploaderProps {
-	setFormData: React.Dispatch<
-		React.SetStateAction<{
-			title: string;
-			content: string;
-			file: string;
-			category: string;
-		}>
-	>;
+	setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 }
 
 const ImageUploader: React.FC<ImageUploaderProps> = ({ setFormData }) => {
 	const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0];
-		console.log(file);
+		// console.log(file);
 		if (file) {
-			const imageUrl = URL.createObjectURL(file);
+			// const imageUrl = URL.createObjectURL(file);
 			setFormData((prevFormData) => ({
 				...prevFormData,
-				file: imageUrl,
+				file: file,
+				filePath: `${Date.now()}_${file.name}`,
 			}));
 		}
 	};
