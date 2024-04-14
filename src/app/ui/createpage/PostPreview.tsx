@@ -12,7 +12,13 @@ import { useState, useEffect } from "react";
 import { getEmailFromUser } from "@/app/lib/data";
 import { getUserNameUpToEmailSymbol } from "@/app/lib/utils";
 
-const PostPreview: React.FC<FormData> = ({ file, title, content, category }) => {
+const PostPreview: React.FC<FormData> = ({
+	file,
+	title,
+	content,
+	category,
+	post_image_filepath,
+}) => {
 	const [userEmail, setUserEmail] = useState<string | null>(null);
 
 	useEffect(() => {
