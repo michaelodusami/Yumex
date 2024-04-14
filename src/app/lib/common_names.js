@@ -1,2 +1,1 @@
-export const bucketName = "yumex";
-export const bucketPostFolderName = "post_images";
+export const bucketName = "post_images";
