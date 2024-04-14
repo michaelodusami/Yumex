@@ -10,7 +10,6 @@ import { useState, useEffect } from "react";
 import { fetchPostsFromDatabase } from "./lib/data";
 
 export default function Home() {
-	const [posts, setPosts] = useState(null);
 	const [session, setSession] = useState(null);
 
 	useEffect(() => {
@@ -26,16 +25,6 @@ export default function Home() {
 
 		return () => subscription.unsubscribe();
 	}, []);
-
-	useEffect(() => {
-		const loadPosts = async () => {
-			if (session) {
-				const data = await fetchPostsFromDatabase();
-				setPosts(data);
-			}
-		};
-		loadPosts();
-	}, [session]);
 
 	if (!session) {
 		return (
@@ -58,7 +47,7 @@ export default function Home() {
 		<HomeContainer>
 			<div className="w-full lg:w-[100%] min-h-screen mx-auto flex-col flex">
 				{/* <ForumSkeleton/> */}
-				<Forum posts={posts} />
+				<Forum />
 			</div>
 		</HomeContainer>
 	);
