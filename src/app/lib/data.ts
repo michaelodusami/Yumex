@@ -1,5 +1,5 @@
 import { supabase } from "./server";
-import { bucketName, bucketPostFolderName } from "./common_names";
+import { bucketName } from "./common_names";
 
 /**
  * Gets the user from the database
@@ -16,6 +16,14 @@ export const getEmailFromUser = async () => {
 	const userEmail = await getUserFromDatabase().then((data) => data?.email);
 	if (userEmail) {
 		return userEmail;
+	}
+	return null;
+};
+
+export const getIdFromUser = async () => {
+	const userId = await getUserFromDatabase().then((data) => data?.id);
+	if (userId) {
+		return userId;
 	}
 	return null;
 };
@@ -44,10 +52,9 @@ export const createPostToDatabase = async (userObjectData: Object) => {
  */
 export const uploadFile = async (file: File | null, filePath: string) => {
 	if (file) {
-		const { data, error } = await supabase.storage
-			.from(bucketName + "/" + bucketPostFolderName)
-			.upload(filePath, file);
+		const { data, error } = await supabase.storage.from(bucketName).upload(filePath, file);
 		if (error) {
+			console.log(error);
 			return false;
 		} else {
 			return true;
