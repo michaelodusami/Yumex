@@ -1,48 +1,71 @@
 "use client";
 
-import { Post, User } from "../../lib/model";
-import {
-	getUserName,
-	getFormattedDate,
-	getSortedPostsByLastCreated,
-	getSortedPostsByUpvotes,
-} from "@/app/lib/utils";
 import Image from "next/image";
 import { clsx } from "clsx";
 import { categoryColors } from "../colors";
 import { defaultContentText } from "../texts";
-import { ChevronDoubleUpIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { ChevronDoubleUpIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
+import {
+	fetchPostsFromDatabase,
+	fetchPostImageFromDatbase,
+	getUserInfoByIdFromDatabase,
+} from "@/app/lib/data";
+import { getFormattedDate } from "@/app/lib/utils";
 
-interface ForumProps {
-	posts: Post[] | null;
-}
+const AsyncImage: React.FC<{ filepath: string; title: string }> = ({ filepath, title }) => {
+	const [imageUrl, setImageUrl] = useState("");
 
-const Forum: React.FC<ForumProps> = ({ posts }) => {
-	const [initialPosts, setPosts] = useState(posts);
+	useEffect(() => {
+		const fetchImageUrl = async () => {
+			const url = await fetchPostImageFromDatbase(filepath);
+			setImageUrl(url.publicUrl);
+		};
 
-	const handleUpvote = (postId: string) => {
-		setPosts((prevPosts) => {
-			return prevPosts.map((post) => {
-				if (post.id === postId) {
-					return {
-						...post,
-						upvotes: post.upvotes + 1,
-					};
-				}
-				return post;
-			});
-		});
+		fetchImageUrl();
+	}, [filepath]);
+
+	return (
+		<Image
+			loader={() => imageUrl}
+			src={imageUrl}
+			width={1296}
+			height={728}
+			alt={title}
+			className="mb-4 h-48 w-full rounded object-cover md:h-[20rem] lg:h-[20rem]"
+		/>
+	);
+};
+
+const AsyncUserEmail: React.FC<{ user_id: string }> = ({ user_id }) => {
+	const [userEmail, setUserEmail] = useState<any>("");
+
+	useEffect(() => {
+		const fetchUserEmail = async () => {
+			const email = await getUserInfoByIdFromDatabase(user_id, "email");
+			setUserEmail(email);
+		};
+
+		fetchUserEmail();
+	}, [user_id]);
+
+	const getUserNameUpToEmailSymbol = () => {
+		return userEmail.split("@")[0];
 	};
 
-	const handleSorting = (event) => {
-		const sortBy = event.target.value;
-		if (sortBy === "last created") {
-			setPosts(getSortedPostsByLastCreated());
-		} else if (sortBy === "upvotes") {
-			setPosts(getSortedPostsByUpvotes());
-		}
-	};
+	return <>{getUserNameUpToEmailSymbol()}</>;
+};
+
+const Forum: React.FC = () => {
+	const [posts, setPosts] = useState<any>(null);
+
+	useEffect(() => {
+		const fetchPost = async () => {
+			const data = await fetchPostsFromDatabase();
+			setPosts(data);
+		};
+		fetchPost();
+	}, []);
 
 	return (
 		<div className="container mx-auto px-4 py-8">
@@ -51,7 +74,6 @@ const Forum: React.FC<ForumProps> = ({ posts }) => {
 					<div className="h-full md:w-[50%] lg:w-[50%] w-[full] flex items-center">
 						<p className="lg:w-[10%] w-full">Sort By: </p>
 						<select
-							onChange={handleSorting}
 							name="sort-post-option"
 							id="sort-post-option"
 							className="h-full lg:w-[30%] md:w-[30%] w-full rounded-r-sm block"
@@ -63,20 +85,14 @@ const Forum: React.FC<ForumProps> = ({ posts }) => {
 				</div>
 			</div>
 			<div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-				{initialPosts?.length > 1 ? (
-					initialPosts.map((post) => (
+				{posts != null ? (
+					posts.map((post) => (
 						<div
 							key={post.id}
 							className="rounded-lg dark:shadow-neutral-800 p-4 shadow relative"
 						>
 							{/* food image */}
-							<Image
-								src={post.image}
-								width={1296}
-								height={728}
-								alt={post.title}
-								className="mb-4 h-48 w-full rounded object-cover md:h-[20rem] lg:h-[30rem]"
-							/>
+							<AsyncImage filepath={post.post_image_filepath} title={post.title} />
 							{/* title */}
 							<h2 className="mb-2 text-xl font-bold line-clamp-1">{post.title}</h2>
 							{/* content (description) */}
@@ -93,7 +109,6 @@ const Forum: React.FC<ForumProps> = ({ posts }) => {
 								<button
 									onClick={(e) => {
 										e.stopPropagation();
-										handleUpvote(post.id);
 									}}
 								>
 									<ChevronDoubleUpIcon className="h-30px] w-[30px] cursor-pointer" />
@@ -101,20 +116,22 @@ const Forum: React.FC<ForumProps> = ({ posts }) => {
 							</div>
 
 							<p className="text-sm italic">
-								Posted At: {getFormattedDate(post.createdAt)}
+								Posted At: {getFormattedDate(post.created_at)}
 							</p>
 							<div className="flex items-center space-x-2 mt-5">
 								{/* user profile pic */}
 								<Image
 									src={"/userlogo.png"}
-									alt={getUserName(post.user_id)}
+									alt={""}
 									width={30}
 									height={30}
 									className="h-8 w-8 rounded-full"
 								/>
-								<div className="flex justify-between w-full items-center">
+								<div className="flex justify-between w-full items-center p-2">
 									{/* user who created it */}
-									<span className="">{getUserName(post.user_id)}</span>
+									<span className="">
+										<AsyncUserEmail user_id={post.user_id} />
+									</span>
 									{/* category tag of what type of food it is */}
 									<span
 										style={{ backgroundColor: categoryColors[post.category] }}
