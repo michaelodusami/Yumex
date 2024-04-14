@@ -17,7 +17,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ setFormData }) => {
 			setFormData((prevFormData) => ({
 				...prevFormData,
 				file: file,
-				filePath: `${Date.now()}_${file.name}`,
+				post_image_filepath: `${Date.now()}_${file.name}`,
 			}));
 		}
 	};
