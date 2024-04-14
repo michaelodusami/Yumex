@@ -9,6 +9,12 @@ export const getUserName = (userId: string): string => {
 	return user ? user.username : "";
 };
 
+export const getUserNameUpToEmailSymbol = (userEmail: string): string => {
+	const symbolPos = userEmail.indexOf("@");
+	const username = userEmail.slice(0, symbolPos);
+	return username;
+};
+
 /*
  * For Upvotes
  */
@@ -30,18 +36,6 @@ export const getFormattedDate = (date: Date): string => {
  *
  * For Posts
  */
-
-export const getSortedPostsByLastCreated = (): Post[] => {
-	const sortedPosts = posts.slice().sort((a, b): number => {
-		return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-	});
-	return sortedPosts;
-};
-
-export const getSortedPostsByUpvotes = (): Post[] => {
-	const sortedPosts = posts.slice().sort((a, b) => b.upvotes - a.upvotes);
-	return sortedPosts;
-};
 
 export const filterPostTitles = (searchQuery: string): Post[] => {
 	const filteredPosts = posts.filter((post) =>
