@@ -3,16 +3,10 @@
 import { categories } from "@/app/lib/model";
 import { categoryColors } from "../colors";
 import { useState } from "react";
+import { FormData } from "@/app/lib/interfaces";
 
 interface CreateFormProps {
-	setFormData: React.Dispatch<
-		React.SetStateAction<{
-			title: string;
-			content: string;
-			file: string;
-			category: string;
-		}>
-	>;
+	setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 }
 
 const CreateForm: React.FC<CreateFormProps> = ({ setFormData }) => {
