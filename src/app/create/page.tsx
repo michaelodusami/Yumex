@@ -7,7 +7,12 @@ import PostPreview from "../ui/createpage/PostPreview";
 import { poppins } from "../ui/fonts";
 import { useState } from "react";
 export default function Page() {
-	const [formData, setFormData] = useState({ title: "", content: "", file: "", category: "" });
+	const [formData, setFormData] = useState({
+		title: "",
+		content: "",
+		category: "",
+		file: "",
+	});
 
 	return (
 		<main className="min-h-screen">

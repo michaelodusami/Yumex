@@ -3,13 +3,14 @@
 import Image from "next/image";
 import { ForumSkeleton } from "./ui/skeletons";
 import Forum from "./ui/homepage/Forum";
-import { posts } from "@/app/lib/placeholder_data";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { supabase } from "@/app/lib/server";
 import { useState, useEffect } from "react";
+import { fetchPostsFromDatabase } from "./lib/data";
 
 export default function Home() {
+	const [posts, setPosts] = useState(null);
 	const [session, setSession] = useState(null);
 
 	useEffect(() => {
@@ -25,6 +26,16 @@ export default function Home() {
 
 		return () => subscription.unsubscribe();
 	}, []);
+
+	useEffect(() => {
+		const loadPosts = async () => {
+			if (session) {
+				const data = await fetchPostsFromDatabase();
+				setPosts(data);
+			}
+		};
+		loadPosts();
+	}, [session]);
 
 	if (!session) {
 		return (
