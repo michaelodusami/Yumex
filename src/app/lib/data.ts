@@ -1,19 +1,30 @@
-import { supabase } from "./server";
+import { supabase, supabaseAdmin } from "./server";
 import { bucketName } from "./common_names";
 
 /**
  * Gets the user from the database
  * @returns user from database
  */
-export const getUserFromDatabase = async () => {
+export const getUserFromCurrentSessionFromDatabase = async () => {
 	const {
 		data: { user },
 	} = await supabase.auth.getUser();
 	return user;
 };
 
+export const getUserInfoByIdFromDatabase = async (id: string, infoType: string) => {
+	const { data, error } = await supabaseAdmin.auth.admin.getUserById(id);
+	switch (infoType) {
+		case "email":
+			return data.user?.email;
+		case "id":
+			return data.user?.id;
+	}
+	return data;
+};
+
 export const getEmailFromUser = async () => {
-	const userEmail = await getUserFromDatabase().then((data) => data?.email);
+	const userEmail = await getUserFromCurrentSessionFromDatabase().then((data) => data?.email);
 	if (userEmail) {
 		return userEmail;
 	}
@@ -21,7 +32,7 @@ export const getEmailFromUser = async () => {
 };
 
 export const getIdFromUser = async () => {
-	const userId = await getUserFromDatabase().then((data) => data?.id);
+	const userId = await getUserFromCurrentSessionFromDatabase().then((data) => data?.id);
 	if (userId) {
 		return userId;
 	}
@@ -34,6 +45,16 @@ export const getIdFromUser = async () => {
  */
 export const fetchPostsFromDatabase = async () => {
 	const { data } = await supabase.from("Posts").select().order("created_at", { ascending: true });
+	return data;
+};
+
+/**
+ * Gets user image from the bucket
+ * @param filePath
+ * @returns
+ */
+export const fetchPostImageFromDatbase = async (filePath: string) => {
+	const { data } = supabase.storage.from(bucketName).getPublicUrl(filePath);
 	return data;
 };
 
