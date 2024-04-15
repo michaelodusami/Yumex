@@ -51,6 +51,8 @@ export default function Page() {
 				} else {
 					setErrorMessage("");
 					setIsPostCreated(true);
+					// alter this
+					window.location = "/";
 				}
 			} else {
 				setErrorMessage("FIle Must Be Of Type <jpg, jpeg, png, webp>.");
@@ -104,7 +106,9 @@ export default function Page() {
 					</div>
 				</div>
 			</div>
-			{errorMessage !== "" ? <p>Error: {errorMessage}</p> : null}
+			{errorMessage !== "" ? (
+				<p className="text-red-400 w-full mx-auto text-center">Error: {errorMessage}</p>
+			) : null}
 		</main>
 	);
 }
