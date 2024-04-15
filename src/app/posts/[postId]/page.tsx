@@ -8,12 +8,17 @@ import { AsyncUserEmail, AsyncImage } from "@/app/ui/async_components";
 import { getFormattedDate } from "@/app/lib/utils";
 import Category from "@/app/ui/Category";
 import { UpvoteSymbol } from "@/app/ui/symbols";
-import { increaseUpvotes } from "@/app/lib/data";
+import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
+import { getIdFromUser } from "@/app/lib/data";
+import { CommentParams } from "@/app/lib/interfaces";
+import { SingleCommment } from "@/app/ui/detailpage/comments";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const userId = params.postId;
 	const [post, setPost] = useState<any>(null);
 	const [postUpvotes, setPostUpvotes] = useState<any>(null);
+	const [comment, setComment] = useState<string>("");
+	const [commentList, setCommentList] = useState<any>([]);
 
 	useEffect(() => {
 		const getPost = async () => {
@@ -25,6 +30,37 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 		};
 		getPost();
 	}, [params, userId]);
+
+	useEffect(() => {
+		getCommentList();
+	}, []);
+
+	const getCommentList = async () => {
+		const { data, error } = await getComments();
+		if (!error && data) {
+			setCommentList(data);
+		} else {
+			setCommentList([]);
+		}
+	};
+
+	const onChange = (event) => {
+		const commentValue = event.target.value;
+		setComment(commentValue);
+	};
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		const current_user_id = await getIdFromUser(); // gets the id of user from the current session
+		const comment_obj = { post_id: post.id, user_id: current_user_id, payload: comment };
+		const { data, error } = await addComment(comment_obj);
+		if (error) {
+			window.alert(error?.message);
+			return;
+		}
+		setComment("");
+		getCommentList();
+	};
 
 	const handleUpvotes = (e) => {
 		if (postUpvotes !== null) {
@@ -81,11 +117,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 					</div>
 					{/* Image */}
 					<div className="mb-6">
-						<AsyncImage
-							filepath={post.post_image_filepath}
-							title={post.title}
-							className="rounded-lg shadow-lg"
-						/>
+						<AsyncImage filepath={post.post_image_filepath} title={post.title} />
 					</div>
 					{/* Content */}
 					<div className="text-lg mb-8">
@@ -94,13 +126,43 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 				</div>
 				{/* comments */}
 				<div>
-					<input
-						type="text"
-						name=""
-						id=""
-						placeholder="Add Your Comment"
-						className="w-full px-4 py-2  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-					/>
+					<div className="mb-5">
+						<h3 className="font-bold opacity-50">Comments: </h3>
+					</div>
+
+					<div>
+						{/* comments */}
+						<form className="mt-8 flex gap-8">
+							<input
+								type="text"
+								placeholder="Add a comment"
+								onChange={onChange}
+								value={comment}
+								className="p-2 border-b focus:border-b-gray-700 w-full outline-none"
+							/>
+							<button
+								onClick={onSubmit}
+								className="px-4 py-2 hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-white rounded-lg"
+							>
+								Submit
+							</button>
+						</form>
+						<div className="flex flex-col gap-4 pt-12">
+							{commentList
+								.sort((a, b) => {
+									const aDate = new Date(a.created_at);
+									const bDate = new Date(b.created_at);
+									return +bDate - +aDate;
+								})
+								.map((comment) => (
+									<SingleCommment
+										key={comment.id}
+										comment={comment}
+										setCommentList={setCommentList}
+									/>
+								))}
+						</div>
+					</div>
 				</div>
 			</div>
 		</HomeContainer>

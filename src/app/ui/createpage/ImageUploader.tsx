@@ -23,13 +23,13 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ setFormData }) => {
 	};
 
 	return (
-		<div className={poppins.className + " bg-white p-4 rounded-md shadow"}>
+		<div className={poppins.className + "  p-4 rounded-md shadow"}>
 			<div className="mb-4 h-6 w-full">Uplaod an image of your food</div>
 			<div className="flex items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-8 dropzone-skeleton">
 				<div className="relative cursor-pointer">
 					<label
 						htmlFor="imageUpload"
-						className="flex items-center justify-center w-full h-10 px-4 transition bg-white  rounded-md appearance-none cursor-pointer focus:outline-none"
+						className="flex items-center justify-center w-full h-10 px-4 transition  rounded-md appearance-none cursor-pointer focus:outline-none"
 					>
 						<span className="flex items-center space-x-2">
 							<ArrowUpTrayIcon className="w-6 h-6 text-gray-600" />

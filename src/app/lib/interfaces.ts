@@ -6,7 +6,7 @@ export interface FormData {
 	post_image_filepath: string;
 }
 
-interface CommentParams {
+export interface CommentParams {
 	id: string;
 	created_at: string;
 	post_id: string;

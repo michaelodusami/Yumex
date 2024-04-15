@@ -131,3 +131,18 @@ export const deletePost = async (postId: string, filePath: string) => {
 	await supabase.from("Posts").delete().eq("id", postId);
 	await supabaseAdmin.storage.from(bucketName).remove([filePath]);
 };
+
+export const addComment = async (obj: Object) => {
+	const { data, error } = await supabase.from("Comments").insert(obj);
+	return { data, error };
+};
+
+export const getComments = async () => {
+	const { data, error } = await supabase.from("Comments").select();
+	return { data, error };
+};
+
+export const deleteCommentFromDatabase = async (comment_id: string) => {
+	const { data, error } = await supabase.from("Comments").delete().eq("id", comment_id);
+	return { data, error };
+};
