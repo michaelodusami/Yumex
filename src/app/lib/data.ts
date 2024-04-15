@@ -12,6 +12,12 @@ export const getUserFromCurrentSessionFromDatabase = async () => {
 	return user;
 };
 
+/**
+ * Gets the user email or id from the database
+ * @param id of user
+ * @param infoType the user wants to return
+ * @returns the user's infotype or data if infoType is not among those in a switch statement
+ */
 export const getUserInfoByIdFromDatabase = async (id: string, infoType: string) => {
 	const { data, error } = await supabaseAdmin.auth.admin.getUserById(id);
 	switch (infoType) {
@@ -23,6 +29,10 @@ export const getUserInfoByIdFromDatabase = async (id: string, infoType: string) 
 	return data;
 };
 
+/**
+ * Gets email of the current user in the session
+ * @returns email of the current user
+ */
 export const getEmailFromUser = async () => {
 	const userEmail = await getUserFromCurrentSessionFromDatabase().then((data) => data?.email);
 	if (userEmail) {
@@ -31,6 +41,10 @@ export const getEmailFromUser = async () => {
 	return null;
 };
 
+/**
+ * Gets the user's id from the current session
+ * @returns the user id from the current session
+ */
 export const getIdFromUser = async () => {
 	const userId = await getUserFromCurrentSessionFromDatabase().then((data) => data?.id);
 	if (userId) {
@@ -94,10 +108,20 @@ export const fetchPost = async (post_id: string) => {
 	return data;
 };
 
+/**
+ * Increases the users upvotes
+ * @param post_id
+ * @param new_upvotes
+ */
 export const increaseUpvotes = async (post_id: string, new_upvotes: number) => {
 	await supabase.from("Posts").update({ upvotes: new_upvotes }).eq("id", post_id);
 };
 
+/**
+ * Delets a post from the database and removes the image as well
+ * @param postId
+ * @param filePath
+ */
 export const deletePost = async (postId: string, filePath: string) => {
 	await supabase.from("Posts").delete().eq("id", postId);
 	await supabaseAdmin.storage.from(bucketName).remove([filePath]);
