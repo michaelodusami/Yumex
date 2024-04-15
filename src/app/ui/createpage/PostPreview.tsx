@@ -60,9 +60,7 @@ const PostPreview: React.FC<FormData> = ({
 				<ChevronDoubleUpIcon className="h-30px] w-[30px] cursor-pointer" />
 			</div>
 
-			<p className="text-sm italic">
-				Posted At: {getFormattedDate(new Date("2023-05-15T10:30:00"))}
-			</p>
+			<p className="text-sm italic">Posted At: {getFormattedDate("2023-05-15T10:30:00")}</p>
 			<div className="flex items-center space-x-2 mt-5">
 				{/* user profile pic */}
 				<Image
