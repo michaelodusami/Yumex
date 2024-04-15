@@ -41,7 +41,7 @@ export default function Page() {
 						title: formData.title,
 						content: formData.content,
 						upvotes: 0,
-						category: formData.category,
+						category: formData.category ? formData.category : "asian",
 						post_image_filepath: formData.post_image_filepath,
 					})
 					.select();
