@@ -5,15 +5,17 @@ import { clsx } from "clsx";
 import { categoryColors } from "../colors";
 import { defaultContentText } from "../texts";
 import { ChevronDoubleUpIcon, UserCircleIcon } from "@heroicons/react/24/outline";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { all_routes } from "@/app/lib/routepaths";
 import { fetchPostsFromDatabase } from "@/app/lib/data";
 import { getFormattedDate } from "@/app/lib/utils";
 import Link from "next/link";
 import { AsyncImage, AsyncUserEmail } from "@/app/ui/async_components";
 import Post from "./Post";
+import { SearchContext } from "../SearchContext";
 
 const Forum: React.FC = () => {
+	const { searchQuery } = useContext(SearchContext);
 	const [posts, setPosts] = useState<any>(null);
 
 	useEffect(() => {
@@ -23,6 +25,10 @@ const Forum: React.FC = () => {
 		};
 		fetchPost();
 	}, []);
+
+	const filteredPosts = posts?.filter((post) =>
+		post.title.toLowerCase().includes(searchQuery.toLowerCase())
+	);
 
 	return (
 		<div className="container mx-auto px-4 py-8">
@@ -43,7 +49,7 @@ const Forum: React.FC = () => {
 			</div>
 			<div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
 				{posts != null ? (
-					posts.map((post) => <Post key={post.id} post={post} />)
+					filteredPosts?.map((post) => <Post key={post.id} post={post} />)
 				) : (
 					<h1 className="w-full text-2xl">No Posts Yet!</h1>
 				)}

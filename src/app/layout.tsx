@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { inter } from "@/app/ui/fonts";
 import "./globals.css";
-import Nav from "./ui/Nav";
+import Nav from "@/app/ui/nav";
+import { SearchProvider } from "./ui/SearchContext";
 
 export const metadata: Metadata = {
 	title: "Yumex",
@@ -16,8 +17,10 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className + "antialiased"}>
-				<Nav />
-				{children}
+				<SearchProvider>
+					<Nav />
+					{children}
+				</SearchProvider>
 			</body>
 		</html>
 	);
