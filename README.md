@@ -16,11 +16,11 @@ The following **required** functionality is completed:
 -   [✅] **By default, the time created, title, and number of upvotes for each post is shown on the feed**
 -   [✅] **Clicking on a post shall direct the user to a new page for the selected post**
 -   [ ] **Users can sort posts by either their created time or upvotes count**
--   [ ] **Users can search for posts by title** (implement after database)
+-   [✅]] **Users can search for posts by title** (implement after database)
 -   [✅] **A separate post page for each created post, where any additional information is shown is linked whenever a user clicks a post**
 -   [] **Users can leave comments underneath a post on the post's separate page**
 -   [✅] **Each post should have an upvote button on the post's page. Each click increases its upvotes count by one and users can upvote any number of times**
--   [ ] **A previously created post can be edited or deleted from its post page** (implement after database)
+-   [✅] **A previously created post can be edited or deleted from its post page** (implement after database)
 
 The following **optional** features are implemented:
 
@@ -35,11 +35,10 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
--   [ ] Users can view posts and comments, but to upvote, create, add or any manipulation. User must create an account
--   [ ] Users will be able to connect their google information so login with google
 -   [ ] Users will be able to sort food by category of food (similar to uber eats)
--   [ ] There will be a category of food associated with each post
--   [ ] Users can only delete or edit posts if they created the posts
+-   [✅] There will be a category of food associated with each post
+-   [✅] Users can only delete or edit posts if they created the posts
+-   [ ] When a user creates a post, they will be directed to the detail page
 
 ## Video Walkthrough
 
