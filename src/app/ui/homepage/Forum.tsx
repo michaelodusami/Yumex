@@ -19,14 +19,15 @@ const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);
 	const [posts, setPosts] = useState<any>(null);
 	const [gridStyleToggled] = useState(false); // toggle grid style (extra functionaloty)
+	const [selectedSort, setSelectedSort] = useState("last created");
 
 	useEffect(() => {
 		const fetchPost = async () => {
-			const data = await fetchPostsFromDatabase();
+			const data = await fetchPostsFromDatabase(selectedSort);
 			setPosts(data);
 		};
 		fetchPost();
-	}, []);
+	}, [selectedSort]);
 
 	const filteredPosts = posts?.filter((post) =>
 		post.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -48,6 +49,8 @@ const Forum: React.FC = () => {
 								name="sort-post-option"
 								id="sort-post-option"
 								className="h-full flex-1 rounded-r-sm block"
+								value={selectedSort}
+								onChange={(e) => setSelectedSort(e.target.value)}
 							>
 								<option value="last created">Last Created</option>
 								<option value="upvotes">Upvotes</option>
