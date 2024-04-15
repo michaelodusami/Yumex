@@ -7,7 +7,6 @@ import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { supabase } from "@/app/lib/server";
 import { useState, useEffect } from "react";
-import { fetchPostsFromDatabase } from "./lib/data";
 
 export default function Home() {
 	const [session, setSession] = useState(null);
