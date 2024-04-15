@@ -6,14 +6,16 @@ import { categoryColors } from "../colors";
 import { defaultContentText } from "../texts";
 import { ChevronDoubleUpIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
+import { all_routes } from "@/app/lib/routepaths";
 import {
 	fetchPostsFromDatabase,
 	fetchPostImageFromDatbase,
 	getUserInfoByIdFromDatabase,
 } from "@/app/lib/data";
 import { getFormattedDate } from "@/app/lib/utils";
+import Link from "next/link";
 
-const AsyncImage: React.FC<{ filepath: string; title: string }> = ({ filepath, title }) => {
+export const AsyncImage: React.FC<{ filepath: string; title: string }> = ({ filepath, title }) => {
 	const [imageUrl, setImageUrl] = useState("");
 
 	useEffect(() => {
@@ -37,7 +39,7 @@ const AsyncImage: React.FC<{ filepath: string; title: string }> = ({ filepath, t
 	);
 };
 
-const AsyncUserEmail: React.FC<{ user_id: string }> = ({ user_id }) => {
+export const AsyncUserEmail: React.FC<{ user_id: string }> = ({ user_id }) => {
 	const [userEmail, setUserEmail] = useState<any>("");
 
 	useEffect(() => {
@@ -52,6 +54,10 @@ const AsyncUserEmail: React.FC<{ user_id: string }> = ({ user_id }) => {
 	const getUserNameUpToEmailSymbol = () => {
 		return userEmail.split("@")[0];
 	};
+
+	if (userEmail == "") {
+		return null;
+	}
 
 	return <>{getUserNameUpToEmailSymbol()}</>;
 };
@@ -92,7 +98,13 @@ const Forum: React.FC = () => {
 							className="rounded-lg dark:shadow-neutral-800 p-4 shadow relative"
 						>
 							{/* food image */}
-							<AsyncImage filepath={post.post_image_filepath} title={post.title} />
+							<Link href={all_routes.post + post.id}>
+								<AsyncImage
+									filepath={post.post_image_filepath}
+									title={post.title}
+								/>
+							</Link>
+
 							{/* title */}
 							<h2 className="mb-2 text-xl font-bold line-clamp-1">{post.title}</h2>
 							{/* content (description) */}
