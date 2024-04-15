@@ -11,6 +11,7 @@ import { supabase } from "@/app/lib/server";
 import { useState, useEffect } from "react";
 import { getEmailFromUser } from "@/app/lib/data";
 import { getUserNameUpToEmailSymbol } from "@/app/lib/utils";
+import Category from "../Category";
 
 const PostPreview: React.FC<FormData> = ({
 	file,
@@ -77,14 +78,7 @@ const PostPreview: React.FC<FormData> = ({
 						{userEmail ? getUserNameUpToEmailSymbol(userEmail) : "Temp User"}
 					</span>
 					{/* category tag of what type of food it is */}
-					<span
-						style={{
-							backgroundColor: categoryColors[category !== "" ? category : "asian"],
-						}}
-						className="uppercase border rounded-lg p-2 text-black"
-					>
-						{category !== "" ? category : "asian"}
-					</span>
+					<Category category={category} />
 				</div>
 			</div>
 		</div>
