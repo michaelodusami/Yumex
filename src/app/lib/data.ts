@@ -93,3 +93,7 @@ export const fetchPost = async (post_id: string) => {
 	const { data } = await supabase.from("Posts").select().eq("id", post_id);
 	return data;
 };
+
+export const increaseUpvotes = async (post_id: string, new_upvotes: number) => {
+	await supabase.from("Posts").update({ upvotes: new_upvotes }).eq("id", post_id);
+};
