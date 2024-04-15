@@ -52,13 +52,18 @@ export const getIdFromUser = async () => {
 	}
 	return null;
 };
-
 /**
- * Fetches posts from the database
- * @returns supabase post data
+ * Fetches post from database
+ * @param sortOption
+ * @returns posts
  */
-export const fetchPostsFromDatabase = async () => {
-	const { data } = await supabase.from("Posts").select().order("created_at", { ascending: true });
+export const fetchPostsFromDatabase = async (sortOption: string) => {
+	const { data } = await supabase
+		.from("Posts")
+		.select()
+		.order(sortOption === "last created" ? "created_at" : "upvotes", {
+			ascending: false,
+		});
 	return data;
 };
 
