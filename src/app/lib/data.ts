@@ -130,6 +130,7 @@ export const increaseUpvotes = async (post_id: string, new_upvotes: number) => {
 export const deletePost = async (postId: string, filePath: string) => {
 	await supabase.from("Posts").delete().eq("id", postId);
 	await supabaseAdmin.storage.from(bucketName).remove([filePath]);
+	await supabase.from("Comments").delete().eq("post_id", postId);
 };
 
 export const addComment = async (obj: Object) => {
