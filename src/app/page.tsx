@@ -45,7 +45,7 @@ export default function Home() {
 
 	return (
 		<HomeContainer>
-			<div className="w-full lg:w-[100%] min-h-screen mx-auto flex-col flex">
+			<div className="w-full md:w-[50%] lg:w-[50%] min-h-screen mx-auto flex-col flex">
 				{/* <ForumSkeleton/> */}
 				<Forum />
 			</div>

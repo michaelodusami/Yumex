@@ -26,7 +26,7 @@ export default function Nav() {
 	};
 
 	return (
-		<nav className="flex w-full items-center justify-between p-4">
+		<nav className="flex w-full md:w-[60%] md:mx-auto lg:mx-auto lg:w-[60%] items-center justify-between p-4">
 			<div className="text-2xl font-bold  w-[65%]">
 				<Link href={"/"} className={poppins.className}>
 					Yumex

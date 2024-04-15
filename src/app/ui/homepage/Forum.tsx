@@ -28,8 +28,8 @@ const Forum: React.FC = () => {
 		<div className="container mx-auto px-4 py-8">
 			<div className="mb-8">
 				<div className="h-8 w-[100%] rounded dark:bg-white ">
-					<div className="h-full md:w-[50%] lg:w-[50%] w-[full] flex items-center">
-						<p className="lg:w-[10%] w-full">Sort By: </p>
+					<div className="h-full w-[full] flex items-center">
+						<p className=" w-full">Sort By: </p>
 						<select
 							name="sort-post-option"
 							id="sort-post-option"
@@ -41,9 +41,9 @@ const Forum: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			<div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+			<div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
 				{posts != null ? (
-					posts.map((post) => <Post post={post} />)
+					posts.map((post) => <Post key={post.id} post={post} />)
 				) : (
 					<h1 className="w-full text-2xl">No Posts Yet!</h1>
 				)}
