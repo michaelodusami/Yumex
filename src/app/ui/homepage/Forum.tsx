@@ -18,7 +18,7 @@ import { Squares2X2Icon } from "@heroicons/react/16/solid";
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);
 	const [posts, setPosts] = useState<any>(null);
-	const [gridStyleToggled] = useState(false);
+	const [gridStyleToggled] = useState(false); // toggle grid style (extra functionaloty)
 
 	useEffect(() => {
 		const fetchPost = async () => {
