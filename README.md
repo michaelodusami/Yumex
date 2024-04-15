@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 -   [✅] **Users can sort posts by either their created time or upvotes count**
 -   [✅] **Users can search for posts by title** (implement after database)
 -   [✅] **A separate post page for each created post, where any additional information is shown is linked whenever a user clicks a post**
--   [] **Users can leave comments underneath a post on the post's separate page**
+-   [✅] **Users can leave comments underneath a post on the post's separate page**
 -   [✅] **Each post should have an upvote button on the post's page. Each click increases its upvotes count by one and users can upvote any number of times**
 -   [✅] **A previously created post can be edited or deleted from its post page** (implement after database)
 
@@ -39,6 +39,8 @@ The following **additional** features are implemented:
 -   [✅] There will be a category of food associated with each post
 -   [✅] Users can only delete or edit posts if they created the posts
 -   [ ] When a user creates a post, they will be directed to the detail page
+-   [✅] Users must make an account to use the website and all information posted or commented will be refrenced by their account
+-   [✅] Users can only delete a post or comment if they are the ones who created it
 
 ## Video Walkthrough
 
