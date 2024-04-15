@@ -14,7 +14,7 @@ import { CommentParams } from "@/app/lib/interfaces";
 import { SingleCommment } from "@/app/ui/detailpage/comments";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
-	const userId = params.postId;
+	const postId = params.postId;
 	const [post, setPost] = useState<any>(null);
 	const [postUpvotes, setPostUpvotes] = useState<any>(null);
 	const [comment, setComment] = useState<string>("");
@@ -22,21 +22,21 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 
 	useEffect(() => {
 		const getPost = async () => {
-			const data = await fetchPost(userId);
+			const data = await fetchPost(postId);
 			if (data) {
 				setPost(data[0]);
 				setPostUpvotes(data[0].upvotes);
 			}
 		};
 		getPost();
-	}, [params, userId]);
+	}, [params, postId]);
 
 	useEffect(() => {
 		getCommentList();
 	}, []);
 
 	const getCommentList = async () => {
-		const { data, error } = await getComments();
+		const { data, error } = await getComments(postId);
 		if (!error && data) {
 			setCommentList(data);
 		} else {

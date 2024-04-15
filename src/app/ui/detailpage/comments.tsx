@@ -1,6 +1,7 @@
 "use client";
 
 import { AsyncUserEmail } from "../async_components";
+import AvatarLogo from "./Avatar";
 import { useEffect, useState } from "react";
 import { getIdFromUser, deleteCommentFromDatabase } from "@/app/lib/data";
 import { TrashIcon } from "@heroicons/react/16/solid";
@@ -45,7 +46,8 @@ export const SingleCommment: React.FC<{ comment: any; setCommentList: any }> = (
 
 	return (
 		<div className="border rounded-md p-4 relative">
-			<p className="font-semibold mb-2">
+			<p className="font-semibold mb-2 flex gap-5 items-center">
+				<AvatarLogo src="/userlogo.png" styles="w-[20px] h-[20px]" />
 				<AsyncUserEmail user_id={comment.user_id} />
 			</p>
 			<p className="font-light">{comment.payload}</p>

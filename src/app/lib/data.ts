@@ -137,8 +137,8 @@ export const addComment = async (obj: Object) => {
 	return { data, error };
 };
 
-export const getComments = async () => {
-	const { data, error } = await supabase.from("Comments").select();
+export const getComments = async (postId: string) => {
+	const { data, error } = await supabase.from("Comments").select().eq("post_id", postId);
 	return { data, error };
 };
 
