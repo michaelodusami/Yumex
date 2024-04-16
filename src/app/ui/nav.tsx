@@ -33,15 +33,21 @@ export default function Nav() {
 			<nav className="flex-1">
 				<ul className="w-full flex justify-around p-2">
 					<li className="flex items-center">
-						<Link href="/" className={"flex-1"}>
-							<span className="ml-10 hidden">Home</span>
+						<Link
+							href="/"
+							className={"flex-1 md:flex items-center gap-2 cursor-pointer"}
+						>
 							<HomeIcon className={phoneIconWH} />
+							<span className="lg:block hidden">Home</span>
 						</Link>
 					</li>
 					<li className="flex items-center">
-						<Link href="/create" className={"flex-1"}>
-							<span className="hidden ml-10">Create</span>
+						<Link
+							href="/create"
+							className={"flex-1 md:flex items-center gap-2 cursor-pointer"}
+						>
 							<PlusCircleIcon className={phoneIconWH} />
+							<span className="hidden lg:block">Create Post</span>
 						</Link>
 					</li>
 					<li className="flex items-center md:w-[40%]">

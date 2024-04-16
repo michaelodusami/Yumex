@@ -18,7 +18,6 @@ export const ProfileDropDown: React.FC<{ handleSignOut: any }> = ({ handleSignOu
 			<DropdownMenuContent>
 				<DropdownMenuLabel>My Account</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				<DropdownMenuItem>Profile</DropdownMenuItem>
 				<DropdownMenuItem onClick={handleSignOut}>Sign Out</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
