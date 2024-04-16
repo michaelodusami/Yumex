@@ -11,45 +11,44 @@
  */
 
 export type User = {
-    user_id: string;
-    username: string;
-    email: string;
-    password: string;
-}
+	user_id: string;
+	username: string;
+	email: string;
+	password: string;
+};
 
 export type Post = {
-    id: string;
-    user_id: string;
-    title: string;
-    image: string;
-    content: string
-    createdAt: Date;
-    upvotes: number;
-    category: string
-    comments: Comment[]
-}
+	id: string;
+	user_id: string;
+	title: string;
+	image: string;
+	content: string;
+	createdAt: Date;
+	upvotes: number;
+	category: string;
+	comments: Comment[];
+};
 
 export type Comment = {
-
-    user_id: string;
-    postId: string;
-    content: string;
-    createdAt: Date;
-}
+	user_id: string;
+	postId: string;
+	content: string;
+	createdAt: Date;
+};
 
 export type Upvote = {
-    userId: string;
-    postId: string;
-    createdAt: Date;
-}
+	userId: string;
+	postId: string;
+	createdAt: Date;
+};
 
 export const categories = {
-    "asian": "asian",
-    "mexican": "mexican",
-    "italian": "italian",
-    "american": "american",
-    "african": "african",
-    "desserts": "desserts",
-    "healthy": "healthy",
-    "pastry": "pastry",
-}
+	asian: "asian",
+	mexican: "mexican",
+	italian: "italian",
+	american: "american",
+	african: "african",
+	dessert: "dessert",
+	healthy: "healthy",
+	pastry: "pastry",
+};
