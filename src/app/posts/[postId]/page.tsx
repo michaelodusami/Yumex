@@ -12,6 +12,7 @@ import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
 import { getIdFromUser } from "@/app/lib/data";
 import { CommentParams } from "@/app/lib/interfaces";
 import { SingleCommment } from "@/app/ui/comments";
+import { navLargeWidth, navMediumWidth } from "@/app/ui/sizes";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const postId = params.postId;
@@ -76,7 +77,9 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 
 	return (
 		<HomeContainer>
-			<div className="w-full md:w-[90%] lg:w-[70%] border min-h-[100vh] mx-auto   p-8">
+			<div
+				className={"w-full mt-5 min-h-[100vh] mx-auto p-8" + navLargeWidth + navMediumWidth}
+			>
 				{/* posts */}
 				<div>
 					{/* icon and username + title */}
