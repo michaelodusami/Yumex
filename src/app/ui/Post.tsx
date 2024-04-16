@@ -13,6 +13,7 @@ import { increaseUpvotes } from "@/app/lib/data";
 import { useEffect, useState } from "react";
 import { UpvoteSymbol } from "./symbols";
 import { getIdFromUser, deletePost } from "@/app/lib/data";
+import AvatarLogo from "./Avatar";
 
 import {
 	DropdownMenu,
@@ -107,13 +108,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 				<p className="text-sm italic">Posted At: {getFormattedDate(post.created_at)}</p>
 				<div className="flex space-x-2 mt-5">
 					{/* user profile pic */}
-					<Image
-						src={"/userlogo.png"}
-						alt={""}
-						width={30}
-						height={30}
-						className="h-8 w-8 rounded-full"
-					/>
+					<AvatarLogo />
 					<div className="flex justify-between w-full items-center">
 						{/* user who created it */}
 						<span className="block">
