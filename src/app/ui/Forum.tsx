@@ -1,19 +1,11 @@
 "use client";
 
-import Image from "next/image";
-import { clsx } from "clsx";
-import { categoryColors } from "./colors";
-import { defaultContentText } from "./texts";
-import { ChevronDoubleUpIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState, useContext } from "react";
-import { all_routes } from "@/app/lib/routepaths";
 import { fetchPostsFromDatabase } from "@/app/lib/data";
-import { getFormattedDate } from "@/app/lib/utils";
-import Link from "next/link";
-import { AsyncImage, AsyncUserEmail } from "@/app/ui/async_components";
 import Post from "./Post";
 import { SearchContext } from "./SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
+import { navMediumWidth, navLargeWidth, singleColWidth } from "./sizes";
 
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);
@@ -42,7 +34,7 @@ const Forum: React.FC = () => {
 		<div
 			className={
 				"container mx-auto px-4 py-8 w-full duration-500 ease-in-out" +
-				(gridStyle ? " md:w-[70%] lg:w-[70%]" : " md:w-[50%] lg:w-[50%]")
+				(gridStyle ? navLargeWidth + navMediumWidth : singleColWidth)
 			}
 		>
 			<div className="mb-8">

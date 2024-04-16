@@ -7,7 +7,7 @@ import { PlusCircleIcon, HomeIcon } from "@heroicons/react/24/solid";
 import { ProfileDropDown } from "./user_components";
 import { supabase } from "../lib/server";
 import { useState } from "react";
-import { phoneIconWH, navLargeMaxWidth, navMediumMaxWidth } from "./sizes";
+import { phoneIconWH, navLargeWidth, navMediumWidth } from "./sizes";
 
 export default function Nav() {
 	const [showProfileIcon, setProfileIcon] = useState(true);
@@ -23,8 +23,8 @@ export default function Nav() {
 		<nav
 			className={
 				"mx-auto border-b md:flex md:items-center md:justify-between" +
-				navMediumMaxWidth +
-				navLargeMaxWidth
+				navMediumWidth +
+				navLargeWidth
 			}
 		>
 			<div className="text-center md:text-left py-2 font-bold text-2xl md:text-3xl md:w-[50%]">
