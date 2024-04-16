@@ -66,7 +66,7 @@ const Forum: React.FC = () => {
 			</div>
 			<div
 				className={
-					"grid grid-cols-1 gap-4" + (gridStyle && "md:grid-cols-3 lg:grid-cols-3")
+					"grid grid-cols-1 gap-4 " + (gridStyle && "md:grid-cols-3 lg:grid-cols-3")
 				}
 			>
 				{posts != null ? (
