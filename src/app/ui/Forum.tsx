@@ -40,7 +40,7 @@ const Forum: React.FC = () => {
 			<div className="mb-8">
 				<div className="h-8 w-[100%] rounded dark:bg-white ">
 					<div className="h-full w-[full] flex items-center">
-						<div className="flex-1">
+						<div className="hidden md:block md:flex-1">
 							<button
 								onClick={handleGridStyleToggled}
 								className="hover:rotate-180 duration-500 ease-in-out transition-all cursor-pointer"
