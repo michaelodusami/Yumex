@@ -5,13 +5,12 @@ import { postPreviewContentText, postPreviewTitleText, postPreviewImageFile } fr
 import { clsx } from "clsx";
 import { getFormattedDate } from "@/app/lib/utils";
 import { ChevronDoubleUpIcon } from "@heroicons/react/16/solid";
-import { categoryColors } from "../colors";
 import { FormData } from "@/app/lib/interfaces";
-import { supabase } from "@/app/lib/server";
 import { useState, useEffect } from "react";
 import { getEmailFromUser } from "@/app/lib/data";
 import { getUserNameUpToEmailSymbol } from "@/app/lib/utils";
 import Category from "../Category";
+import { POST_MIN_MAX_HEIGHT } from "../sizes";
 
 const PostPreview: React.FC<FormData> = ({
 	file,
@@ -46,11 +45,7 @@ const PostPreview: React.FC<FormData> = ({
 				{title !== "" ? title : postPreviewTitleText}
 			</h2>
 			{/* content (description) */}
-			<p
-				className={clsx("mb-4 max-h-10 h-full overflow-hidden", {
-					"text-white dark:text-black": content === "",
-				})}
-			>
+			<p className={"mb-4 h-full overflow-hidden" + POST_MIN_MAX_HEIGHT}>
 				{content !== "" ? content : postPreviewContentText}
 			</p>
 			{/* user information */}

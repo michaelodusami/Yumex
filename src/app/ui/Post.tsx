@@ -6,7 +6,7 @@ import { clsx } from "clsx";
 import { ChevronDoubleUpIcon, EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 import { AsyncImage, AsyncUserEmail } from "@/app/ui/async_components";
 import Link from "next/link";
-import { all_routes } from "@/app/lib/routepaths";
+import { all_routes } from "@/app/lib/model";
 import { getFormattedDate } from "@/app/lib/utils";
 import { categoryColors } from "./colors";
 import { increaseUpvotes } from "@/app/lib/data";
@@ -23,6 +23,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { POST_MIN_MAX_HEIGHT } from "./sizes";
 
 const Post: React.FC<{ post: any }> = ({ post }) => {
 	const [postUpvotes, setPostUpvotes] = useState<any>(post.upvotes);
@@ -90,11 +91,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 				</div>
 
 				{/* content (description) */}
-				<p
-					className={clsx("mb-4 max-h-10 h-full overflow-hidden", {
-						"text-white dark:text-black": post.content === "",
-					})}
-				>
+				<p className={"mb-4 overflow-hidden" + POST_MIN_MAX_HEIGHT}>
 					{post.content ? post.content : defaultContentText}
 				</p>
 				{/* user information */}
