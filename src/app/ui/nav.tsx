@@ -2,7 +2,6 @@
 
 import Search from "./search";
 import Link from "next/link";
-import { poppins } from "./fonts";
 import { PlusCircleIcon, HomeIcon } from "@heroicons/react/24/solid";
 import { ProfileDropDown } from "./user_components";
 import { supabase } from "../lib/server";

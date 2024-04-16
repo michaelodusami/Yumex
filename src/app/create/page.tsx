@@ -4,7 +4,6 @@ import { CreatePostSkeleton, ImageUploaderSkeleton, PostSkeleton } from "../ui/s
 import CreateForm from "@/app/ui/CreateForm";
 import ImageUploader from "@/app/ui/ImageUploader";
 import PostPreview from "../ui/PostPreview";
-import { poppins } from "../ui/fonts";
 import { useState } from "react";
 import { FormData } from "../lib/interfaces";
 import { uploadFile, getIdFromUser } from "../lib/data";
@@ -90,11 +89,7 @@ export default function Page() {
 						<CreateForm setFormData={setFormData} />
 					</div>
 					<div className="flex-1 flex items-end">
-						<div
-							className={
-								poppins.className + " w-full flex justify-center items-center"
-							}
-						>
+						<div className={"w-full flex justify-center items-center"}>
 							<button
 								type="button"
 								onClick={handleCreatePost}
