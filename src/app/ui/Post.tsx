@@ -11,6 +11,7 @@ import { getFormattedDate } from "@/app/lib/utils";
 import { categoryColors } from "./colors";
 import { increaseUpvotes } from "@/app/lib/data";
 import { useEffect, useState } from "react";
+import { UpvoteSymbol } from "./symbols";
 import { getIdFromUser, deletePost } from "@/app/lib/data";
 
 import {
@@ -99,7 +100,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 				<div className="w-full flex justify-between">
 					<p>Upvotes: {postUpvotes}</p>
 					<button onClick={handleUpvotes}>
-						<ChevronDoubleUpIcon className="h-30px] w-[30px] cursor-pointer" />
+						<UpvoteSymbol styles="h-[30px] w-[30px] cursor-pointer" />
 					</button>
 				</div>
 
