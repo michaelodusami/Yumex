@@ -45,9 +45,7 @@ The following **additional** features are implemented:
 
 # To Fix
 
--   [ ] **to remove** page is accessible, all inputs have form tag around when button is present, file are organized into better folders
 -   [ ] if a user uploads an nivalid type, they must be able to be able to upload another image
--   [ ] resize screen widht, replace static widht with variables
 
 ## Video Walkthrough
 
