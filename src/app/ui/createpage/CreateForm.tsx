@@ -1,6 +1,6 @@
 "use client";
 
-import { categories } from "@/app/lib/model";
+import { food_categories } from "@/app/lib/model";
 import { categoryColors } from "../colors";
 import { useState } from "react";
 import { FormData } from "@/app/lib/interfaces";
@@ -10,7 +10,7 @@ interface CreateFormProps {
 }
 
 const CreateForm: React.FC<CreateFormProps> = ({ setFormData }) => {
-	const [selectedCategory, setSelectedCategory] = useState(Object.entries(categories)[0][0]);
+	const [selectedCategory, setSelectedCategory] = useState(Object.entries(food_categories)[0][0]);
 
 	const handleCategoryChange = (e) => {
 		setSelectedCategory(e.target.value);
@@ -75,7 +75,7 @@ const CreateForm: React.FC<CreateFormProps> = ({ setFormData }) => {
 						onChange={handleCategoryChange}
 						style={{ backgroundColor: categoryColors[selectedCategory] }}
 					>
-						{Object.entries(categories).map(([key, value]) => (
+						{Object.entries(food_categories).map(([key, value]) => (
 							<option key={key} value={key}>
 								{value.toUpperCase()}
 							</option>
