@@ -2,16 +2,14 @@
 import { useState, useEffect } from "react";
 import { HomeContainer } from "@/app/page";
 import { fetchPost } from "@/app/lib/data";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import AvatarLogo from "@/app/ui/Avatar";
+import AvatarLogo from "@/app/ui/components/AvatarLogo";
 import { AsyncUserEmail, AsyncImage } from "@/app/ui/components/async_components";
 import { getFormattedDate } from "@/app/lib/utils";
 import Category from "@/app/ui/components/Category";
 import { UpvoteSymbol } from "@/app/ui/components/symbols";
 import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
 import { getIdFromUser } from "@/app/lib/data";
-import { CommentParams } from "@/app/lib/interfaces";
-import { SingleCommment } from "@/app/ui/components/Comment";
+import Commment from "@/app/ui/components/Comment";
 import { navLargeWidth, navMediumWidth } from "@/app/ui/util/sizes";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
@@ -158,7 +156,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 									return +bDate - +aDate;
 								})
 								.map((comment) => (
-									<SingleCommment
+									<Commment
 										key={comment.id}
 										comment={comment}
 										setCommentList={setCommentList}

@@ -28,7 +28,7 @@ const CreateForm: React.FC<CreateFormProps> = ({ setFormData }) => {
 	};
 
 	return (
-		<div className=" p-4 rounded-md shadow">
+		<div className="p-4 rounded-md shadow">
 			{/* title */}
 			{/* <div className="mb-4 h-6 w-1/3 bg-gray-200 animate-pulse"></div> */}
 			<div className="mb-4">

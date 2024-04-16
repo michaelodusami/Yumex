@@ -3,13 +3,13 @@
 import Image from "next/image";
 import { postPreviewContentText, postPreviewTitleText, postPreviewImageFile } from "../util/texts";
 import { getFormattedDate } from "@/app/lib/utils";
-import { ChevronDoubleUpIcon } from "@heroicons/react/16/solid";
+import { UpvoteSymbol } from "./symbols";
 import { FormData } from "@/app/lib/interfaces";
 import { useState, useEffect } from "react";
 import { getEmailFromUser } from "@/app/lib/data";
 import { getUserNameUpToEmailSymbol } from "@/app/lib/utils";
 import Category from "./Category";
-import { POST_MIN_MAX_HEIGHT } from "../util/sizes";
+import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util/sizes";
 
 const PostPreview: React.FC<FormData> = ({
 	file,
@@ -51,7 +51,7 @@ const PostPreview: React.FC<FormData> = ({
 			<div className="w-full flex justify-between">
 				<p>Upvotes: {0}</p>
 
-				<ChevronDoubleUpIcon className="h-30px] w-[30px] cursor-pointer" />
+				<UpvoteSymbol styles={UPVOTE_SYMBOL_WH} />
 			</div>
 
 			<p className="text-sm italic">Posted At: {getFormattedDate("2023-05-15T10:30:00")}</p>

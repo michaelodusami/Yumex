@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpTrayIcon } from "@heroicons/react/16/solid";
+import { ArrowUpTrayIcon } from "@heroicons/react/24/solid";
 import { FormData } from "@/app/lib/interfaces";
 
 interface ImageUploaderProps {

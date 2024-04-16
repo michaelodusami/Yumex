@@ -4,3 +4,4 @@ export const navMediumWidth = " md:w-[90%] ";
 export const navLargeWidth = " lg:w-[80%] ";
 export const singleColWidth = " md:w-[90%] lg:w-[60%] ";
 export const POST_MIN_MAX_HEIGHT = " min-h-32 max-h-32 ";
+export const UPVOTE_SYMBOL_WH = " h-[30px] w-[30px] ";

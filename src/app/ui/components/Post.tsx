@@ -7,11 +7,10 @@ import Link from "next/link";
 import { all_routes } from "@/app/lib/model";
 import { getFormattedDate } from "@/app/lib/utils";
 import { categoryColors } from "../util/colors";
-import { increaseUpvotes } from "@/app/lib/data";
+import { increaseUpvotes, getIdFromUser, deletePost } from "@/app/lib/data";
 import { useEffect, useState } from "react";
 import { UpvoteSymbol } from "./symbols";
-import { getIdFromUser, deletePost } from "@/app/lib/data";
-import AvatarLogo from "./Avatar";
+import AvatarLogo from "./AvatarLogo";
 
 import {
 	DropdownMenu,
@@ -21,7 +20,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { POST_MIN_MAX_HEIGHT } from "../util/sizes";
+import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util/sizes";
 
 const Post: React.FC<{ post: any }> = ({ post }) => {
 	const [postUpvotes, setPostUpvotes] = useState<any>(post.upvotes);
@@ -96,7 +95,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 				<div className="w-full flex justify-between">
 					<p>Upvotes: {postUpvotes}</p>
 					<button onClick={handleUpvotes}>
-						<UpvoteSymbol styles="h-[30px] w-[30px] cursor-pointer" />
+						<UpvoteSymbol styles={"cursor-pointer" + UPVOTE_SYMBOL_WH} />
 					</button>
 				</div>
 

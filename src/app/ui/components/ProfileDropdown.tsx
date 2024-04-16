@@ -7,7 +7,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { phoneAvatarIconDropdownWH } from "../util/sizes";
-import AvatarLogo from "./Avatar";
+import AvatarLogo from "./AvatarLogo";
 
 export const ProfileDropDown: React.FC<{ handleSignOut: any }> = ({ handleSignOut }) => {
 	return (

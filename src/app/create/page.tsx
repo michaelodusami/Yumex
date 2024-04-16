@@ -9,6 +9,7 @@ import { FormData } from "../lib/interfaces";
 import { uploadFile, getIdFromUser } from "../lib/data";
 import CreatePostSuccess from "../ui/components/CreatePostSuccess";
 import { supabase } from "../lib/server";
+import { navLargeWidth, navMediumWidth } from "../ui/util/sizes";
 
 export default function Page() {
 	const [isPostCreated, setIsPostCreated] = useState<Boolean>(false);
@@ -65,45 +66,54 @@ export default function Page() {
 
 	return (
 		<main className="min-h-screen">
-			<div className="w-full lg:w-[90%] mx-auto flex flex-col lg:flex-row gap-5 p-5">
-				{/* Post Previw */}
-				<div className="lg:w-[50%] xl:w-[40%] w-full">
-					{/* <PostSkeleton /> */}
-					<PostPreview
-						file={formData.file}
-						title={formData.title}
-						content={formData.content}
-						category={formData.category}
-						post_image_filepath={formData.post_image_filepath}
-					/>
+			<div className={"mx-auto" + navLargeWidth + navMediumWidth}>
+				<div className="w-full mx-auto mt-5">
+					<h1 className="text-2xl font-bold">Create Post</h1>
 				</div>
-				<div className="flex flex-col flex-1 gap-5 ">
-					{/* the image uploader */}
-					<div className="">
-						{/* <ImageUploaderSkeleton /> */}
-						<ImageUploader setFormData={setFormData} />
+				<div className="w-full mx-auto flex flex-col lg:flex-row gap-5 p-5">
+					{/* Post Previw */}
+					<div className="lg:w-[40%] w-full">
+						{/* <PostSkeleton /> */}
+						<PostPreview
+							file={formData.file}
+							title={formData.title}
+							content={formData.content}
+							category={formData.category}
+							post_image_filepath={formData.post_image_filepath}
+						/>
 					</div>
-					{/* writing the edited version */}
-					<div className="flex-1">
-						{/* <CreatePostSkeleton /> */}
-						<CreateForm setFormData={setFormData} />
-					</div>
-					<div className="flex-1 flex items-end">
-						<div className={"w-full flex justify-center items-center"}>
-							<button
-								type="button"
-								onClick={handleCreatePost}
-								className="border rounded-md p-2 text-xl bg-green-300 w-full hover:font-bold transition-all"
+					<div className="flex flex-col flex-1 gap-5 ">
+						{/* the image uploader */}
+						<div className="">
+							{/* <ImageUploaderSkeleton /> */}
+							<ImageUploader setFormData={setFormData} />
+						</div>
+						{/* writing the edited version */}
+						<div className="flex-1">
+							{/* <CreatePostSkeleton /> */}
+							<CreateForm setFormData={setFormData} />
+						</div>
+						<div className="flex-1 flex md:items-end">
+							<div
+								className={
+									"w-full md:w-[50%] mx-auto flex justify-center items-center"
+								}
 							>
-								Create
-							</button>
+								<button
+									type="button"
+									onClick={handleCreatePost}
+									className="border rounded-md p-2 text-xl bg-black text-white dark:bg-white dark:text-black w-full transition-all"
+								>
+									Create
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
+				{errorMessage !== "" ? (
+					<p className="text-red-400 w-full mx-auto text-center">Error: {errorMessage}</p>
+				) : null}
 			</div>
-			{errorMessage !== "" ? (
-				<p className="text-red-400 w-full mx-auto text-center">Error: {errorMessage}</p>
-			) : null}
 		</main>
 	);
 }
