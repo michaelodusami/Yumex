@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { HomeContainer } from "@/app/page";
 import { fetchPost } from "@/app/lib/data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import AvatarLogo from "@/app/ui/detailpage/Avatar";
+import AvatarLogo from "@/app/ui/Avatar";
 import { AsyncUserEmail, AsyncImage } from "@/app/ui/async_components";
 import { getFormattedDate } from "@/app/lib/utils";
 import Category from "@/app/ui/Category";
