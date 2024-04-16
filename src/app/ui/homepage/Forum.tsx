@@ -18,7 +18,7 @@ import { Squares2X2Icon } from "@heroicons/react/16/solid";
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);
 	const [posts, setPosts] = useState<any>(null);
-	const [gridStyleToggled] = useState(false); // toggle grid style (extra functionaloty)
+	const [gridStyle, setGridStyle] = useState<Boolean>(false); // toggle grid style (extra functionaloty)
 	const [selectedSort, setSelectedSort] = useState("last created");
 
 	useEffect(() => {
@@ -29,17 +29,30 @@ const Forum: React.FC = () => {
 		fetchPost();
 	}, [selectedSort]);
 
+	const handleGridStyleToggled = (e) => {
+		e.preventDefault();
+		setGridStyle(!gridStyle);
+	};
+
 	const filteredPosts = posts?.filter((post) =>
 		post.title.toLowerCase().includes(searchQuery.toLowerCase())
 	);
 
 	return (
-		<div className="container mx-auto px-4 py-8 w-full md:w-[50%]">
+		<div
+			className={
+				"container mx-auto px-4 py-8 w-full duration-500 ease-in-out" +
+				(gridStyle ? " md:w-[70%] lg:w-[70%]" : " md:w-[50%] lg:w-[50%]")
+			}
+		>
 			<div className="mb-8">
 				<div className="h-8 w-[100%] rounded dark:bg-white ">
 					<div className="h-full w-[full] flex items-center">
 						<div className="flex-1">
-							<button className="hover:rotate-180 transition-all cursor-pointer">
+							<button
+								onClick={handleGridStyleToggled}
+								className="hover:rotate-180 duration-500 ease-in-out transition-all cursor-pointer"
+							>
 								<Squares2X2Icon className="w-[20px]" />
 							</button>
 						</div>
@@ -59,7 +72,11 @@ const Forum: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			<div className={"grid grid-cols-1 lg:grid-cols-1 gap-4"}>
+			<div
+				className={
+					"grid grid-cols-1 gap-4" + (gridStyle && "md:grid-cols-3 lg:grid-cols-3")
+				}
+			>
 				{posts != null ? (
 					filteredPosts?.map((post) => <Post key={post.id} post={post} />)
 				) : (
