@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { defaultContentText } from "../texts";
+import { defaultContentText } from "./texts";
 import { clsx } from "clsx";
 import { ChevronDoubleUpIcon, EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 import { AsyncImage, AsyncUserEmail } from "@/app/ui/async_components";
 import Link from "next/link";
 import { all_routes } from "@/app/lib/routepaths";
 import { getFormattedDate } from "@/app/lib/utils";
-import { categoryColors } from "../colors";
+import { categoryColors } from "./colors";
 import { increaseUpvotes } from "@/app/lib/data";
 import { useEffect, useState } from "react";
 import { getIdFromUser, deletePost } from "@/app/lib/data";

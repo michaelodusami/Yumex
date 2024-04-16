@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ForumSkeleton } from "./ui/skeletons";
-import Forum from "./ui/homepage/Forum";
+import Forum from "./ui/Forum";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { supabase } from "@/app/lib/server";

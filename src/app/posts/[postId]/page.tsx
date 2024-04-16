@@ -11,7 +11,7 @@ import { UpvoteSymbol } from "@/app/ui/symbols";
 import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
 import { getIdFromUser } from "@/app/lib/data";
 import { CommentParams } from "@/app/lib/interfaces";
-import { SingleCommment } from "@/app/ui/detailpage/comments";
+import { SingleCommment } from "@/app/ui/comments";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const postId = params.postId;

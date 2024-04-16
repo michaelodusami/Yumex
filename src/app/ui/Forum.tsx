@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { clsx } from "clsx";
-import { categoryColors } from "../colors";
-import { defaultContentText } from "../texts";
+import { categoryColors } from "./colors";
+import { defaultContentText } from "./texts";
 import { ChevronDoubleUpIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState, useContext } from "react";
 import { all_routes } from "@/app/lib/routepaths";
@@ -12,7 +12,7 @@ import { getFormattedDate } from "@/app/lib/utils";
 import Link from "next/link";
 import { AsyncImage, AsyncUserEmail } from "@/app/ui/async_components";
 import Post from "./Post";
-import { SearchContext } from "../SearchContext";
+import { SearchContext } from "./SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
 
 const Forum: React.FC = () => {
