@@ -39,7 +39,7 @@ const Forum: React.FC = () => {
 		>
 			<div className="mb-8">
 				<div className="h-8 w-[100%] rounded dark:bg-white ">
-					<div className="h-full w-[full] flex items-center">
+					<div className="w-full flex items-center">
 						<div className="hidden md:block md:flex-1">
 							<button
 								onClick={handleGridStyleToggled}
@@ -48,7 +48,7 @@ const Forum: React.FC = () => {
 								<Squares2X2Icon className="w-[20px]" />
 							</button>
 						</div>
-						<div className="flex-1 flex items-center">
+						<div className="flex items-center">
 							<p className="">Sort By: </p>
 							<select
 								name="sort-post-option"
