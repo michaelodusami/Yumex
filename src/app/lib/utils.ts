@@ -1,25 +1,18 @@
-import { User, Post } from "./model";
-import { users, posts } from "./placeholder_data";
-
-/*
- * For The User
+/**
+ * Returns the username up to the "@" symbol from the given email.
+ * @param {string} userEmail - The email address from which to extract the username.
+ * @returns {string} The username up to the "@" symbol.
  */
-
 export const getUserNameUpToEmailSymbol = (userEmail: string): string => {
 	const symbolPos = userEmail.indexOf("@");
 	const username = userEmail.slice(0, symbolPos);
 	return username;
 };
 
-/*
- * For Upvotes
- */
-export const handleUpvote = (postId: string): void => {
-	const post = posts.find((post) => post.id === postId);
-};
-
-/*
- * For The Date
+/**
+ * Returns the formatted date in the MM/DD/YYYY format from the given timestamp.
+ * @param {string} timestamp - The timestamp to format.
+ * @returns {string} The formatted date string.
  */
 export const getFormattedDate = (timestamp: string): string => {
 	const date = new Date(timestamp);
@@ -27,16 +20,4 @@ export const getFormattedDate = (timestamp: string): string => {
 	const month = String(date.getMonth() + 1).padStart(2, "0");
 	const day = String(date.getDate()).padStart(2, "0");
 	return `${month}/${day}/${year}`;
-};
-
-/*
- *
- * For Posts
- */
-
-export const filterPostTitles = (searchQuery: string): Post[] => {
-	const filteredPosts = posts.filter((post) =>
-		post.title.toLowerCase().includes(searchQuery.toLowerCase())
-	);
-	return filteredPosts;
 };
