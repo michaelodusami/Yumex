@@ -41,6 +41,7 @@ The following **additional** features are implemented:
 -   [ ] When a user creates a post, they will be directed to the detail page
 -   [✅] Users must make an account to use the website and all information posted or commented will be refrenced by their account
 -   [✅] Users can only delete a post or comment if they are the ones who created it
+-   [ ] When users sign out, the avatr icon is not there anymore
 
 ## Video Walkthrough
 
