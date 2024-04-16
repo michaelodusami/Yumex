@@ -1,5 +1,3 @@
-import { poppins } from "../fonts";
-
 const CreatePostSuccess: React.FC = () => {
 	return (
 		<div className="text-[2rem] md:text-[2rem] lg:text-[3rem] w-full min-h-[90vh] flex justify-center items-center transition-all">

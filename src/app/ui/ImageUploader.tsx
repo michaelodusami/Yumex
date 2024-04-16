@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUpTrayIcon } from "@heroicons/react/16/solid";
-import { poppins } from "../fonts";
 import { FormData } from "@/app/lib/interfaces";
 
 interface ImageUploaderProps {
@@ -23,7 +22,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ setFormData }) => {
 	};
 
 	return (
-		<div className={poppins.className + "  p-4 rounded-md shadow"}>
+		<div className={"p-4 rounded-md shadow"}>
 			<div className="mb-4 h-6 w-full">Uplaod an image of your food</div>
 			<div className="flex items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-8 dropzone-skeleton">
 				<div className="relative cursor-pointer">

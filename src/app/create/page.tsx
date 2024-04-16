@@ -1,14 +1,14 @@
 "use client";
 
 import { CreatePostSkeleton, ImageUploaderSkeleton, PostSkeleton } from "../ui/skeletons";
-import CreateForm from "@/app/ui/createpage/CreateForm";
-import ImageUploader from "@/app/ui/createpage/ImageUploader";
-import PostPreview from "../ui/createpage/PostPreview";
+import CreateForm from "@/app/ui/CreateForm";
+import ImageUploader from "@/app/ui/ImageUploader";
+import PostPreview from "../ui/PostPreview";
 import { poppins } from "../ui/fonts";
 import { useState } from "react";
 import { FormData } from "../lib/interfaces";
 import { uploadFile, getIdFromUser } from "../lib/data";
-import CreatePostSuccess from "../ui/createpage/CreatePostSuccess";
+import CreatePostSuccess from "../ui/CreatePostSuccess";
 import { supabase } from "../lib/server";
 
 export default function Page() {

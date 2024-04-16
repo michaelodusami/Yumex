@@ -1,16 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { postPreviewContentText, postPreviewTitleText, postPreviewImageFile } from "../texts";
-import { clsx } from "clsx";
+import { postPreviewContentText, postPreviewTitleText, postPreviewImageFile } from "./texts";
 import { getFormattedDate } from "@/app/lib/utils";
 import { ChevronDoubleUpIcon } from "@heroicons/react/16/solid";
 import { FormData } from "@/app/lib/interfaces";
 import { useState, useEffect } from "react";
 import { getEmailFromUser } from "@/app/lib/data";
 import { getUserNameUpToEmailSymbol } from "@/app/lib/utils";
-import Category from "../Category";
-import { POST_MIN_MAX_HEIGHT } from "../sizes";
+import Category from "./Category";
+import { POST_MIN_MAX_HEIGHT } from "./sizes";
 
 const PostPreview: React.FC<FormData> = ({
 	file,

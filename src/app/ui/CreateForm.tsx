@@ -1,7 +1,7 @@
 "use client";
 
 import { food_categories } from "@/app/lib/model";
-import { categoryColors } from "../colors";
+import { categoryColors } from "./colors";
 import { useState } from "react";
 import { FormData } from "@/app/lib/interfaces";
 
