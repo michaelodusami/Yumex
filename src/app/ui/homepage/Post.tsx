@@ -54,7 +54,10 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 	};
 
 	return (
-		<div key={post.id} className="rounded-lg dark:shadow-neutral-800 p-4 shadow relative">
+		<div
+			key={post.id}
+			className="rounded-lg dark:shadow-neutral-800 p-4 shadow relative transition-all duration-500 ease-in-out"
+		>
 			<div className="w-full lg:w-[95%] mx-auto">
 				{/* food image */}
 				<Link href={all_routes.post + post.id}>
