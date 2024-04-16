@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { defaultContentText } from "./texts";
+import { defaultContentText } from "../util/texts";
 import { clsx } from "clsx";
 import { ChevronDoubleUpIcon, EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
-import { AsyncImage, AsyncUserEmail } from "@/app/ui/async_components";
+import { AsyncImage, AsyncUserEmail } from "@/app/ui/components/async_components";
 import Link from "next/link";
 import { all_routes } from "@/app/lib/model";
 import { getFormattedDate } from "@/app/lib/utils";
-import { categoryColors } from "./colors";
+import { categoryColors } from "../util/colors";
 import { increaseUpvotes } from "@/app/lib/data";
 import { useEffect, useState } from "react";
 import { UpvoteSymbol } from "./symbols";
@@ -23,7 +23,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { POST_MIN_MAX_HEIGHT } from "./sizes";
+import { POST_MIN_MAX_HEIGHT } from "../util/sizes";
 
 const Post: React.FC<{ post: any }> = ({ post }) => {
 	const [postUpvotes, setPostUpvotes] = useState<any>(post.upvotes);

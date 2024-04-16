@@ -2,10 +2,10 @@
 
 import { useEffect, useState, useContext } from "react";
 import { fetchPostsFromDatabase } from "@/app/lib/data";
-import Post from "./Post";
-import { SearchContext } from "./SearchContext";
+import Post from "./components/Post";
+import { SearchContext } from "./context/SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
-import { navMediumWidth, navLargeWidth, singleColWidth } from "./sizes";
+import { navMediumWidth, navLargeWidth, singleColWidth } from "./util/sizes";
 
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);

@@ -14,7 +14,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export const SingleCommment: React.FC<{ comment: any; setCommentList: any }> = ({
+export const Commment: React.FC<{ comment: any; setCommentList: any }> = ({
 	comment,
 	setCommentList,
 }) => {
@@ -71,3 +71,5 @@ export const SingleCommment: React.FC<{ comment: any; setCommentList: any }> = (
 		</div>
 	);
 };
+
+export default Commment;

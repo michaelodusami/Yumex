@@ -4,15 +4,15 @@ import { HomeContainer } from "@/app/page";
 import { fetchPost } from "@/app/lib/data";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import AvatarLogo from "@/app/ui/Avatar";
-import { AsyncUserEmail, AsyncImage } from "@/app/ui/async_components";
+import { AsyncUserEmail, AsyncImage } from "@/app/ui/components/async_components";
 import { getFormattedDate } from "@/app/lib/utils";
-import Category from "@/app/ui/Category";
-import { UpvoteSymbol } from "@/app/ui/symbols";
+import Category from "@/app/ui/components/Category";
+import { UpvoteSymbol } from "@/app/ui/components/symbols";
 import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
 import { getIdFromUser } from "@/app/lib/data";
 import { CommentParams } from "@/app/lib/interfaces";
-import { SingleCommment } from "@/app/ui/comments";
-import { navLargeWidth, navMediumWidth } from "@/app/ui/sizes";
+import { SingleCommment } from "@/app/ui/components/Comment";
+import { navLargeWidth, navMediumWidth } from "@/app/ui/util/sizes";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const postId = params.postId;

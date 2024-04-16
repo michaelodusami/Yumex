@@ -1,13 +1,13 @@
 "use client";
 
 import { CreatePostSkeleton, ImageUploaderSkeleton, PostSkeleton } from "../ui/skeletons";
-import CreateForm from "@/app/ui/CreateForm";
-import ImageUploader from "@/app/ui/ImageUploader";
-import PostPreview from "../ui/PostPreview";
+import CreateForm from "@/app/ui/components/CreateForm";
+import ImageUploader from "@/app/ui/components/ImageUploader";
+import PostPreview from "../ui/components/PostPreview";
 import { useState } from "react";
 import { FormData } from "../lib/interfaces";
 import { uploadFile, getIdFromUser } from "../lib/data";
-import CreatePostSuccess from "../ui/CreatePostSuccess";
+import CreatePostSuccess from "../ui/components/CreatePostSuccess";
 import { supabase } from "../lib/server";
 
 export default function Page() {

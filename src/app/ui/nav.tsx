@@ -1,12 +1,12 @@
 "use client";
 
-import Search from "./search";
+import Search from "./components/Search";
 import Link from "next/link";
 import { PlusCircleIcon, HomeIcon } from "@heroicons/react/24/solid";
-import { ProfileDropDown } from "./user_components";
+import { ProfileDropDown } from "./components/ProfileDropdown";
 import { supabase } from "../lib/server";
 import { useState } from "react";
-import { phoneIconWH, navLargeWidth, navMediumWidth } from "./sizes";
+import { phoneIconWH, navLargeWidth, navMediumWidth } from "./util/sizes";
 
 export default function Nav() {
 	const [showProfileIcon, setProfileIcon] = useState(true);

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useContext } from "react";
-import { SearchContext } from "./SearchContext";
+import { SearchContext } from "../context/SearchContext";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 export default function Search({ placeholder }: { placeholder: string }) {

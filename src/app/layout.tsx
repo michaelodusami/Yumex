@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { inter } from "@/app/ui/fonts";
+import { inter } from "@/app/ui/util/fonts";
 import "./globals.css";
-import Nav from "@/app/ui/nav";
-import { SearchProvider } from "./ui/SearchContext";
+import Nav from "@/app/ui/Nav";
+import { SearchProvider } from "./ui/context/SearchContext";
 
 export const metadata: Metadata = {
 	title: "Yumex",
