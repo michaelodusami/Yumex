@@ -43,6 +43,12 @@ The following **additional** features are implemented:
 -   [✅] Users can only delete a post or comment if they are the ones who created it
 -   [ ] When users sign out, the avatr icon is not there anymore
 
+# To Fix
+
+-   [ ] **to remove** page is accessible, all inputs have form tag around when button is present, file are organized into better folders
+-   [ ] if a user uploads an nivalid type, they must be able to be able to upload another image
+-   [ ] resize screen widht, replace static widht with variables
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
