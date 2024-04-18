@@ -1,6 +1,5 @@
 "use client";
 
-import { CreatePostSkeleton, ImageUploaderSkeleton, PostSkeleton } from "../ui/skeletons";
 import CreateForm from "@/app/ui/components/CreateForm";
 import ImageUploader from "@/app/ui/components/ImageUploader";
 import PostPreview from "../ui/components/PostPreview";
@@ -10,6 +9,7 @@ import { uploadFile, getIdFromUser } from "../lib/data";
 import CreatePostSuccess from "../ui/components/CreatePostSuccess";
 import { supabase } from "../lib/server";
 import { navLargeWidth, navMediumWidth } from "../ui/util/sizes";
+import { all_routes } from "../lib/model";
 
 export default function Page() {
 	const [isPostCreated, setIsPostCreated] = useState<Boolean>(false);
@@ -50,9 +50,13 @@ export default function Page() {
 					setErrorMessage("Post Creation Failed");
 				} else {
 					setErrorMessage("");
+
+					const postId = data[0].id; // Get the ID of the newly created post
 					setIsPostCreated(true);
-					// alter this
-					window.location = "/";
+					// Redirect to the detail page using the post ID
+					const newLocation = all_routes.post + postId;
+					window.location.href = newLocation;
+					// get the post and redirect to the detail screen
 				}
 			} else {
 				setErrorMessage("FIle Must Be Of Type <jpg, jpeg, png, webp>.");

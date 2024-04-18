@@ -34,5 +34,5 @@ export const food_category_images = {
 export const all_routes = {
 	home: "/",
 	create: "/create",
-	post: "/posts/",
+	post: "/post/",
 };
