@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useContext } from "react";
-import { fetchPostsFromDatabase } from "@/app/lib/data";
+import { fetchPostsFromDatabase, fetchPostsFromDatabaseByCategory } from "@/app/lib/data";
 import Post from "./components/Post";
 import { SearchContext } from "./context/SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
@@ -13,14 +13,20 @@ const Forum: React.FC = () => {
 	const [posts, setPosts] = useState<any>(null);
 	const [gridStyle, setGridStyle] = useState<Boolean>(false); // toggle grid style (extra functionaloty)
 	const [selectedSort, setSelectedSort] = useState("last created");
+	const [selectedCategory, setSelectedCategory] = useState("");
 
 	useEffect(() => {
 		const fetchPost = async () => {
-			const data = await fetchPostsFromDatabase(selectedSort);
+			let data;
+			if (selectedCategory !== "") {
+				data = await fetchPostsFromDatabaseByCategory(selectedCategory, selectedSort);
+			} else {
+				data = await fetchPostsFromDatabase(selectedSort);
+			}
 			setPosts(data);
 		};
 		fetchPost();
-	}, [selectedSort]);
+	}, [selectedSort, selectedCategory]);
 
 	const handleGridStyleToggled = (e) => {
 		e.preventDefault();
@@ -41,7 +47,7 @@ const Forum: React.FC = () => {
 			<div className="mb-8">
 				<div className="w-full mb-8">
 					<div className="">
-						<CategorySelector />
+						<CategorySelector setSelectedCategory={setSelectedCategory} />
 					</div>
 				</div>
 				<div className="h-8 w-[100%] rounded ">
@@ -75,10 +81,12 @@ const Forum: React.FC = () => {
 					"grid grid-cols-1 gap-4 " + (gridStyle && "md:grid-cols-3 lg:grid-cols-3")
 				}
 			>
-				{posts != null ? (
+				{posts != null && posts.length >= 1 ? (
 					filteredPosts?.map((post) => <Post key={post.id} post={post} />)
 				) : (
-					<h1 className="w-full text-2xl">No Posts Yet!</h1>
+					<div className="w-full">
+						<h1 className="w-full text-2xl">Nothing Here Yet!</h1>
+					</div>
 				)}
 			</div>
 		</div>
