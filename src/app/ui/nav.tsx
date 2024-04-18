@@ -21,7 +21,7 @@ export default function Nav() {
 	return (
 		<nav
 			className={
-				"mx-auto border-b md:flex md:items-center md:justify-between" +
+				"mx-auto md:flex md:items-center md:justify-between" +
 				navMediumWidth +
 				navLargeWidth
 			}
