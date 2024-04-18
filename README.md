@@ -35,7 +35,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
--   [ ] Users will be able to sort food by category of food (similar to uber eats)
+-   [✅] Users will be able to sort food by category of food (similar to uber eats)
 -   [✅] There will be a category of food associated with each post
 -   [✅] Users can only delete or edit posts if they created the posts
 -   [ ] When a user creates a post, they will be directed to the detail page
