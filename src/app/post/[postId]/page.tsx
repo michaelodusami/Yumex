@@ -10,7 +10,7 @@ import { UpvoteSymbol } from "@/app/ui/components/symbols";
 import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
 import { getIdFromUser } from "@/app/lib/data";
 import Commment from "@/app/ui/components/Comment";
-import { navLargeWidth, navMediumWidth } from "@/app/ui/util/sizes";
+import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/ui/util/sizes";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const postId = params.postId;
@@ -75,18 +75,19 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 
 	return (
 		<HomeContainer>
-			<div
-				className={"w-full mt-5 min-h-[100vh] mx-auto p-8" + navLargeWidth + navMediumWidth}
-			>
+			<div className={"w-full mt-5 min-h-[100vh] mx-auto p-8" + singleColWidth}>
 				{/* posts */}
 				<div>
 					{/* icon and username + title */}
 					<div className="flex gap-5">
 						<div className="flex-col items-center mb-6">
 							<h1 className="text-2xl">{postUpvotes}</h1>
-							<div className="">
-								<button className="border-none" onClick={handleUpvotes}>
-									<UpvoteSymbol styles="w-[25px] h-full" />
+							<div className="flex items-center justify-center">
+								<button
+									className="border-none flex items-center justify-center"
+									onClick={handleUpvotes}
+								>
+									<UpvoteSymbol styles="w-[1.5rem] h-full" />
 								</button>
 							</div>
 						</div>
