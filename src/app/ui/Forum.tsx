@@ -6,6 +6,7 @@ import Post from "./components/Post";
 import { SearchContext } from "./context/SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
 import { navMediumWidth, navLargeWidth, singleColWidth } from "./util/sizes";
+import CategorySelector from "./components/CategorySelector";
 
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);
@@ -38,7 +39,12 @@ const Forum: React.FC = () => {
 			}
 		>
 			<div className="mb-8">
-				<div className="h-8 w-[100%] rounded dark:bg-white ">
+				<div className="w-full mb-8">
+					<div className="">
+						<CategorySelector />
+					</div>
+				</div>
+				<div className="h-8 w-[100%] rounded ">
 					<div className="w-full flex items-center">
 						<div className="hidden md:block md:flex-1">
 							<button
