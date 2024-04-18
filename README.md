@@ -42,7 +42,7 @@ The following **additional** features are implemented:
 -   [✅] Users must make an account to use the website and all information posted or commented will be refrenced by their account
 -   [✅] Users can only delete a post or comment if they are the ones who created it
 -   [ ] When users sign out, the avatr icon is not there anymore
--   [ ] The category selector on the homepage acts as a sliding carosuel making adding more categories easier to slide through
+-   [✅] The category selector on the homepage acts as a sliding carosuel making adding more categories easier to slide through
 
 # To Fix
 
