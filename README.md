@@ -55,6 +55,7 @@ The following **additional** features are implemented:
 # To Fix
 
 -   [ ] if a user uploads an nivalid type, they must be able to be able to upload another image
+-   [ ] sizing on the post when in grid style on ipad devices
 
 ## Video Walkthrough
 
