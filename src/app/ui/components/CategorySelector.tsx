@@ -3,6 +3,7 @@ import { food_categories } from "@/app/lib/model";
 import { food_category_images } from "@/app/lib/model";
 import { useState } from "react";
 import Image from "next/image";
+import "@/app/ui/styles/categoryslider.css";
 
 const CategorySelector: React.FC<{ setSelectedCategory: any }> = ({ setSelectedCategory }) => {
 	const categories = Object.values(food_categories);
@@ -16,8 +17,8 @@ const CategorySelector: React.FC<{ setSelectedCategory: any }> = ({ setSelectedC
 
 	return (
 		<>
-			<div className="overflow-x-auto">
-				<ul className="flex justify-between whitespace-nowrap">
+			<div className="overflow-x-auto scrollbar-hidden">
+				<ul className="flex justify-between whitespace-nowrap gap-3">
 					{categories.map((food_type, index) => {
 						const isActive = activeCategory === food_type;
 						return (
@@ -38,7 +39,7 @@ const CategorySelector: React.FC<{ setSelectedCategory: any }> = ({ setSelectedC
 											width={20}
 											height={20}
 										/>
-										<span className="capitalize text-[0.65rem] md:text-[1rem]">
+										<span className="capitalize text-[0.80rem] md:text-[1rem]">
 											{food_type}
 										</span>
 									</button>
