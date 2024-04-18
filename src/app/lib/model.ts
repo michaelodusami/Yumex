@@ -14,6 +14,7 @@ export const food_categories = {
 	dessert: "dessert",
 	healthy: "healthy",
 	pastry: "pastry",
+	indian: "indian",
 };
 
 export const food_category_images = {
@@ -25,6 +26,7 @@ export const food_category_images = {
 	dessert: "/category_images/dessert.png",
 	healthy: "/category_images/healthy.png",
 	pastry: "/category_images/pastry.png",
+	indian: "/category_images/indian.png",
 };
 
 /**

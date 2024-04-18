@@ -7,5 +7,5 @@ export const categoryColors: Record<string, string> = {
 	dessert: "#FFFDD0", // cream
 	healthy: "#d8ffc2", // light green
 	pastry: "#F5F5DC", // creamy beige
-	indian: "#ede7dd",
+	indian: "#F4C430",
 };
