@@ -81,6 +81,22 @@ export const fetchPostsFromDatabase = async (sortOption: string) => {
 };
 
 /**
+ * Fetches posts from the database by category.
+ * @param {string} category The category to filter posts by.
+ * @returns {Promise<any[]>} A Promise that resolves to an array of posts.
+ */
+export const fetchPostsFromDatabaseByCategory = async (category: String, sortOption: string) => {
+	const { data } = await supabase
+		.from("Posts")
+		.select()
+		.order(sortOption === "last created" ? "created_at" : "upvotes", {
+			ascending: false,
+		})
+		.eq("category", category);
+	return data;
+};
+
+/**
  * Retrieves the public URL of a post image from the storage bucket.
  * @param {string} filePath - The file path of the post image.
  * @returns {Promise<string>} The public URL of the post image.
