@@ -1,7 +1,10 @@
 "use client";
 
 import { defaultContentText } from "../util/texts";
-import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
+import {
+	EllipsisHorizontalCircleIcon,
+	ChatBubbleBottomCenterTextIcon,
+} from "@heroicons/react/24/outline";
 import { AsyncImage, AsyncUserEmail } from "@/app/ui/components/async_components";
 import Link from "next/link";
 import { all_routes } from "@/app/lib/model";
