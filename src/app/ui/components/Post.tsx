@@ -96,7 +96,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 				</p>
 				{/* user information */}
 				<div className="w-full flex justify-between">
-					<p>Upvotes: {postUpvotes}</p>
+					<p>Likes: {postUpvotes}</p>
 					<button onClick={handleUpvotes}>
 						<UpvoteSymbol styles={"cursor-pointer" + UPVOTE_SYMBOL_WH} />
 					</button>
