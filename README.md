@@ -52,6 +52,14 @@ The following **additional** features are implemented:
     -   [ ] see all the posts that they have saved
     -   [ ] sign out
 -   [ ] every post has a save button on it
+-   [ ] The Nav Is A Sidebar Which Includes Links To:
+    -   [ ] Home
+    -   [ ] Saved Comments
+    -   [ ] Messages (DM)
+    -   [ ] Saved Posts (Bookmarks)
+    -   [ ] Premium Feature
+    -   [ ] Profile
+    -   [ ] Settings
 
 # To Fix
 
