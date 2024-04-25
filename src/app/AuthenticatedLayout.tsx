@@ -26,7 +26,7 @@ export default function AuthenticatedLayout({ children }: Readonly<{ children: R
 								<h1 className="text-4xl font-bold text-center text-black">Yumex</h1>
 							</div>
 							<div>
-								<h2 className="mb-4 text-2xl font-semibold">Sign In</h2>
+								{/* <h2 className="mb-4 text-2xl font-semibold">Welcome</h2> */}
 								<Auth
 									supabaseClient={supabase}
 									appearance={{ theme: ThemeSupa }}
