@@ -44,7 +44,7 @@ The following **additional** features are implemented:
 -   [✅] Users can only delete a post or comment if they are the ones who created it
 -   [✅] When users sign out, the avatr icon is not there anymore
 -   [✅] The category selector on the homepage acts as a sliding carosuel making adding more categories easier to slide through
--   [ ] there is a counter for the amount of comments on each posts
+-   [🚧] there is a counter for the amount of comments on each posts
 -   [ ] when creating a post, users can insert any links, recipes, and etc
 -   [ ] **users have their profile page where they can do the following**:
     -   [ ] update a profile picture (and they can resize it at need)
