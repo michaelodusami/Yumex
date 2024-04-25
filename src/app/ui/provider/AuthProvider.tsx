@@ -4,7 +4,7 @@ import { supabase } from "@/app/lib/server";
 
 const AuthContext = createContext<any | null>(null);
 
-const AuthProvider: React.FC<{ children: any }> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: any }> = ({ children }) => {
 	const [session, setSession] = useState<any>(null);
 
 	useEffect(() => {
@@ -24,7 +24,7 @@ const AuthProvider: React.FC<{ children: any }> = ({ children }) => {
 	return <AuthContext.Provider value={{ session }}>{children}</AuthContext.Provider>;
 };
 
-const useAuth = () => {
+export const useAuth = () => {
 	const authContext = useContext(AuthContext);
 	if (!authContext) {
 		throw new Error("useAuth must be used within an AuthProvider");
