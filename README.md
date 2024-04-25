@@ -40,8 +40,9 @@ The following **additional** features are implemented:
 -   [✅] Users can only delete or edit posts if they created the posts
 -   [✅]] When a user creates a post, they will be directed to the detail page
 -   [✅] Users must make an account to use the website and all information posted or commented will be refrenced by their account
+-   [✅] Users cannot access functionality of the page without making an account
 -   [✅] Users can only delete a post or comment if they are the ones who created it
--   [ ] When users sign out, the avatr icon is not there anymore
+-   [✅] When users sign out, the avatr icon is not there anymore
 -   [✅] The category selector on the homepage acts as a sliding carosuel making adding more categories easier to slide through
 -   [ ] there is a counter for the amount of comments on each posts
 -   [ ] when creating a post, users can insert any links, recipes, and etc
