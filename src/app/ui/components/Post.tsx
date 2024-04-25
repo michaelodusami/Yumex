@@ -52,7 +52,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 
 	const handleDeletePost = async () => {
 		await deletePost(post.id, post.post_image_filepath);
-		window.location = "/";
+		window.location = all_routes.home;
 		window.alert("Post Deleted");
 	};
 
