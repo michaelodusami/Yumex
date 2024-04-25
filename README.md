@@ -4,7 +4,7 @@ Submitted by: **Michael-Andre Odusami**
 
 This web app: **insert description**
 
-Time spent: **12** hours spent in total
+Time spent: **13** hours spent in total
 
 ## Required Features
 
