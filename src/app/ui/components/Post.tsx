@@ -10,7 +10,7 @@ import Link from "next/link";
 import { all_routes } from "@/app/lib/model";
 import { getFormattedDate } from "@/app/lib/utils";
 import { categoryColors } from "../util/colors";
-import { increaseUpvotes, getIdFromUser, deletePost } from "@/app/lib/data";
+import { increaseUpvotes, getIdFromUser, deletePost, getComments } from "@/app/lib/data";
 import { useEffect, useState } from "react";
 import { ChatBubbleSymbol, UpvoteSymbol } from "./symbols";
 import AvatarLogo from "./AvatarLogo";
@@ -27,7 +27,8 @@ import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util/sizes";
 
 const Post: React.FC<{ post: any }> = ({ post }) => {
 	const [postUpvotes, setPostUpvotes] = useState<any>(post.upvotes);
-	const [showEditDeleteButton, setEditDeleteButton] = useState(false);
+	const [showEditDeleteButton, setEditDeleteButton] = useState<Boolean>(false);
+	const [postCommentsCounter, setPostCommentsCounter] = useState<number>(0);
 
 	const handleUpvotes = (e) => {
 		if (postUpvotes !== null) {
@@ -47,8 +48,17 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 				setEditDeleteButton(false);
 			}
 		};
+
 		checkifUserHasPost();
 	}, [post.user_id]);
+
+	useEffect(() => {
+		const updatePostCounter = async () => {
+			const comments = await getComments(post.id);
+			setPostCommentsCounter(comments.data?.length || 0);
+		};
+		updatePostCounter();
+	}, [post.id]);
 
 	const handleDeletePost = async () => {
 		await deletePost(post.id, post.post_image_filepath);
@@ -108,7 +118,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 							<ChatBubbleSymbol styles={UPVOTE_SYMBOL_WH} />
 						</Link>
 
-						<span>{0}</span>
+						<span>{postCommentsCounter}</span>
 					</p>
 				</div>
 
