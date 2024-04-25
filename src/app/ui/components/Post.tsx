@@ -12,7 +12,7 @@ import { getFormattedDate } from "@/app/lib/utils";
 import { categoryColors } from "../util/colors";
 import { increaseUpvotes, getIdFromUser, deletePost } from "@/app/lib/data";
 import { useEffect, useState } from "react";
-import { UpvoteSymbol } from "./symbols";
+import { ChatBubbleSymbol, UpvoteSymbol } from "./symbols";
 import AvatarLogo from "./AvatarLogo";
 
 import {
@@ -100,6 +100,16 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 					<button onClick={handleUpvotes}>
 						<UpvoteSymbol styles={"cursor-pointer" + UPVOTE_SYMBOL_WH} />
 					</button>
+				</div>
+
+				<div className="w-full">
+					<p className="flex items-center gap-1">
+						<Link href={all_routes.post + post.id}>
+							<ChatBubbleSymbol styles={UPVOTE_SYMBOL_WH} />
+						</Link>
+
+						<span>{0}</span>
+					</p>
 				</div>
 
 				<p className="text-sm italic">Posted At: {getFormattedDate(post.created_at)}</p>
