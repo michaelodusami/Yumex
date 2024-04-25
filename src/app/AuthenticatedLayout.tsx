@@ -5,6 +5,7 @@ import { HomeContainer } from "./page";
 import { supabase } from "./lib/server";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useAuth } from "./ui/provider/AuthProvider";
+import { poppins } from "./ui/util/fonts";
 
 export default function AuthenticatedLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	const { session } = useAuth();
@@ -12,14 +13,24 @@ export default function AuthenticatedLayout({ children }: Readonly<{ children: R
 	if (!session) {
 		return (
 			<HomeContainer>
-				<div className="w-full lg:w-[50%] mt-5 mx-auto">
-					<div className="min-h-[80%] mx-auto border p-5 rounded-md">
-						<h1>Sign In</h1>
-						<Auth
-							supabaseClient={supabase}
-							appearance={{ theme: ThemeSupa }}
-							providers={[]}
-						/>
+				<div
+					className={
+						poppins.className +
+						" flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600"
+					}
+				>
+					<div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg m-3">
+						<div className="mb-8">
+							<h1 className="text-4xl font-bold text-center text-blue-600">Yumex</h1>
+						</div>
+						<div>
+							<h2 className="mb-4 text-2xl font-semibold">Sign In</h2>
+							<Auth
+								supabaseClient={supabase}
+								appearance={{ theme: ThemeSupa }}
+								providers={[]}
+							/>
+						</div>
 					</div>
 				</div>
 			</HomeContainer>
