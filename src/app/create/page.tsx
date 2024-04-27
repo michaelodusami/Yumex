@@ -72,14 +72,12 @@ export default function Page() {
 	return (
 		<AuthenticatedLayout>
 			<main className="min-h-screen">
-				<div className={"mx-auto" + navLargeWidth + navMediumWidth}>
-					<div className="w-full mx-auto mt-5">
-						<h1 className="text-2xl font-bold">Create Post</h1>
+				<div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+					<div className="px-4 py-6 sm:px-0">
+						<h1 className="text-3xl font-bold text-gray-900 mb-4">Create Post</h1>
 					</div>
-					<div className="w-full mx-auto flex flex-col lg:flex-row gap-5 p-5">
-						{/* Post Previw */}
-						<div className="lg:w-[40%] w-full">
-							{/* <PostSkeleton /> */}
+					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+						<div>
 							<PostPreview
 								file={formData.file}
 								title={formData.title}
@@ -88,39 +86,27 @@ export default function Page() {
 								post_image_filepath={formData.post_image_filepath}
 							/>
 						</div>
-						<div className="flex flex-col flex-1 gap-5 ">
-							{/* the image uploader */}
-							<div className="">
-								{/* <ImageUploaderSkeleton /> */}
+						<div className="flex flex-col gap-8">
+							<div>
 								<ImageUploader setFormData={setFormData} />
 							</div>
-							{/* writing the edited version */}
 							<div className="flex-1">
-								{/* <CreatePostSkeleton /> */}
 								<CreateForm setFormData={setFormData} />
 							</div>
-							<div className="flex-1 flex md:items-end">
-								<div
-									className={
-										"w-full md:w-[50%] mx-auto flex justify-center items-center"
-									}
+							<div className="flex justify-end">
+								<button
+									type="button"
+									onClick={handleCreatePost}
+									className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300"
 								>
-									<button
-										type="button"
-										onClick={handleCreatePost}
-										className="border rounded-md p-2 text-xl bg-black text-white dark:bg-white dark:text-black w-full transition-all"
-									>
-										Create
-									</button>
-								</div>
+									Create
+								</button>
 							</div>
 						</div>
 					</div>
-					{errorMessage !== "" ? (
-						<p className="text-red-400 w-full mx-auto text-center">
-							Error: {errorMessage}
-						</p>
-					) : null}
+					{errorMessage !== "" && (
+						<p className="text-red-500 text-center mt-4">Error: {errorMessage}</p>
+					)}
 				</div>
 			</main>
 		</AuthenticatedLayout>
