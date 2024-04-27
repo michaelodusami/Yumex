@@ -9,6 +9,8 @@ import { useState, useEffect } from "react";
 import { getEmailFromUser } from "@/app/lib/data";
 import { getUserNameUpToEmailSymbol } from "@/app/lib/utils";
 import Category from "./Category";
+import { categoryColors } from "../util/colors";
+import { ChatBubbleSymbol } from "./symbols";
 import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util/sizes";
 
 const PostPreview: React.FC<FormData> = ({
@@ -70,7 +72,7 @@ const PostPreview: React.FC<FormData> = ({
 						{userEmail ? getUserNameUpToEmailSymbol(userEmail) : "Temp User"}
 					</span>
 					{/* category tag of what type of food it is */}
-					<Category category={category} />
+					<Category category={category || "asian"} />
 				</div>
 			</div>
 		</div>
