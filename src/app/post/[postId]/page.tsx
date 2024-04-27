@@ -77,7 +77,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	return (
 		<AuthenticatedLayout>
 			<HomeContainer>
-				<div className="max-w-3xl mx-auto p-8">
+				<div className="max-w-3xl mx-auto p-2 md:p-8">
 					<div className="bg-white shadow-md rounded-lg p-8">
 						<div className="flex items-center mb-8">
 							<div className="mr-6">
