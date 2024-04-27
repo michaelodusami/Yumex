@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter } from "@/app/ui/util/fonts";
+import { inter, poppins } from "@/app/ui/util/fonts";
 import "./globals.css";
 import { AuthProvider } from "./ui/provider/AuthProvider";
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en">
-			<body className={inter.className + "antialiased"}>
+			<body className={poppins.className + "antialiased"}>
 				<AuthProvider>{children}</AuthProvider>
 			</body>
 		</html>
