@@ -9,7 +9,7 @@ import Category from "@/app/ui/components/Category";
 import { UpvoteSymbol } from "@/app/ui/components/symbols";
 import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
 import { getIdFromUser } from "@/app/lib/data";
-import Commment from "@/app/ui/components/Comment";
+import Comment from "@/app/ui/components/Comment";
 import AuthenticatedLayout from "@/app/AuthenticatedLayout";
 import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/ui/util/sizes";
 
@@ -77,95 +77,74 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	return (
 		<AuthenticatedLayout>
 			<HomeContainer>
-				<div className={"w-full mt-5 min-h-[100vh] mx-auto p-8" + singleColWidth}>
-					{/* posts */}
-					<div>
-						{/* icon and username + title */}
-						<div className="flex gap-5">
-							<div className="flex-col items-center mb-6">
-								<h1 className="text-2xl">{postUpvotes}</h1>
-								<div className="flex items-center justify-center">
-									<button
-										className="border-none flex items-center justify-center"
-										onClick={handleUpvotes}
-									>
-										<UpvoteSymbol styles="w-[1.5rem] h-full" />
-									</button>
-								</div>
+				<div className="max-w-3xl mx-auto p-8">
+					<div className="bg-white shadow-md rounded-lg p-8">
+						<div className="flex items-center mb-8">
+							<div className="mr-6">
+								<AvatarLogo />
 							</div>
-
-							<div className="flex items-center mb-6 flex-1">
-								<div className="mr-4">
-									<AvatarLogo />
+							<div>
+								<div className="text-xl font-semibold">
+									<AsyncUserEmail user_id={post.user_id} />
 								</div>
-								<div>
-									{/* user */}
-									<div className="text-xl font-semibold">
-										<span>
-											<AsyncUserEmail user_id={post.user_id} />
-										</span>
-									</div>
-									{/* data */}
-									<div className="text-gray-400">
-										Posted At: {getFormattedDate(post.created_at)}
-									</div>
+								<div className="text-gray-500">
+									Posted At: {getFormattedDate(post.created_at)}
 								</div>
 							</div>
 						</div>
-						{/* Title */}
-						<div className="text-2xl lg:text-3xl xl:text-3xl font-bold mb-6 flex justify-between items-center">
-							<p>{post.title}</p>
-							<p>
-								<Category category={post.category} />
-							</p>
+						<div className="text-3xl font-bold mb-4 flex justify-between items-center">
+							<h1>{post.title}</h1>
+							<Category category={post.category} />
 						</div>
-						{/* Image */}
-						<div className="mb-6">
+						<div className="mb-8">
 							<AsyncImage filepath={post.post_image_filepath} title={post.title} />
 						</div>
-						{/* Content */}
 						<div className="text-lg mb-8">
 							<p>{post.content}</p>
 						</div>
-					</div>
-					{/* comments */}
-					<div>
-						<div className="mb-5">
-							<h3 className="font-bold opacity-50">Comments: </h3>
-						</div>
-
-						<div>
-							{/* comments */}
-							<form className="mt-8 flex gap-8">
-								<input
-									type="text"
-									placeholder="Add a comment"
-									onChange={onChange}
-									value={comment}
-									className="p-2 border-b focus:border-b-gray-700 w-full outline-none"
-								/>
+						<div className="flex items-center justify-between">
+							<div className="flex items-center">
 								<button
-									onClick={onSubmit}
-									className="px-4 py-2 hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-white rounded-lg"
+									className="flex items-center text-gray-500 hover:text-blue-500 transition duration-300"
+									onClick={handleUpvotes}
 								>
-									Submit
+									<UpvoteSymbol styles="w-6 h-6 mr-1" />
+									<span>{postUpvotes}</span>
 								</button>
-							</form>
-							<div className="flex flex-col gap-4 pt-12">
-								{commentList
-									.sort((a, b) => {
-										const aDate = new Date(a.created_at);
-										const bDate = new Date(b.created_at);
-										return +bDate - +aDate;
-									})
-									.map((comment) => (
-										<Commment
-											key={comment.id}
-											comment={comment}
-											setCommentList={setCommentList}
-										/>
-									))}
 							</div>
+						</div>
+					</div>
+					<div className="mt-12">
+						<h3 className="text-xl font-semibold mb-4">Comments</h3>
+						<form className="mb-8 flex gap-4" onSubmit={onSubmit}>
+							<input
+								type="text"
+								placeholder="Add a comment"
+								onChange={onChange}
+								value={comment}
+								className="flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+							/>
+							<button
+								type="submit"
+								className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+							>
+								Submit
+							</button>
+						</form>
+						<div className="space-y-6">
+							{commentList
+								.sort((a, b) => {
+									const aDate = new Date(a.created_at);
+									const bDate = new Date(b.created_at);
+									return +bDate - +aDate;
+								})
+								.map((comment) => (
+									<Comment
+										key={comment.id}
+										comment={comment}
+										setCommentList={setCommentList}
+									/>
+								))}
 						</div>
 					</div>
 				</div>
