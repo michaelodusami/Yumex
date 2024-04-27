@@ -73,7 +73,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 		>
 			<div className="flex items-center justify-between mb-4">
 				<div className="flex items-center space-x-4">
-					<AvatarLogo styles="w-12 h-12 rounded-full" />
+					<AvatarLogo styles="w-12 h-12 rounded-full" fallback="" />
 					<div>
 						<span className="font-semibold text-lg">
 							<AsyncUserEmail user_id={post.user_id} />
