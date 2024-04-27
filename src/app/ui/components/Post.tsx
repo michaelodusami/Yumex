@@ -69,7 +69,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 	return (
 		<div
 			key={post.id}
-			className="bg-white rounded-lg shadow-md p-6 mb-8 transition-all duration-500 ease-in-out hover:shadow-lg"
+			className=" rounded-lg shadow-md p-6 mb-8 transition-all duration-500 ease-in-out hover:shadow-lg"
 		>
 			<div className="flex items-center justify-between mb-4">
 				<div className="flex items-center space-x-4">
