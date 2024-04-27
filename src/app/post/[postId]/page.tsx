@@ -32,17 +32,16 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	}, [params, postId]);
 
 	useEffect(() => {
+		const getCommentList = async () => {
+			const { data, error } = await getComments(postId);
+			if (!error && data) {
+				setCommentList(data);
+			} else {
+				setCommentList([]);
+			}
+		};
 		getCommentList();
-	}, []);
-
-	const getCommentList = async () => {
-		const { data, error } = await getComments(postId);
-		if (!error && data) {
-			setCommentList(data);
-		} else {
-			setCommentList([]);
-		}
-	};
+	}, [postId]);
 
 	const onChange = (event) => {
 		const commentValue = event.target.value;
