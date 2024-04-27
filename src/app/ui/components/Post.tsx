@@ -69,77 +69,71 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 	return (
 		<div
 			key={post.id}
-			className="rounded-lg dark:shadow-neutral-800 p-4 shadow relative transition-all duration-500 ease-in-out"
+			className="bg-white rounded-lg shadow-md p-6 mb-8 transition-all duration-500 ease-in-out hover:shadow-lg"
 		>
-			<div className="w-full lg:w-[95%] mx-auto">
-				{/* food image */}
-				<Link href={all_routes.post + post.id}>
-					<AsyncImage filepath={post.post_image_filepath} title={post.title} />
-				</Link>
-
-				<div className="flex w-full justify-between">
+			<div className="flex items-center justify-between mb-4">
+				<div className="flex items-center space-x-4">
+					<AvatarLogo styles="w-12 h-12 rounded-full" />
 					<div>
-						{/* title */}
-						<h2 className="mb-2 text-xl font-bold line-clamp-1">{post.title}</h2>
-					</div>
-					{showEditDeleteButton && (
-						<div>
-							<DropdownMenu>
-								<DropdownMenuTrigger>
-									<EllipsisHorizontalCircleIcon className="w=[25px] h-[25px]" />
-								</DropdownMenuTrigger>
-								<DropdownMenuContent>
-									<DropdownMenuLabel>Post Options</DropdownMenuLabel>
-									<DropdownMenuSeparator />
-									<DropdownMenuItem onClick={handleDeletePost}>
-										Delete Post
-									</DropdownMenuItem>
-								</DropdownMenuContent>
-							</DropdownMenu>
-						</div>
-					)}
-				</div>
-
-				{/* content (description) */}
-				<p className={"mb-4 overflow-hidden" + POST_MIN_MAX_HEIGHT}>
-					{post.content ? post.content : defaultContentText}
-				</p>
-				{/* user information */}
-				<div className="w-full flex justify-between">
-					<p>Upvotes: {postUpvotes}</p>
-					<button onClick={handleUpvotes}>
-						<UpvoteSymbol styles={"cursor-pointer" + UPVOTE_SYMBOL_WH} />
-					</button>
-				</div>
-
-				<div className="w-full">
-					<p className="flex items-center gap-1">
-						<Link href={all_routes.post + post.id}>
-							<ChatBubbleSymbol styles={UPVOTE_SYMBOL_WH} />
-						</Link>
-
-						<span>{postCommentsCounter}</span>
-					</p>
-				</div>
-
-				<p className="text-sm italic">Posted At: {getFormattedDate(post.created_at)}</p>
-				<div className="flex space-x-2 mt-5">
-					{/* user profile pic */}
-					<AvatarLogo />
-					<div className="flex justify-between w-full items-center">
-						{/* user who created it */}
-						<span className="block">
+						<span className="font-semibold text-lg">
 							<AsyncUserEmail user_id={post.user_id} />
 						</span>
-						{/* category tag of what type of food it is */}
-						<span
-							style={{ backgroundColor: categoryColors[post.category] }}
-							className="uppercase border block rounded-lg p-2 text-black"
-						>
-							{post.category}
-						</span>
+
+						<p className="text-gray-500 text-sm">{getFormattedDate(post.created_at)}</p>
 					</div>
 				</div>
+				{showEditDeleteButton && (
+					<DropdownMenu>
+						<DropdownMenuTrigger>
+							<EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-500 hover:text-gray-700 cursor-pointer" />
+						</DropdownMenuTrigger>
+						<DropdownMenuContent>
+							<DropdownMenuLabel>Post Options</DropdownMenuLabel>
+							<DropdownMenuSeparator />
+							<DropdownMenuItem onClick={handleDeletePost}>
+								Delete Post
+							</DropdownMenuItem>
+						</DropdownMenuContent>
+					</DropdownMenu>
+				)}
+			</div>
+
+			<Link href={all_routes.post + post.id}>
+				<AsyncImage
+					filepath={post.post_image_filepath}
+					title={post.title}
+					styles="w-full h-64 object-cover rounded-lg mb-4 hover:opacity-90 transition duration-300"
+				/>
+			</Link>
+
+			<h2 className="text-2xl font-bold mb-2 line-clamp-1">{post.title}</h2>
+			<p className="text-gray-700 mb-4 line-clamp-3">
+				{post.content ? post.content : defaultContentText}
+			</p>
+
+			<div className="flex justify-between items-center mb-4">
+				<div className="flex items-center space-x-2">
+					<button
+						onClick={handleUpvotes}
+						className="flex items-center text-gray-500 hover:text-blue-500 transition duration-300"
+					>
+						<UpvoteSymbol styles="w-6 h-6 mr-1" />
+						<span>{postUpvotes}</span>
+					</button>
+					<Link
+						href={all_routes.post + post.id}
+						className="flex items-center text-gray-500 hover:text-blue-500 transition duration-300"
+					>
+						<ChatBubbleSymbol styles="w-6 h-6 mr-1" />
+						<span>{postCommentsCounter}</span>
+					</Link>
+				</div>
+				<span
+					style={{ backgroundColor: categoryColors[post.category] }}
+					className="inline-block px-3 py-1 rounded-full text-sm font-semibold"
+				>
+					{post.category}
+				</span>
 			</div>
 		</div>
 	);

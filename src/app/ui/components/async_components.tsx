@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { getUserInfoByIdFromDatabase, fetchPostImageFromDatbase } from "../../lib/data";
 
-export const AsyncImage: React.FC<{ filepath: string; title: string }> = ({ filepath, title }) => {
+export const AsyncImage: React.FC<{ filepath: string; title: string; styles: string }> = ({
+	filepath,
+	title,
+	styles = "mb-4 h-48 w-full rounded object-cover md:h-[20rem] lg:h-[20rem]",
+}) => {
 	const [imageUrl, setImageUrl] = useState("");
 
 	useEffect(() => {
@@ -22,7 +26,7 @@ export const AsyncImage: React.FC<{ filepath: string; title: string }> = ({ file
 			width={1296}
 			height={728}
 			alt={title}
-			className="mb-4 h-48 w-full rounded object-cover md:h-[20rem] lg:h-[20rem]"
+			className={styles}
 		/>
 	);
 };

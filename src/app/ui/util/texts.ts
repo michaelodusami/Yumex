@@ -1,4 +1,4 @@
-export const defaultContentText = "...";
+export const defaultContentText = " ";
 
 // Post Previw Information
 export const postPreviewContentText =
