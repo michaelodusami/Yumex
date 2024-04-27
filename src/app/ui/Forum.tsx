@@ -11,7 +11,7 @@ import CategorySelector from "./components/CategorySelector";
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);
 	const [posts, setPosts] = useState<any>(null);
-	const [gridStyle, setGridStyle] = useState<Boolean>(false); // toggle grid style (extra functionaloty)
+	// const [gridStyle, setGridStyle] = useState<Boolean>(false); // toggle grid style (extra functionaloty)
 	const [selectedSort, setSelectedSort] = useState("last created");
 	const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -28,10 +28,10 @@ const Forum: React.FC = () => {
 		fetchPost();
 	}, [selectedSort, selectedCategory]);
 
-	const handleGridStyleToggled = (e) => {
-		e.preventDefault();
-		setGridStyle(!gridStyle);
-	};
+	// const handleGridStyleToggled = (e) => {
+	// 	e.preventDefault();
+	// 	setGridStyle(!gridStyle);
+	// };
 
 	const filteredPosts = posts?.filter((post) =>
 		post.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -40,8 +40,8 @@ const Forum: React.FC = () => {
 	return (
 		<div
 			className={
-				"container mx-auto px-4 py-8 w-full duration-500 ease-in-out" +
-				(gridStyle ? navLargeWidth + navMediumWidth : singleColWidth)
+				"container mx-auto px-4 py-8 w-full duration-500 ease-in-out"
+				// (gridStyle ? navLargeWidth + navMediumWidth : singleColWidth)
 			}
 		>
 			<div className="mb-8">
@@ -52,14 +52,14 @@ const Forum: React.FC = () => {
 				</div>
 				<div className="h-8 w-[100%] rounded ">
 					<div className="w-full flex items-center">
-						<div className="hidden md:block md:flex-1">
+						{/* <div className="hidden  md:block md:flex-1">
 							<button
 								onClick={handleGridStyleToggled}
 								className="hover:rotate-180 duration-500 ease-in-out transition-all cursor-pointer"
 							>
 								<Squares2X2Icon className="w-[20px]" />
 							</button>
-						</div>
+						</div> */}
 						<div className="flex items-center">
 							<p className="">Sort By: </p>
 							<select
@@ -76,11 +76,7 @@ const Forum: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			<div
-				className={
-					"grid grid-cols-1 gap-4 " + (gridStyle && "md:grid-cols-3 lg:grid-cols-3")
-				}
-			>
+			<div className={"grid grid-cols-1 gap-4 md:grid-cols-3"}>
 				{posts != null && posts.length >= 1 ? (
 					filteredPosts?.map((post) => <Post key={post.id} post={post} />)
 				) : (
