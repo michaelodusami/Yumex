@@ -1,7 +1,7 @@
 import Nav from "@/app/ui/nav";
 import { Auth } from "@supabase/auth-ui-react";
 import { SearchProvider } from "./ui/context/SearchContext";
-import { HomeContainer } from "./page";
+import HomeContainer from "@/app/HomeContainer";
 import { supabase } from "./lib/server";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useAuth } from "./ui/provider/AuthProvider";

@@ -2,7 +2,7 @@
 
 import Forum from "./ui/Forum";
 import AuthenticatedLayout from "./AuthenticatedLayout";
-
+import HomeContainer from "./HomeContainer";
 export default function Home() {
 	return (
 		<AuthenticatedLayout>
@@ -14,12 +14,4 @@ export default function Home() {
 			</HomeContainer>
 		</AuthenticatedLayout>
 	);
-}
-
-export function HomeContainer({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
-	return <main className="min-h-screen">{children}</main>;
 }

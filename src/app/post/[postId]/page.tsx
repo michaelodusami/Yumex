@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { HomeContainer } from "@/app/page";
+import HomeContainer from "@/app/HomeContainer";
 import { fetchPost } from "@/app/lib/data";
 import AvatarLogo from "@/app/ui/components/AvatarLogo";
 import { AsyncUserEmail, AsyncImage } from "@/app/ui/components/async_components";
@@ -49,6 +49,14 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	};
 
 	const onSubmit = async (e) => {
+		const getCommentList = async () => {
+			const { data, error } = await getComments(postId);
+			if (!error && data) {
+				setCommentList(data);
+			} else {
+				setCommentList([]);
+			}
+		};
 		e.preventDefault();
 		const current_user_id = await getIdFromUser(); // gets the id of user from the current session
 		const comment_obj = { post_id: post.id, user_id: current_user_id, payload: comment };
