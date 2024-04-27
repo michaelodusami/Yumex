@@ -11,7 +11,7 @@ import { phoneIconWH, navLargeWidth, navMediumWidth } from "./util/sizes";
 export default function Nav() {
 	const [showProfileIcon, setProfileIcon] = useState(true);
 
-	const handleSignOut = async (e) => {
+	const handleSignOut = async (e: any) => {
 		const { error } = await supabase.auth.signOut();
 		if (!error) {
 			setProfileIcon(false);
