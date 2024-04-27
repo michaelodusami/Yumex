@@ -130,7 +130,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 				</div>
 				<span
 					style={{ backgroundColor: categoryColors[post.category] }}
-					className="inline-block px-3 py-1 rounded-full text-sm font-semibold"
+					className="inline-block px-3 py-1 rounded-full text-sm font-semibold uppercase"
 				>
 					{post.category}
 				</span>
