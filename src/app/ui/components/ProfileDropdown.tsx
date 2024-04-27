@@ -13,7 +13,7 @@ export const ProfileDropDown: React.FC<{ handleSignOut: any }> = ({ handleSignOu
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger>
-				<AvatarLogo styles={phoneAvatarIconDropdownWH} />
+				<AvatarLogo styles={phoneAvatarIconDropdownWH} src={""} fallback={""} />
 			</DropdownMenuTrigger>
 			<DropdownMenuContent>
 				<DropdownMenuLabel>My Account</DropdownMenuLabel>

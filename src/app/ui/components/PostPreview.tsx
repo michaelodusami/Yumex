@@ -36,7 +36,7 @@ const PostPreview: React.FC<FormData> = ({
 		<div className="rounded-lg shadow-md p-6 mb-8 transition-all duration-500 ease-in-out hover:shadow-lg">
 			<div className="flex items-center justify-between mb-4">
 				<div className="flex items-center space-x-4">
-					<AvatarLogo styles="w-12 h-12 rounded-full" fallback="" />
+					<AvatarLogo styles="w-12 h-12 rounded-full" fallback="" src={""} />
 					<div>
 						<span className="font-semibold text-lg">
 							{userEmail ? getUserNameUpToEmailSymbol(userEmail) : "Temp User"}

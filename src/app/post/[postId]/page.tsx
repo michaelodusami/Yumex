@@ -43,12 +43,12 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 		getCommentList();
 	}, [postId]);
 
-	const onChange = (event) => {
+	const onChange = (event: any) => {
 		const commentValue = event.target.value;
 		setComment(commentValue);
 	};
 
-	const onSubmit = async (e) => {
+	const onSubmit = async (e: any) => {
 		const getCommentList = async () => {
 			const { data, error } = await getComments(postId);
 			if (!error && data) {
@@ -69,7 +69,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 		getCommentList();
 	};
 
-	const handleUpvotes = (e) => {
+	const handleUpvotes = (e: any) => {
 		if (postUpvotes !== null) {
 			e.preventDefault();
 			increaseUpvotes(post.id, postUpvotes + 1);
@@ -88,7 +88,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 					<div className="bg-white shadow-md rounded-lg p-8">
 						<div className="flex items-center mb-8">
 							<div className="mr-6">
-								<AvatarLogo />
+								<AvatarLogo src={""} fallback={""} styles={""} />
 							</div>
 							<div>
 								<div className="text-xl font-semibold">
@@ -104,7 +104,11 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 							<Category category={post.category} />
 						</div>
 						<div className="mb-8">
-							<AsyncImage filepath={post.post_image_filepath} title={post.title} />
+							<AsyncImage
+								filepath={post.post_image_filepath}
+								title={post.title}
+								styles={""}
+							/>
 						</div>
 						<div className="text-lg mb-8">
 							<p>{post.content}</p>
@@ -140,12 +144,12 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 						</form>
 						<div className="space-y-6">
 							{commentList
-								.sort((a, b) => {
+								.sort((a: any, b: any) => {
 									const aDate = new Date(a.created_at);
 									const bDate = new Date(b.created_at);
 									return +bDate - +aDate;
 								})
-								.map((comment) => (
+								.map((comment: any) => (
 									<Comment
 										key={comment.id}
 										comment={comment}

@@ -12,7 +12,7 @@ interface CreateFormProps {
 const CreateForm: React.FC<CreateFormProps> = ({ setFormData }) => {
 	const [selectedCategory, setSelectedCategory] = useState(Object.entries(food_categories)[0][0]);
 
-	const handleCategoryChange = (e) => {
+	const handleCategoryChange = (e: any) => {
 		setSelectedCategory(e.target.value);
 		setFormData((prevFormData) => ({
 			...prevFormData,
@@ -20,7 +20,7 @@ const CreateForm: React.FC<CreateFormProps> = ({ setFormData }) => {
 		}));
 	};
 
-	const handleFormDataChange = (e) => {
+	const handleFormDataChange = (e: any) => {
 		setFormData((prevFormData) => ({
 			...prevFormData,
 			[e.target.name]: e.target.value,

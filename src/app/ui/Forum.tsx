@@ -33,7 +33,7 @@ const Forum: React.FC = () => {
 	// 	setGridStyle(!gridStyle);
 	// };
 
-	const filteredPosts = posts?.filter((post) =>
+	const filteredPosts = posts?.filter((post: any) =>
 		post.title.toLowerCase().includes(searchQuery.toLowerCase())
 	);
 
@@ -78,7 +78,7 @@ const Forum: React.FC = () => {
 			</div>
 			<div className={"grid grid-cols-1 gap-4 md:grid-cols-3"}>
 				{posts != null && posts.length >= 1 ? (
-					filteredPosts?.map((post) => <Post key={post.id} post={post} />)
+					filteredPosts?.map((post: any) => <Post key={post.id} post={post} />)
 				) : (
 					<div className="w-full">
 						<h1 className="w-full text-2xl">Nothing Here Yet!</h1>

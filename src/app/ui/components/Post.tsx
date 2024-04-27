@@ -30,7 +30,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 	const [showEditDeleteButton, setEditDeleteButton] = useState<Boolean>(false);
 	const [postCommentsCounter, setPostCommentsCounter] = useState<number>(0);
 
-	const handleUpvotes = (e) => {
+	const handleUpvotes = (e: any) => {
 		if (postUpvotes !== null) {
 			e.preventDefault();
 			increaseUpvotes(post.id, postUpvotes + 1);
@@ -73,7 +73,7 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 		>
 			<div className="flex items-center justify-between mb-4">
 				<div className="flex items-center space-x-4">
-					<AvatarLogo styles="w-12 h-12 rounded-full" fallback="" />
+					<AvatarLogo styles="w-12 h-12 rounded-full" fallback="" src={""} />
 					<div>
 						<span className="font-semibold text-lg">
 							<AsyncUserEmail user_id={post.user_id} />

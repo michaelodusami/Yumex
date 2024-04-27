@@ -12,7 +12,7 @@ const CategorySelector: React.FC<{ setSelectedCategory: any }> = ({ setSelectedC
 	const handleSelectedCategory = (e: React.MouseEvent<HTMLButtonElement>) => {
 		const foodType = e.currentTarget.dataset.foodType;
 		setSelectedCategory((prevCategory: any) => (prevCategory === foodType ? "" : foodType));
-		setActiveCategory((prevCategory) => (prevCategory === foodType ? "" : foodType));
+		setActiveCategory((prevCategory: any) => (prevCategory === foodType ? "" : foodType));
 	};
 
 	return (
@@ -34,7 +34,11 @@ const CategorySelector: React.FC<{ setSelectedCategory: any }> = ({ setSelectedC
 										className="flex items-center justify-center flex-col"
 									>
 										<Image
-											src={food_category_images[food_type]}
+											src={
+												food_category_images[
+													food_type as keyof typeof food_category_images
+												]
+											}
 											alt={food_type}
 											width={20}
 											height={20}
