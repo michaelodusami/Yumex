@@ -1,33 +1,20 @@
 "use client";
 
 import { defaultContentText } from "../util/texts";
-import {
-	EllipsisHorizontalCircleIcon,
-	ChatBubbleBottomCenterTextIcon,
-} from "@heroicons/react/24/outline";
+import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 import { AsyncImage, AsyncUserEmail } from "@/app/ui/components/async_components";
 import Link from "next/link";
 import { all_routes } from "@/app/lib/model";
 import { getFormattedDate } from "@/app/lib/utils";
 import { categoryColors } from "../util/colors";
-import { increaseUpvotes, getIdFromUser, deletePost, getComments } from "@/app/lib/data";
+import { increaseUpvotes, getIdFromUser, getComments } from "@/app/lib/data";
 import { useEffect, useState } from "react";
 import { ChatBubbleSymbol, UpvoteSymbol } from "./symbols";
 import AvatarLogo from "./AvatarLogo";
-
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util/sizes";
 
 const Post: React.FC<{ post: any }> = ({ post }) => {
 	const [postUpvotes, setPostUpvotes] = useState<any>(post.upvotes);
-	const [showEditDeleteButton, setEditDeleteButton] = useState<Boolean>(false);
 	const [postCommentsCounter, setPostCommentsCounter] = useState<number>(0);
 
 	const handleUpvotes = (e: any) => {
@@ -39,32 +26,12 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 	};
 
 	useEffect(() => {
-		const checkifUserHasPost = async () => {
-			// get the user id and if the post id mactehs user id then ya
-			const user_id = await getIdFromUser();
-			if (post.user_id == user_id) {
-				setEditDeleteButton(true);
-			} else {
-				setEditDeleteButton(false);
-			}
-		};
-
-		checkifUserHasPost();
-	}, [post.user_id]);
-
-	useEffect(() => {
 		const updatePostCounter = async () => {
 			const comments = await getComments(post.id);
 			setPostCommentsCounter(comments.data?.length || 0);
 		};
 		updatePostCounter();
 	}, [post.id]);
-
-	const handleDeletePost = async () => {
-		await deletePost(post.id, post.post_image_filepath);
-		window.location.href = all_routes.home;
-		window.alert("Post Deleted");
-	};
 
 	return (
 		<div
@@ -82,20 +49,6 @@ const Post: React.FC<{ post: any }> = ({ post }) => {
 						<p className="text-gray-500 text-sm">{getFormattedDate(post.created_at)}</p>
 					</div>
 				</div>
-				{showEditDeleteButton && (
-					<DropdownMenu>
-						<DropdownMenuTrigger>
-							<EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-500 hover:text-gray-700 cursor-pointer" />
-						</DropdownMenuTrigger>
-						<DropdownMenuContent>
-							<DropdownMenuLabel>Post Options</DropdownMenuLabel>
-							<DropdownMenuSeparator />
-							<DropdownMenuItem onClick={handleDeletePost}>
-								Delete Post
-							</DropdownMenuItem>
-						</DropdownMenuContent>
-					</DropdownMenu>
-				)}
 			</div>
 
 			<Link href={all_routes.post + post.id}>

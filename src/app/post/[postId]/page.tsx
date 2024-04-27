@@ -8,9 +8,23 @@ import { getFormattedDate } from "@/app/lib/utils";
 import Category from "@/app/ui/components/Category";
 import { UpvoteSymbol } from "@/app/ui/components/symbols";
 import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
-import { getIdFromUser } from "@/app/lib/data";
+import { getIdFromUser, deletePost } from "@/app/lib/data";
 import Comment from "@/app/ui/components/Comment";
 import AuthenticatedLayout from "@/app/AuthenticatedLayout";
+import {
+	EllipsisHorizontalCircleIcon,
+	ChatBubbleBottomCenterTextIcon,
+} from "@heroicons/react/24/outline";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { all_routes } from "@/app/lib/model";
+
 import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/ui/util/sizes";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
@@ -19,6 +33,23 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	const [postUpvotes, setPostUpvotes] = useState<any>(null);
 	const [comment, setComment] = useState<string>("");
 	const [commentList, setCommentList] = useState<any>([]);
+	const [showEditDeleteButton, setEditDeleteButton] = useState<Boolean>(false);
+
+	useEffect(() => {
+		const checkifUserHasPost = async () => {
+			// get the user id and if the post id mactehs user id then ya
+			const user_id = await getIdFromUser();
+			if (post.user_id == user_id) {
+				setEditDeleteButton(true);
+			} else {
+				setEditDeleteButton(false);
+			}
+		};
+
+		if (post !== null) {
+			checkifUserHasPost();
+		}
+	}, [post]);
 
 	useEffect(() => {
 		const getPost = async () => {
@@ -77,6 +108,12 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 		}
 	};
 
+	const handleDeletePost = async () => {
+		await deletePost(post.id, post.post_image_filepath);
+		window.location.href = all_routes.home;
+		window.alert("Post Deleted");
+	};
+
 	if (post == null) {
 		return null;
 	}
@@ -85,20 +122,38 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 		<AuthenticatedLayout>
 			<HomeContainer>
 				<div className="max-w-3xl mx-auto p-2 md:p-8">
-					<div className="bg-white shadow-md rounded-lg p-8">
-						<div className="flex items-center mb-8">
-							<div className="mr-6">
-								<AvatarLogo src={""} fallback={""} styles={""} />
-							</div>
-							<div>
-								<div className="text-xl font-semibold">
-									<AsyncUserEmail user_id={post.user_id} />
+					<div className=" shadow-md rounded-lg p-8">
+						<div className="flex justify-between">
+							<div className="flex items-center mb-8">
+								<div className="mr-6">
+									<AvatarLogo src={""} fallback={""} styles={""} />
 								</div>
-								<div className="text-gray-500">
-									Posted At: {getFormattedDate(post.created_at)}
+								<div>
+									<div className="text-xl font-semibold">
+										<AsyncUserEmail user_id={post.user_id} />
+									</div>
+									<div className="text-gray-500">
+										Posted At: {getFormattedDate(post.created_at)}
+									</div>
 								</div>
 							</div>
+
+							{showEditDeleteButton && (
+								<DropdownMenu>
+									<DropdownMenuTrigger>
+										<EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-500 hover:text-gray-700 cursor-pointer" />
+									</DropdownMenuTrigger>
+									<DropdownMenuContent>
+										<DropdownMenuLabel>Post Options</DropdownMenuLabel>
+										<DropdownMenuSeparator />
+										<DropdownMenuItem onClick={handleDeletePost}>
+											Delete Post
+										</DropdownMenuItem>
+									</DropdownMenuContent>
+								</DropdownMenu>
+							)}
 						</div>
+
 						<div className="text-3xl font-bold mb-4 flex justify-between items-center">
 							<h1>{post.title}</h1>
 							<Category category={post.category} />
