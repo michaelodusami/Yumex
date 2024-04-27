@@ -45,29 +45,28 @@ export const Commment: React.FC<{ comment: any; setCommentList: any }> = ({
 	};
 
 	return (
-		<div className="border rounded-md p-4 relative">
-			<p className="font-semibold mb-2 flex gap-5 items-center">
-				<AvatarLogo src="/userlogo.png" styles="w-[20px] h-[20px]" />
-				<AsyncUserEmail user_id={comment.user_id} />
-			</p>
-			<p className="font-light">{comment.payload}</p>
-			{showEditDeleteButton && (
-				<button className="absolute right-2 bottom-2 text-red-400 text-sm">
+		<div className="bg-white shadow-md rounded-lg p-6 mb-4">
+			<div className="flex items-center mb-4">
+				<AvatarLogo src="/userlogo.png" styles="w-10 h-10 rounded-full mr-4" />
+				<div>
+					<AsyncUserEmail user_id={comment.user_id} className="font-semibold text-lg" />
+				</div>
+				{showEditDeleteButton && (
 					<DropdownMenu>
 						<DropdownMenuTrigger>
-							<TrashIcon className="w-[18px] h-[18px]" />
+							<TrashIcon className="w-5 h-5 text-gray-500 ml-auto cursor-pointer hover:text-red-500 transition duration-300" />
 						</DropdownMenuTrigger>
 						<DropdownMenuContent>
 							<DropdownMenuLabel>Confirm Deletion</DropdownMenuLabel>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem onClick={deleteComment} className="text-green-500">
-								Yes
+							<DropdownMenuItem onClick={deleteComment} className="text-red-500">
+								Delete
 							</DropdownMenuItem>
-							<DropdownMenuItem className="text-red-500">No</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
-				</button>
-			)}
+				)}
+			</div>
+			<p className="text-gray-700">{comment.payload}</p>
 		</div>
 	);
 };
