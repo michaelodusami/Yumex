@@ -24,7 +24,7 @@ export default function Page() {
 		post_image_filepath: "",
 	});
 
-	const handleCreatePost = async (e) => {
+	const handleCreatePost = async (e: any) => {
 		e.preventDefault();
 		if (formData.title === "") {
 			setErrorMessage("Title Required");
