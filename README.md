@@ -45,26 +45,6 @@ The following **additional** features are implemented:
 -   [✅] When users sign out, the avatr icon is not there anymore
 -   [✅] The category selector on the homepage acts as a sliding carosuel making adding more categories easier to slide through
 -   [✅] there is a counter for the amount of comments on each posts
--   [ ] when creating a post, users can insert any links, recipes, and etc
--   [ ] **users have their profile page where they can do the following**:
-    -   [ ] update a profile picture (and they can resize it at need)
-    -   [ ] see all the posts they have created
-    -   [ ] see all the posts that they have saved
-    -   [ ] sign out
--   [ ] every post has a save button on it
--   [ ] The Nav Is A Sidebar Which Includes Links To:
-    -   [ ] Home
-    -   [ ] Saved Comments
-    -   [ ] Messages (DM)
-    -   [ ] Saved Posts (Bookmarks)
-    -   [ ] Premium Feature
-    -   [ ] Profile
-    -   [ ] Settings
-
-# To Fix
-
--   [ ] if a user uploads an nivalid type, they must be able to be able to upload another image
--   [ ] sizing on the post when in grid style on ipad devices
 
 ## Video Walkthrough
 
