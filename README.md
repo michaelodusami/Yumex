@@ -2,9 +2,9 @@
 
 Submitted by: **Michael-Andre Odusami**
 
-This web app: **insert description**
+This web app: **is a food forum for any user who loves food, loves sharing food or foods they ate, and more!**
 
-Time spent: **13** hours spent in total
+Time spent: **15** hours spent in total
 
 ## Required Features
 
