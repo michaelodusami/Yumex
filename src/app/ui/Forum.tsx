@@ -7,6 +7,8 @@ import { SearchContext } from "./context/SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
 import { navMediumWidth, navLargeWidth, singleColWidth } from "./util/sizes";
 import CategorySelector from "./components/CategorySelector";
+import { useAuth } from "./provider/AuthProvider";
+import LoginModal from "./components/LoginModal";
 
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);
@@ -14,6 +16,8 @@ const Forum: React.FC = () => {
 	// const [gridStyle, setGridStyle] = useState<Boolean>(false); // toggle grid style (extra functionaloty)
 	const [selectedSort, setSelectedSort] = useState("last created");
 	const [selectedCategory, setSelectedCategory] = useState("");
+	const { session } = useAuth();
+	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
 		const fetchPost = async () => {
@@ -44,6 +48,7 @@ const Forum: React.FC = () => {
 				// (gridStyle ? navLargeWidth + navMediumWidth : singleColWidth)
 			}
 		>
+			{showModal && <LoginModal setShowModal={setShowModal} />}
 			<div className="mb-8">
 				<div className="w-full mb-8">
 					<div className="">
@@ -78,7 +83,14 @@ const Forum: React.FC = () => {
 			</div>
 			<div className={"grid grid-cols-1 gap-4 md:grid-cols-3"}>
 				{posts != null && posts.length >= 1 ? (
-					filteredPosts?.map((post: any) => <Post key={post.id} post={post} />)
+					filteredPosts?.map((post: any) => (
+						<Post
+							key={post.id}
+							post={post}
+							session={session}
+							setShowModal={setShowModal}
+						/>
+					))
 				) : (
 					<div className="w-full">
 						<h1 className="w-full text-2xl">Nothing Here Yet!</h1>
