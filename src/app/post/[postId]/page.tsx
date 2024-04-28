@@ -13,6 +13,7 @@ import Comment from "@/app/ui/components/Comment";
 import AuthenticatedLayout from "@/app/AuthenticatedLayout";
 import { useAuth } from "@/app/ui/provider/AuthProvider";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import LoginModal from "@/app/ui/components/LoginModal";
 import {
 	EllipsisHorizontalCircleIcon,
 	ChatBubbleBottomCenterTextIcon,
@@ -32,6 +33,7 @@ import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/ui/util/siz
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const { session } = useAuth();
 	const fakeSession = false;
+	const [showModal, setShowModal] = useState(false);
 	const postId = params.postId;
 	const [post, setPost] = useState<any>(null);
 	const [postUpvotes, setPostUpvotes] = useState<any>(null);
@@ -78,8 +80,8 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 		getCommentList();
 	}, [postId]);
 
-	const onChange = (event: any) => {
-		const commentValue = event.target.value;
+	const onChangeComment = (e: any) => {
+		const commentValue = e.target.value;
 		setComment(commentValue);
 	};
 
@@ -105,6 +107,10 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	};
 
 	const handleUpvotes = (e: any) => {
+		if (fakeSession === false) {
+			setShowModal(true);
+			return;
+		}
 		if (postUpvotes !== null) {
 			e.preventDefault();
 			increaseUpvotes(post.id, postUpvotes + 1);
@@ -118,12 +124,18 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 		window.alert("Post Deleted");
 	};
 
+	const checkIfLoggedIn = () => {
+		session ? setShowModal(false) : setShowModal(true);
+	};
+
 	if (post == null) {
 		return null;
 	}
 
 	return (
 		<HomeContainer>
+			{showModal && <LoginModal setShowModal={setShowModal} />}
+
 			<div className="max-w-3xl mx-auto p-2 md:p-8">
 				<div className=" shadow-md rounded-lg p-8">
 					<div className="flex justify-between">
@@ -195,7 +207,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 									name="comment"
 									id="comment"
 									value={comment}
-									onChange={onChange}
+									onChange={onChangeComment}
 									className="w-full p-3 resize-none rounded-md border"
 									rows={3}
 								></textarea>
@@ -211,8 +223,13 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 						</>
 					) : (
 						<div>
-							<button className="transition-all ease-in-out duration-500 flex gap-2 items-center justify-center p-3 border rounded-2xl w-full hover:font-bold ">
-								<span>Click to add a button</span>
+							<button
+								onClick={(e) => {
+									setShowModal(true);
+								}}
+								className="transition-all ease-in-out duration-500 flex gap-2 items-center justify-center p-3 border rounded-2xl w-full hover:font-bold "
+							>
+								<span>Log in to add a comment!</span>
 								<span>
 									<PlusCircleIcon className="w-[20px] font-bold" />
 								</span>
