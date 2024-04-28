@@ -12,7 +12,7 @@ import LoginModal from "./components/LoginModal";
 
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);
-	const [posts, setPosts] = useState<any>(null);
+	const [posts, setPosts] = useState<any>([]);
 	// const [gridStyle, setGridStyle] = useState<Boolean>(false); // toggle grid style (extra functionaloty)
 	const [selectedSort, setSelectedSort] = useState("last created");
 	const [selectedCategory, setSelectedCategory] = useState("");
@@ -82,7 +82,7 @@ const Forum: React.FC = () => {
 				</div>
 			</div>
 			<div className={"grid grid-cols-1 gap-4 md:grid-cols-3"}>
-				{posts != null && posts.length >= 1 ? (
+				{posts.length > 0 ? (
 					filteredPosts?.map((post: any) => (
 						<Post
 							key={post.id}
