@@ -2,20 +2,20 @@
 
 import Search from "./components/Search";
 import Link from "next/link";
-import { PlusCircleIcon, HomeIcon } from "@heroicons/react/24/solid";
+import { PlusCircleIcon, HomeIcon, LockOpenIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 import { ProfileDropDown } from "./components/ProfileDropdown";
 import { supabase } from "../lib/server";
 import { useState } from "react";
 import { phoneIconWH, navLargeWidth, navMediumWidth } from "./util/sizes";
+import { useAuth } from "./provider/AuthProvider";
+import LoginModal from "./components/LoginModal";
 
 export default function Nav() {
-	const [showProfileIcon, setProfileIcon] = useState(true);
+	const { session } = useAuth();
+	const [showModal, setShowModal] = useState(false);
 
 	const handleSignOut = async (e: any) => {
 		const { error } = await supabase.auth.signOut();
-		if (!error) {
-			setProfileIcon(false);
-		}
 	};
 
 	return (
@@ -30,6 +30,7 @@ export default function Nav() {
 				<Link href={"/"}>Yumex</Link>
 			</div>
 			<nav className="flex-1">
+				{showModal && <LoginModal setShowModal={setShowModal} />}
 				<ul className="w-full flex justify-around p-2">
 					<li className="flex items-center">
 						<Link
@@ -52,9 +53,25 @@ export default function Nav() {
 					<li className="flex items-center md:w-[40%]">
 						<Search placeholder="Search..." />
 					</li>
-					<li className="flex items-center">
-						{showProfileIcon && <ProfileDropDown handleSignOut={handleSignOut} />}
-					</li>
+					{session ? (
+						<>
+							<li className="flex items-center">
+								{session && <ProfileDropDown handleSignOut={handleSignOut} />}
+							</li>
+						</>
+					) : (
+						<>
+							<li className="md:flex items-center cursor-pointer">
+								<button
+									onClick={(e) => setShowModal(true)}
+									className="border p-3 flex gap-2 justify-center items-center rounded-full"
+								>
+									<LockClosedIcon className={phoneIconWH} />
+									<span className="lg:block">Log in</span>
+								</button>
+							</li>
+						</>
+					)}
 				</ul>
 			</nav>
 		</nav>
