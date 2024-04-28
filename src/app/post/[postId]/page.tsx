@@ -32,7 +32,6 @@ import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/ui/util/siz
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const { session } = useAuth();
-	const fakeSession = false;
 	const [showModal, setShowModal] = useState(false);
 	const postId = params.postId;
 	const [post, setPost] = useState<any>(null);
@@ -107,7 +106,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	};
 
 	const handleUpvotes = (e: any) => {
-		if (fakeSession === false) {
+		if (session === false) {
 			setShowModal(true);
 			return;
 		}
