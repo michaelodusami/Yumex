@@ -11,10 +11,14 @@ import { supabase } from "../lib/server";
 import { navLargeWidth, navMediumWidth } from "../ui/util/sizes";
 import { all_routes } from "../lib/model";
 import AuthenticatedLayout from "../AuthenticatedLayout";
+import { useAuth } from "../ui/provider/AuthProvider";
+import LoginModal from "../ui/components/LoginModal";
 
 export default function Page() {
+	const { session } = useAuth();
 	const [isPostCreated, setIsPostCreated] = useState<Boolean>(false);
 	const [errorMessage, setErrorMessage] = useState("");
+	const [showModal, setShowModal] = useState(false);
 
 	const [formData, setFormData] = useState<FormData>({
 		title: "",
@@ -26,42 +30,47 @@ export default function Page() {
 
 	const handleCreatePost = async (e: any) => {
 		e.preventDefault();
-		if (formData.title === "") {
-			setErrorMessage("Title Required");
-		} else if (!formData.file) {
-			setErrorMessage("Image Required");
-		} else {
-			// upload image and if successful, upload formdata, then set success true
-			const isUploaded = await uploadFile(formData.file, formData.post_image_filepath);
-			if (isUploaded) {
-				const user_id = await getIdFromUser();
-				const { data, error } = await supabase
-					.from("Posts")
-					.insert({
-						user_id: user_id,
-						title: formData.title,
-						content: formData.content,
-						upvotes: 0,
-						category: formData.category ? formData.category : "asian",
-						post_image_filepath: formData.post_image_filepath,
-					})
-					.select();
-				if (error) {
-					console.log(error);
-					setErrorMessage("Post Creation Failed");
-				} else {
-					setErrorMessage("");
 
-					const postId = data[0].id; // Get the ID of the newly created post
-					setIsPostCreated(true);
-					// Redirect to the detail page using the post ID
-					const newLocation = all_routes.post + postId;
-					window.location.href = newLocation;
-					// get the post and redirect to the detail screen
-				}
+		if (session) {
+			if (formData.title === "") {
+				setErrorMessage("Title Required");
+			} else if (!formData.file) {
+				setErrorMessage("Image Required");
 			} else {
-				setErrorMessage("FIle Must Be Of Type <jpg, jpeg, png, webp>.");
+				// upload image and if successful, upload formdata, then set success true
+				const isUploaded = await uploadFile(formData.file, formData.post_image_filepath);
+				if (isUploaded) {
+					const user_id = await getIdFromUser();
+					const { data, error } = await supabase
+						.from("Posts")
+						.insert({
+							user_id: user_id,
+							title: formData.title,
+							content: formData.content,
+							upvotes: 0,
+							category: formData.category ? formData.category : "asian",
+							post_image_filepath: formData.post_image_filepath,
+						})
+						.select();
+					if (error) {
+						console.log(error);
+						setErrorMessage("Post Creation Failed");
+					} else {
+						setErrorMessage("");
+
+						const postId = data[0].id; // Get the ID of the newly created post
+						setIsPostCreated(true);
+						// Redirect to the detail page using the post ID
+						const newLocation = all_routes.post + postId;
+						window.location.href = newLocation;
+						// get the post and redirect to the detail screen
+					}
+				} else {
+					setErrorMessage("FIle Must Be Of Type <jpg, jpeg, png, webp>.");
+				}
 			}
+		} else {
+			setShowModal(true);
 		}
 	};
 
@@ -71,6 +80,7 @@ export default function Page() {
 
 	return (
 		<main className="min-h-screen">
+			{showModal && <LoginModal setShowModal={setShowModal} />}
 			<div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
 				<div className="px-4 py-6 sm:px-0">
 					<h1 className="text-3xl font-bold text-gray-900 mb-4">Create Post</h1>
