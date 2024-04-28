@@ -106,14 +106,12 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	};
 
 	const handleUpvotes = (e: any) => {
-		if (session === false) {
-			setShowModal(true);
-			return;
-		}
-		if (postUpvotes !== null) {
+		if (session && postUpvotes !== null) {
 			e.preventDefault();
 			increaseUpvotes(post.id, postUpvotes + 1);
 			setPostUpvotes(postUpvotes + 1);
+		} else {
+			setShowModal(true);
 		}
 	};
 
