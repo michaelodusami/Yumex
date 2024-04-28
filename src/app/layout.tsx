@@ -19,7 +19,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 						<Nav />
 						{children}
 					</SearchProvider>
-					{children}
 				</AuthProvider>
 			</body>
 		</html>
