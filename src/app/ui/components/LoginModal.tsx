@@ -16,7 +16,7 @@ const LoginModal: React.FC<{ setShowModal: any }> = ({ setShowModal }) => {
 				<div className="relative bg-white p-8 rounded shadow-lg max-w-md w-full">
 					<button
 						className="absolute top-2 right-2 hover:text-red-500 hover:font-bold flex justify-end  "
-						onClick={closeModal}
+						onClick={() => setShowModal !== null && closeModal()}
 					>
 						<span className="h-5 w-5">
 							<XMarkIcon className="" />
