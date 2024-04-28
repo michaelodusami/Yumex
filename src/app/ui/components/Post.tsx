@@ -11,17 +11,24 @@ import { increaseUpvotes, getIdFromUser, getComments } from "@/app/lib/data";
 import { useEffect, useState } from "react";
 import { ChatBubbleSymbol, UpvoteSymbol } from "./symbols";
 import AvatarLogo from "./AvatarLogo";
+import { useAuth } from "../provider/AuthProvider";
 import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util/sizes";
 
-const Post: React.FC<{ post: any }> = ({ post }) => {
+const Post: React.FC<{ post: any; session: any; setShowModal: any }> = ({
+	post,
+	session,
+	setShowModal,
+}) => {
 	const [postUpvotes, setPostUpvotes] = useState<any>(post.upvotes);
 	const [postCommentsCounter, setPostCommentsCounter] = useState<number>(0);
 
 	const handleUpvotes = (e: any) => {
-		if (postUpvotes !== null) {
+		if (session && postUpvotes !== null) {
 			e.preventDefault();
 			increaseUpvotes(post.id, postUpvotes + 1);
 			setPostUpvotes(postUpvotes + 1);
+		} else {
+			setShowModal(true);
 		}
 	};
 
