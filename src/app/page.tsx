@@ -5,13 +5,11 @@ import AuthenticatedLayout from "./AuthenticatedLayout";
 import HomeContainer from "./HomeContainer";
 export default function Home() {
 	return (
-		<AuthenticatedLayout>
-			<HomeContainer>
-				<div className="w-full md:w-[100%] lg:w-[100%] min-h-screen mx-auto flex-col flex">
-					{/* <ForumSkeleton/> */}
-					<Forum />
-				</div>
-			</HomeContainer>
-		</AuthenticatedLayout>
+		<HomeContainer>
+			<div className="w-full md:w-[100%] lg:w-[100%] min-h-screen mx-auto flex-col flex">
+				{/* <ForumSkeleton/> */}
+				<Forum />
+			</div>
+		</HomeContainer>
 	);
 }
