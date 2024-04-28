@@ -187,7 +187,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 				<div className="mt-12">
 					<h3 className="text-xl font-semibold mb-4">Comments:</h3>
 					{/* handle session */}
-					{fakeSession ? (
+					{session ? (
 						<>
 							<form className="relative mb-8" onSubmit={onSubmit}>
 								<textarea
