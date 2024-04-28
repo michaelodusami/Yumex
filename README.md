@@ -44,17 +44,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-# Home Page
-
-<img src='homepage.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-# Creating A Post
-
-<img src='create.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-# Deleting A Post
-
-<img src='deletion.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+[Link to walkthrough](https://www.youtube.com/watch?v=bsgZlgAL8XI) on Youtube
 
 GIF created with ...
 [Kap](https://getkap.co/) for macOS
