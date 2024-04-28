@@ -70,45 +70,43 @@ export default function Page() {
 	}
 
 	return (
-		<AuthenticatedLayout>
-			<main className="min-h-screen">
-				<div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-					<div className="px-4 py-6 sm:px-0">
-						<h1 className="text-3xl font-bold text-gray-900 mb-4">Create Post</h1>
-					</div>
-					<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-						<div>
-							<PostPreview
-								file={formData.file}
-								title={formData.title}
-								content={formData.content}
-								category={formData.category}
-								post_image_filepath={formData.post_image_filepath}
-							/>
-						</div>
-						<div className="flex flex-col gap-8">
-							<div>
-								<ImageUploader setFormData={setFormData} />
-							</div>
-							<div className="flex-1">
-								<CreateForm setFormData={setFormData} />
-							</div>
-							<div className="flex justify-end">
-								<button
-									type="button"
-									onClick={handleCreatePost}
-									className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300"
-								>
-									Create
-								</button>
-							</div>
-						</div>
-					</div>
-					{errorMessage !== "" && (
-						<p className="text-red-500 text-center mt-4">Error: {errorMessage}</p>
-					)}
+		<main className="min-h-screen">
+			<div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+				<div className="px-4 py-6 sm:px-0">
+					<h1 className="text-3xl font-bold text-gray-900 mb-4">Create Post</h1>
 				</div>
-			</main>
-		</AuthenticatedLayout>
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+					<div>
+						<PostPreview
+							file={formData.file}
+							title={formData.title}
+							content={formData.content}
+							category={formData.category}
+							post_image_filepath={formData.post_image_filepath}
+						/>
+					</div>
+					<div className="flex flex-col gap-8">
+						<div>
+							<ImageUploader setFormData={setFormData} />
+						</div>
+						<div className="flex-1">
+							<CreateForm setFormData={setFormData} />
+						</div>
+						<div className="flex justify-end">
+							<button
+								type="button"
+								onClick={handleCreatePost}
+								className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300"
+							>
+								Create
+							</button>
+						</div>
+					</div>
+				</div>
+				{errorMessage !== "" && (
+					<p className="text-red-500 text-center mt-4">Error: {errorMessage}</p>
+				)}
+			</div>
+		</main>
 	);
 }
