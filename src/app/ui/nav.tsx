@@ -2,7 +2,7 @@
 
 import Search from "./components/Search";
 import Link from "next/link";
-import { PlusCircleIcon, HomeIcon, LockOpenIcon, LockClosedIcon } from "@heroicons/react/24/solid";
+import { PlusCircleIcon, HomeIcon, ArrowRightEndOnRectangleIcon } from "@heroicons/react/24/solid";
 import { ProfileDropDown } from "./components/ProfileDropdown";
 import { supabase } from "../lib/server";
 import { useState } from "react";
@@ -66,7 +66,7 @@ export default function Nav() {
 									onClick={(e) => setShowModal(true)}
 									className="border p-3 flex gap-2 justify-center items-center rounded-full"
 								>
-									<LockClosedIcon className={phoneIconWH} />
+									<ArrowRightEndOnRectangleIcon className={phoneIconWH} />
 									<span className="lg:block">Log in</span>
 								</button>
 							</li>
