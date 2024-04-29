@@ -36,23 +36,21 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 					</li> */}
 					<li>
 						<Link href={"/"}>
-							<span className={kalam.className + " font-bold text-[1.2rem]"}>
+							<span className={kalam.className + " font-bold text-[2rem]"}>
 								Yumex
 							</span>
 						</Link>
 					</li>
-					<li className="md:min-w-[50%] ml-auto mr-auto">
+					<li className="md:min-w-[50%] mr-auto ml-auto ">
 						<Search placeholder="Search..." />
 					</li>
 					<li>
 						<Link
 							href="/create"
-							className={
-								"flex-1 flex justify-center items-center gap-2 cursor-pointer"
-							}
+							className={"flex-1 flex justify-center items-center gap-2"}
 						>
 							<PlusIcon className={phoneIconWH} />
-							<span className="text-sm">Create Post</span>
+							<span className="hidden md:block text-sm">Create Post</span>
 						</Link>
 					</li>
 					{session ? (
@@ -69,7 +67,7 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 									className=" flex gap-2 justify-center items-center"
 								>
 									<ArrowRightEndOnRectangleIconSymbol styles={phoneIconWH} />
-									<span className="text-sm">Log in</span>
+									<span className="hidden md:block text-sm">Log in</span>
 								</button>
 							</li>
 						</>
