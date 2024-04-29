@@ -23,15 +23,14 @@ const Nav: React.FC<{ isOpen: any; setIsOpen: any }> = ({ isOpen, setIsOpen }) =
 
 	return (
 		<nav
-			className={`fixed top-0 left-0 h-screen bg-white shadow-md transition-width duration-300 ease-in-out ${
-				isOpen ? "w-64" : "w-16"
+			className={`absolute top-0 left-0 h-screen bg-white shadow-md transition-width duration-300 ease-in-out ${
+				isOpen ? "w-64" : "hidden"
 			}`}
 		>
 			<div className="text-center py-6 font-bold text-2xl">
 				<Link href={"/"}>Yumex</Link>
 			</div>
 			<div className="">
-				{/* {showModal && <LoginModal setShowModal={setShowModal} />} */}
 				<ul className="w-full flex flex-col bg-red-200 gap-5 p-4">
 					<li className="flex">
 						<Link

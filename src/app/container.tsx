@@ -26,11 +26,12 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	};
 
 	return (
-		<div className="flex-col w-full md:w-[97%] mx-auto">
+		<div className="flex-col w-full ">
 			{showModal && <LoginModal setShowModal={setShowModal} />}
-			<div className="border-b-2 p-2">
+			<div className="shadow-sm px-5 py-2 bg-white relative">
+				<Nav isOpen={isOpen} setIsOpen={setIsOpen} />
 				<ul className="flex gap-5 justify-center items-center">
-					<li>
+					<li onClick={(e) => setIsOpen(!isOpen)}>
 						<Bars3Icon className="w-[25px] h-[25px] font-bold" />
 					</li>
 					<li>
@@ -65,7 +66,7 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 							<li className="md:flex items-center cursor-pointer">
 								<button
 									onClick={(e) => setShowModal(true)}
-									className="border p-2 flex gap-2 justify-center items-center rounded-full"
+									className=" flex gap-2 justify-center items-center"
 								>
 									<ArrowRightEndOnRectangleIconSymbol styles={phoneIconWH} />
 									<span className="text-sm">Log in</span>
@@ -75,7 +76,6 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 					)}
 				</ul>
 			</div>
-			{/* <Nav isOpen={isOpen} setIsOpen={setIsOpen} /> */}
 
 			{children}
 		</div>
