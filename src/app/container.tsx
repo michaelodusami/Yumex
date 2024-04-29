@@ -17,7 +17,7 @@ import { ArrowRightEndOnRectangleIconSymbol } from "@/components/ui/symbols";
 
 const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const { session } = useAuth();
-	const [isOpen, setIsOpen] = useState(false);
+	// const [isOpen, setIsOpen] = useState(false);
 
 	const [showModal, setShowModal] = useState(false);
 
@@ -29,11 +29,11 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 		<div className="flex-col w-full ">
 			{showModal && <LoginModal setShowModal={setShowModal} />}
 			<div className="shadow-sm px-5 py-2 bg-white relative">
-				<Nav isOpen={isOpen} setIsOpen={setIsOpen} />
+				{/* <Nav isOpen={isOpen} setIsOpen={setIsOpen} /> */}
 				<ul className="flex gap-5 justify-center items-center">
-					<li onClick={(e) => setIsOpen(!isOpen)}>
+					{/* <li onClick={(e) => setIsOpen(!isOpen)}>
 						<Bars3Icon className="w-[25px] h-[25px] font-bold" />
-					</li>
+					</li> */}
 					<li>
 						<Link href={"/"}>
 							<span className={kalam.className + " font-bold text-[1.2rem]"}>
