@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { all_routes } from "@/lib/model";
 
-import { navLargeWidth, navMediumWidth, singleColWidth } from "@/components/util_ui/sizes";
+import { navLargeWidth, navMediumWidth, singleColWidth } from "@/components/constants/sizes";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const { session } = useAuth();

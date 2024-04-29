@@ -1,18 +1,18 @@
 "use client";
 
-import { defaultContentText } from "../util_ui/texts";
+import { defaultContentText } from "../constants/texts";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 import { AsyncImage, AsyncUserEmail } from "@/components/ui/async_components";
 import Link from "next/link";
 import { all_routes } from "@/lib/model";
 import { getFormattedDate } from "@/lib/utils";
-import { categoryColors } from "../util_ui/colors";
+import { categoryColors } from "../constants/colors";
 import { increaseUpvotes, getIdFromUser, getComments } from "@/lib/data";
 import { useEffect, useState } from "react";
 import { ChatBubbleSymbol, UpvoteSymbol } from "./symbols";
 import AvatarLogo from "./AvatarLogo";
 import { useAuth } from "../context/AuthProvider";
-import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util_ui/sizes";
+import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../constants/sizes";
 
 const Post: React.FC<{ post: any; session: any; setShowModal: any }> = ({
 	post,

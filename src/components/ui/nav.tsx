@@ -6,7 +6,7 @@ import { PlusCircleIcon, HomeIcon, ArrowRightEndOnRectangleIcon } from "@heroico
 import { ProfileDropDown } from "./ProfileDropdown";
 import { supabase } from "../../lib/server";
 import { useState } from "react";
-import { phoneIconWH, navLargeWidth, navMediumWidth } from "../util_ui/sizes";
+import { phoneIconWH, navLargeWidth, navMediumWidth } from "../constants/sizes";
 import { useAuth } from "../context/AuthProvider";
 import LoginModal from "./LoginModal";
 

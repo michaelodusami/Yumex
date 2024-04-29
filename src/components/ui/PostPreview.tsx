@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { postPreviewImageFile } from "@/components/util_ui/texts";
+import { postPreviewImageFile } from "@/components/constants/texts";
 import { UpvoteSymbol } from "./symbols";
 import { FormData } from "@/lib/interfaces";
 import { useState, useEffect } from "react";
