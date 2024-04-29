@@ -23,19 +23,13 @@ export default function Nav() {
 	};
 
 	return (
-		<nav
-			className={
-				"mx-auto px-4 md:flex md:items-center sm:border-b border-none md:justify-between" +
-				navMediumWidth +
-				navLargeWidth
-			}
-		>
-			<div className="text-center md:text-left py-2 font-bold text-2xl md:text-3xl md:w-[50%]">
+		<nav className={"fixed top-0 left-0 h-screen w-64 bg-white shadow-md"}>
+			<div className="text-center py-6 font-bold text-2xl">
 				<Link href={"/"}>Yumex</Link>
 			</div>
-			<nav className="flex-1">
+			<div className="flex-1">
 				{showModal && <LoginModal setShowModal={setShowModal} />}
-				<ul className="w-full flex justify-around p-2">
+				<ul className="w-full flex flex-col justify-around p-4">
 					<li className="flex items-center">
 						<Link
 							href="/"
@@ -77,7 +71,7 @@ export default function Nav() {
 						</>
 					)}
 				</ul>
-			</nav>
+			</div>
 		</nav>
 	);
 }

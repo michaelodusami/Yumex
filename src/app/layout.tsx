@@ -16,8 +16,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 			<body className={poppins.className + "antialiased"}>
 				<AuthProvider>
 					<SearchProvider>
-						<Nav />
-						{children}
+						<div className="flex">
+							<Nav />
+							<main className="ml-64 p-6 w-full">{children}</main>
+						</div>
 					</SearchProvider>
 				</AuthProvider>
 			</body>
