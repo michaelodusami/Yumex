@@ -4,7 +4,7 @@ import { AsyncUserEmail } from "@/components/ui/async_components";
 import AvatarLogo from "./AvatarLogo";
 import { useEffect, useState } from "react";
 import { getIdFromUser, deleteCommentFromDatabase } from "@/lib/data";
-import { TrashIcon } from "@heroicons/react/24/outline";
+import { TrashIconSymbol } from "./symbols";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -54,7 +54,7 @@ export const Commment: React.FC<{ comment: any; setCommentList: any }> = ({
 				{showEditDeleteButton && (
 					<DropdownMenu>
 						<DropdownMenuTrigger>
-							<TrashIcon className="w-5 h-5 text-gray-500 ml-auto cursor-pointer hover:text-red-500 transition duration-300" />
+							<TrashIconSymbol styles="w-5 h-5 text-gray-500 ml-auto cursor-pointer hover:text-red-500 transition duration-300" />
 						</DropdownMenuTrigger>
 						<DropdownMenuContent>
 							<DropdownMenuLabel>Confirm Deletion</DropdownMenuLabel>
