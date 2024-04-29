@@ -3,7 +3,7 @@ import { inter, poppins } from "@/app/ui/util/fonts";
 import "./globals.css";
 import { AuthProvider } from "./ui/provider/AuthProvider";
 import { SearchProvider } from "./ui/context/SearchContext";
-import Nav from "./ui/nav";
+import Nav from "./nav";
 
 export const metadata: Metadata = {
 	title: "Yumex",
