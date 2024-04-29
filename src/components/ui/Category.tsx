@@ -1,4 +1,4 @@
-import { categoryColors } from "../util/colors";
+import { categoryColors } from "../util_ui/colors";
 
 const Category: React.FC<{ category: string }> = ({ category = "NONE" }) => {
 	return (

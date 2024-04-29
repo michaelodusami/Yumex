@@ -6,7 +6,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { phoneAvatarIconDropdownWH } from "../util/sizes";
+import { phoneAvatarIconDropdownWH } from "../util_ui/sizes";
 import AvatarLogo from "./AvatarLogo";
 
 export const ProfileDropDown: React.FC<{ handleSignOut: any }> = ({ handleSignOut }) => {

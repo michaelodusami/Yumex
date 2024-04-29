@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, poppins } from "@/components/util/fonts";
+import { inter, poppins } from "@/components/util_ui/fonts";
 import "./globals.css";
 import { AuthProvider } from "@/components/context/AuthProvider";
 import { SearchProvider } from "@/components/context/SearchContext";

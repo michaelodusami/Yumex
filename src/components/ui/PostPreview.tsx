@@ -1,7 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { postPreviewContentText, postPreviewTitleText, postPreviewImageFile } from "../util/texts";
+import {
+	postPreviewContentText,
+	postPreviewTitleText,
+	postPreviewImageFile,
+} from "../util_ui/texts";
 import { getFormattedDate } from "@/lib/_lib/utils";
 import { UpvoteSymbol } from "./symbols";
 import { FormData } from "@/lib/interfaces";
@@ -9,10 +13,10 @@ import { useState, useEffect } from "react";
 import { getEmailFromUser } from "@/lib/data";
 import { getUserNameUpToEmailSymbol } from "@/lib/_lib/utils";
 import Category from "./Category";
-import { categoryColors } from "../util/colors";
+import { categoryColors } from "../util_ui/colors";
 import { ChatBubbleSymbol } from "./symbols";
 import AvatarLogo from "./AvatarLogo";
-import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util/sizes";
+import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util_ui/sizes";
 
 const PostPreview: React.FC<FormData> = ({
 	file,

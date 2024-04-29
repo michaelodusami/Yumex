@@ -5,7 +5,7 @@ import { fetchPostsFromDatabase, fetchPostsFromDatabaseByCategory } from "@/lib/
 import Post from "./Post";
 import { SearchContext } from "../context/SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
-import { navMediumWidth, navLargeWidth, singleColWidth } from "../util/sizes";
+import { navMediumWidth, navLargeWidth, singleColWidth } from "../util_ui/sizes";
 import CategorySelector from "./CategorySelector";
 import { useAuth } from "../context/AuthProvider";
 import LoginModal from "./LoginModal";
