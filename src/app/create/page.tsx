@@ -10,7 +10,6 @@ import CreatePostSuccess from "../ui/components/CreatePostSuccess";
 import { supabase } from "../lib/server";
 import { navLargeWidth, navMediumWidth } from "../ui/util/sizes";
 import { all_routes } from "../lib/model";
-import AuthenticatedLayout from "../AuthenticatedLayout";
 import { useAuth } from "../ui/provider/AuthProvider";
 import LoginModal from "../ui/components/LoginModal";
 

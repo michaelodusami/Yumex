@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import HomeContainer from "@/app/HomeContainer";
+
 import { fetchPost } from "@/app/lib/data";
 import AvatarLogo from "@/app/ui/components/AvatarLogo";
 import { AsyncUserEmail, AsyncImage } from "@/app/ui/components/async_components";
@@ -10,7 +10,7 @@ import { UpvoteSymbol } from "@/app/ui/components/symbols";
 import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
 import { getIdFromUser, deletePost } from "@/app/lib/data";
 import Comment from "@/app/ui/components/Comment";
-import AuthenticatedLayout from "@/app/AuthenticatedLayout";
+
 import { useAuth } from "@/app/ui/provider/AuthProvider";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import LoginModal from "@/app/ui/components/LoginModal";
@@ -130,7 +130,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 	}
 
 	return (
-		<HomeContainer>
+		<main className="min-h-screen">
 			{showModal && <LoginModal setShowModal={setShowModal} />}
 
 			<div className="max-w-3xl mx-auto p-2 md:p-8">
@@ -251,7 +251,7 @@ const Page: React.FC<{ params: any }> = ({ params }) => {
 					</div>
 				</div>
 			</div>
-		</HomeContainer>
+		</main>
 	);
 };
 
