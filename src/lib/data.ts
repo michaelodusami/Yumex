@@ -1,5 +1,5 @@
 import { supabase, supabaseAdmin } from "./server";
-import { bucketName } from "./common_names";
+import { bucketName } from "./vars";
 
 /*****************************************************
  *
