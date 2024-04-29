@@ -12,6 +12,7 @@ import { useAuth } from "@/components/context/AuthProvider";
 import ProfileDropDown from "@/components/ui/ProfileDropdown";
 import { kalam } from "@/components/constants/fonts";
 import { supabase } from "@/lib/server";
+import LoginModal from "@/components/ui/LoginModal";
 import { ArrowRightEndOnRectangleIconSymbol } from "@/components/ui/symbols";
 
 const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -26,6 +27,7 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 	return (
 		<div className="flex-col w-full md:w-[97%] mx-auto">
+			{showModal && <LoginModal setShowModal={setShowModal} />}
 			<div className="border-b-2 p-2">
 				<ul className="flex gap-5 justify-center items-center">
 					<li>
