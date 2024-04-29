@@ -18,7 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 					<SearchProvider>
 						<div className="flex">
 							<Nav />
-							<main className="ml-64 p-6 w-full">{children}</main>
+							<main className="ml-15 p-6 w-full">{children}</main>
 						</div>
 					</SearchProvider>
 				</AuthProvider>
