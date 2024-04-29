@@ -2,7 +2,11 @@
 
 import Search from "./Search";
 import Link from "next/link";
-import { PlusCircleIcon, HomeIcon, ArrowRightEndOnRectangleIcon } from "@heroicons/react/24/solid";
+import {
+	PlusCircleIconSymbol,
+	HomeIconSymbol,
+	ArrowRightEndOnRectangleIconSymbol,
+} from "./symbols";
 import { ProfileDropDown } from "./ProfileDropdown";
 import { supabase } from "../../lib/server";
 import { useState } from "react";
@@ -37,7 +41,7 @@ export default function Nav() {
 							href="/"
 							className={"flex-1 md:flex items-center gap-2 cursor-pointer"}
 						>
-							<HomeIcon className={phoneIconWH} />
+							<HomeIconSymbol styles={phoneIconWH} />
 							<span className="lg:block hidden">Home</span>
 						</Link>
 					</li>
@@ -46,7 +50,7 @@ export default function Nav() {
 							href="/create"
 							className={"flex-1 md:flex items-center gap-2 cursor-pointer"}
 						>
-							<PlusCircleIcon className={phoneIconWH} />
+							<PlusCircleIconSymbol styles={phoneIconWH} />
 							<span className="hidden lg:block">Create Post</span>
 						</Link>
 					</li>
@@ -66,7 +70,7 @@ export default function Nav() {
 									onClick={(e) => setShowModal(true)}
 									className="border p-3 flex gap-2 justify-center items-center rounded-full"
 								>
-									<ArrowRightEndOnRectangleIcon className={phoneIconWH} />
+									<ArrowRightEndOnRectangleIconSymbol styles={phoneIconWH} />
 									<span className="lg:block">Log in</span>
 								</button>
 							</li>
