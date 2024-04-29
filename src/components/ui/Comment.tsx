@@ -1,6 +1,6 @@
 "use client";
 
-import { AsyncUserEmail } from "./async_components";
+import { AsyncUserEmail } from "@/components/ui/async_components";
 import AvatarLogo from "./AvatarLogo";
 import { useEffect, useState } from "react";
 import { getIdFromUser, deleteCommentFromDatabase } from "@/lib/data";
