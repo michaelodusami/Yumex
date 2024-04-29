@@ -10,6 +10,7 @@ import { phoneIconWH } from "@/components/constants/sizes";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { useAuth } from "@/components/context/AuthProvider";
 import ProfileDropDown from "@/components/ui/ProfileDropdown";
+import { kalam } from "@/components/constants/fonts";
 import { supabase } from "@/lib/server";
 import { ArrowRightEndOnRectangleIconSymbol } from "@/components/ui/symbols";
 
@@ -24,16 +25,20 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	};
 
 	return (
-		<div className="flex-col">
+		<div className="flex-col w-full md:w-[97%] mx-auto">
 			<div className="border-b-2 p-2">
-				<ul className="flex gap-4 justify-center items-center">
+				<ul className="flex gap-5 justify-center items-center">
 					<li>
 						<Bars3Icon className="w-[25px] h-[25px] font-bold" />
 					</li>
 					<li>
-						<Link href={"/"}>Yumex</Link>
+						<Link href={"/"}>
+							<span className={kalam.className + " font-bold text-[1.2rem]"}>
+								Yumex
+							</span>
+						</Link>
 					</li>
-					<li className="flex-1">
+					<li className="md:min-w-[50%] ml-auto mr-auto">
 						<Search placeholder="Search..." />
 					</li>
 					<li>

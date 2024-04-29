@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<html lang="en">
-			<body className={poppins.className + "antialiased"}>
+			<body className={inter.className + "antialiased"}>
 				<AuthProvider>
 					<SearchProvider>
 						<Container>{children}</Container>
