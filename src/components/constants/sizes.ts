@@ -1,4 +1,4 @@
-export const phoneIconWH = "w-[40px] h-[40px] ";
+export const phoneIconWH = "w-[1.2rem] h-[1.2rem] ";
 export const phoneAvatarIconDropdownWH = "w-[35px] h-[35px] ";
 export const navMediumWidth = " md:w-[100%] ";
 export const navLargeWidth = " lg:w-[100%] ";

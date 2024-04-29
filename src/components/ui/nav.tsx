@@ -15,7 +15,6 @@ import { useAuth } from "../context/AuthProvider";
 import LoginModal from "./LoginModal";
 
 const Nav: React.FC<{ isOpen: any; setIsOpen: any }> = ({ isOpen, setIsOpen }) => {
-	const { session } = useAuth();
 	const [showModal, setShowModal] = useState(false);
 
 	const handleSignOut = async (e: any) => {
