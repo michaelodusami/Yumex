@@ -3,7 +3,7 @@ import { inter, poppins } from "@/components/constants/fonts";
 import "./globals.css";
 import { AuthProvider } from "@/components/context/AuthProvider";
 import { SearchProvider } from "@/components/context/SearchContext";
-import Nav from "@/components/ui/nav";
+import Container from "./container";
 
 export const metadata: Metadata = {
 	title: "Yumex",
@@ -16,10 +16,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 			<body className={poppins.className + "antialiased"}>
 				<AuthProvider>
 					<SearchProvider>
-						<div className="flex">
-							<Nav />
-							<main className="ml-15 p-6 w-full">{children}</main>
-						</div>
+						<Container>{children}</Container>
 					</SearchProvider>
 				</AuthProvider>
 			</body>

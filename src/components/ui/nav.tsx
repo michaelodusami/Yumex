@@ -32,7 +32,7 @@ const Nav: React.FC<{ isOpen: any; setIsOpen: any }> = ({ isOpen, setIsOpen }) =
 				<Link href={"/"}>Yumex</Link>
 			</div>
 			<div className="">
-				{showModal && <LoginModal setShowModal={setShowModal} />}
+				{/* {showModal && <LoginModal setShowModal={setShowModal} />} */}
 				<ul className="w-full flex flex-col bg-red-200 gap-5 p-4">
 					<li className="flex">
 						<Link
