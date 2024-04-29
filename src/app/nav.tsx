@@ -1,14 +1,14 @@
 "use client";
 
-import Search from "./ui/components/Search";
+import Search from "./_ui/components/Search";
 import Link from "next/link";
 import { PlusCircleIcon, HomeIcon, ArrowRightEndOnRectangleIcon } from "@heroicons/react/24/solid";
-import { ProfileDropDown } from "./ui/components/ProfileDropdown";
+import { ProfileDropDown } from "./_ui/components/ProfileDropdown";
 import { supabase } from "./_lib/server";
 import { useState } from "react";
-import { phoneIconWH, navLargeWidth, navMediumWidth } from "./ui/util/sizes";
-import { useAuth } from "./ui/provider/AuthProvider";
-import LoginModal from "./ui/components/LoginModal";
+import { phoneIconWH, navLargeWidth, navMediumWidth } from "./_ui/util/sizes";
+import { useAuth } from "./_ui/provider/AuthProvider";
+import LoginModal from "./_ui/components/LoginModal";
 
 export default function Nav() {
 	const { session } = useAuth();

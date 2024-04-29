@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { inter, poppins } from "@/app/ui/util/fonts";
+import { inter, poppins } from "@/app/_ui/util/fonts";
 import "./globals.css";
-import { AuthProvider } from "./ui/provider/AuthProvider";
-import { SearchProvider } from "./ui/context/SearchContext";
+import { AuthProvider } from "./_ui/provider/AuthProvider";
+import { SearchProvider } from "./_ui/context/SearchContext";
 import Nav from "./nav";
 
 export const metadata: Metadata = {

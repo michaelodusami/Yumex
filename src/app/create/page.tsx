@@ -1,17 +1,17 @@
 "use client";
 
-import CreateForm from "@/app/ui/components/CreateForm";
-import ImageUploader from "@/app/ui/components/ImageUploader";
-import PostPreview from "../ui/components/PostPreview";
+import CreateForm from "@/app/_ui/components/CreateForm";
+import ImageUploader from "@/app/_ui/components/ImageUploader";
+import PostPreview from "../_ui/components/PostPreview";
 import { useState } from "react";
 import { FormData } from "../_lib/interfaces";
 import { uploadFile, getIdFromUser } from "../_lib/data";
-import CreatePostSuccess from "../ui/components/CreatePostSuccess";
+import CreatePostSuccess from "../_ui/components/CreatePostSuccess";
 import { supabase } from "../_lib/server";
-import { navLargeWidth, navMediumWidth } from "../ui/util/sizes";
+import { navLargeWidth, navMediumWidth } from "../_ui/util/sizes";
 import { all_routes } from "../_lib/model";
-import { useAuth } from "../ui/provider/AuthProvider";
-import LoginModal from "../ui/components/LoginModal";
+import { useAuth } from "../_ui/provider/AuthProvider";
+import LoginModal from "../_ui/components/LoginModal";
 
 export default function Page() {
 	const { session } = useAuth();

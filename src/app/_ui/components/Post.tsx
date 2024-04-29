@@ -2,7 +2,7 @@
 
 import { defaultContentText } from "../util/texts";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
-import { AsyncImage, AsyncUserEmail } from "@/app/ui/components/async_components";
+import { AsyncImage, AsyncUserEmail } from "@/app/_ui/components/async_components";
 import Link from "next/link";
 import { all_routes } from "@/app/_lib/model";
 import { getFormattedDate } from "@/app/_lib/utils";

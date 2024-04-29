@@ -2,18 +2,18 @@
 import { useState, useEffect } from "react";
 
 import { fetchPost } from "@/app/_lib/data";
-import AvatarLogo from "@/app/ui/components/AvatarLogo";
-import { AsyncUserEmail, AsyncImage } from "@/app/ui/components/async_components";
+import AvatarLogo from "@/app/_ui/components/AvatarLogo";
+import { AsyncUserEmail, AsyncImage } from "@/app/_ui/components/async_components";
 import { getFormattedDate } from "@/app/_lib/utils";
-import Category from "@/app/ui/components/Category";
-import { UpvoteSymbol } from "@/app/ui/components/symbols";
+import Category from "@/app/_ui/components/Category";
+import { UpvoteSymbol } from "@/app/_ui/components/symbols";
 import { increaseUpvotes, addComment, getComments } from "@/app/_lib/data";
 import { getIdFromUser, deletePost } from "@/app/_lib/data";
-import Comment from "@/app/ui/components/Comment";
+import Comment from "@/app/_ui/components/Comment";
 
-import { useAuth } from "@/app/ui/provider/AuthProvider";
+import { useAuth } from "@/app/_ui/provider/AuthProvider";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
-import LoginModal from "@/app/ui/components/LoginModal";
+import LoginModal from "@/app/_ui/components/LoginModal";
 import {
 	EllipsisHorizontalCircleIcon,
 	ChatBubbleBottomCenterTextIcon,
@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { all_routes } from "@/app/_lib/model";
 
-import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/ui/util/sizes";
+import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/_ui/util/sizes";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const { session } = useAuth();

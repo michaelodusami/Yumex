@@ -3,7 +3,7 @@ import { food_categories } from "@/app/_lib/model";
 import { food_category_images } from "@/app/_lib/model";
 import { useState } from "react";
 import Image from "next/image";
-import "@/app/ui/styles/categoryslider.css";
+import "../styles/categoryslider.css";
 
 const CategorySelector: React.FC<{ setSelectedCategory: any }> = ({ setSelectedCategory }) => {
 	const categories = Object.values(food_categories);
