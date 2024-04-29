@@ -1,6 +1,6 @@
 "use client";
-import { food_categories } from "@/app/_lib/model";
-import { food_category_images } from "@/app/_lib/model";
+import { food_categories } from "@/lib/model";
+import { food_category_images } from "@/lib/model";
 import { useState } from "react";
 import Image from "next/image";
 import "../styles/categoryslider.css";

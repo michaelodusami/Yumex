@@ -1,19 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
 
-import { fetchPost } from "@/app/_lib/data";
-import AvatarLogo from "@/app/_ui/components/AvatarLogo";
-import { AsyncUserEmail, AsyncImage } from "@/app/_ui/components/async_components";
-import { getFormattedDate } from "@/app/_lib/utils";
-import Category from "@/app/_ui/components/Category";
-import { UpvoteSymbol } from "@/app/_ui/components/symbols";
-import { increaseUpvotes, addComment, getComments } from "@/app/_lib/data";
-import { getIdFromUser, deletePost } from "@/app/_lib/data";
-import Comment from "@/app/_ui/components/Comment";
+import { fetchPost } from "@/lib/data";
+import AvatarLogo from "@/components/ui/AvatarLogo";
+import { AsyncUserEmail, AsyncImage } from "@/components/ui/async_components";
+import { getFormattedDate } from "@/lib/utils";
+import Category from "@/components/ui/Category";
+import { UpvoteSymbol } from "@/components/ui/symbols";
+import { increaseUpvotes, addComment, getComments } from "@/lib/data";
+import { getIdFromUser, deletePost } from "@/lib/data";
+import Comment from "@/components/ui/Comment";
 
-import { useAuth } from "@/app/_ui/provider/AuthProvider";
+import { useAuth } from "@/components/context/AuthProvider";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
-import LoginModal from "@/app/_ui/components/LoginModal";
+import LoginModal from "@/components/ui/LoginModal";
 import {
 	EllipsisHorizontalCircleIcon,
 	ChatBubbleBottomCenterTextIcon,
@@ -26,9 +26,9 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { all_routes } from "@/app/_lib/model";
+import { all_routes } from "@/lib/model";
 
-import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/_ui/util/sizes";
+import { navLargeWidth, navMediumWidth, singleColWidth } from "@/components/util/sizes";
 
 const Page: React.FC<{ params: any }> = ({ params }) => {
 	const { session } = useAuth();

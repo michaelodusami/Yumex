@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { postPreviewContentText, postPreviewTitleText, postPreviewImageFile } from "../util/texts";
-import { getFormattedDate } from "@/app/_lib/utils";
+import { getFormattedDate } from "@/lib/_lib/utils";
 import { UpvoteSymbol } from "./symbols";
-import { FormData } from "@/app/_lib/interfaces";
+import { FormData } from "@/lib/interfaces";
 import { useState, useEffect } from "react";
-import { getEmailFromUser } from "@/app/_lib/data";
-import { getUserNameUpToEmailSymbol } from "@/app/_lib/utils";
+import { getEmailFromUser } from "@/lib/data";
+import { getUserNameUpToEmailSymbol } from "@/lib/_lib/utils";
 import Category from "./Category";
 import { categoryColors } from "../util/colors";
 import { ChatBubbleSymbol } from "./symbols";

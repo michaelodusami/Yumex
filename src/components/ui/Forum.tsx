@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState, useContext } from "react";
-import { fetchPostsFromDatabase, fetchPostsFromDatabaseByCategory } from "@/app/_lib/data";
-import Post from "./components/Post";
-import { SearchContext } from "./context/SearchContext";
+import { fetchPostsFromDatabase, fetchPostsFromDatabaseByCategory } from "@/lib/data";
+import Post from "./Post";
+import { SearchContext } from "../context/SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";
-import { navMediumWidth, navLargeWidth, singleColWidth } from "./util/sizes";
-import CategorySelector from "./components/CategorySelector";
-import { useAuth } from "./provider/AuthProvider";
-import LoginModal from "./components/LoginModal";
+import { navMediumWidth, navLargeWidth, singleColWidth } from "../util/sizes";
+import CategorySelector from "./CategorySelector";
+import { useAuth } from "../context/AuthProvider";
+import LoginModal from "./LoginModal";
 
 const Forum: React.FC = () => {
 	const { searchQuery } = useContext(SearchContext);

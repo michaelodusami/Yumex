@@ -1,6 +1,6 @@
 "use client";
 
-import Forum from "./_ui/Forum";
+import Forum from "../components/ui/Forum";
 export default function Home() {
 	return (
 		<main className="min-h-screen">

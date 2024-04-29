@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { supabase } from "@/app/_lib/server";
+import { supabase } from "@/lib/server";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { Auth } from "@supabase/auth-ui-react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { useAuth } from "../provider/AuthProvider";
+import { useAuth } from "../context/AuthProvider";
 
 const LoginModal: React.FC<{ setShowModal: any }> = ({ setShowModal }) => {
 	const { session } = useAuth();

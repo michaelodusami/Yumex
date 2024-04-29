@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { getUserInfoByIdFromDatabase, fetchPostImageFromDatbase } from "../../_lib/data";
+import { getUserInfoByIdFromDatabase, fetchPostImageFromDatbase } from "../../lib/data";
 
 export const AsyncImage: React.FC<{ filepath: string; title: string; styles: string }> = ({
 	filepath,

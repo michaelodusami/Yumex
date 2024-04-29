@@ -2,16 +2,16 @@
 
 import { defaultContentText } from "../util/texts";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
-import { AsyncImage, AsyncUserEmail } from "@/app/_ui/components/async_components";
+import { AsyncImage, AsyncUserEmail } from "@/components/ui/async_components";
 import Link from "next/link";
-import { all_routes } from "@/app/_lib/model";
-import { getFormattedDate } from "@/app/_lib/utils";
+import { all_routes } from "@/lib/model";
+import { getFormattedDate } from "@/lib/utils";
 import { categoryColors } from "../util/colors";
-import { increaseUpvotes, getIdFromUser, getComments } from "@/app/_lib/data";
+import { increaseUpvotes, getIdFromUser, getComments } from "@/lib/data";
 import { useEffect, useState } from "react";
 import { ChatBubbleSymbol, UpvoteSymbol } from "./symbols";
 import AvatarLogo from "./AvatarLogo";
-import { useAuth } from "../provider/AuthProvider";
+import { useAuth } from "../context/AuthProvider";
 import { POST_MIN_MAX_HEIGHT, UPVOTE_SYMBOL_WH } from "../util/sizes";
 
 const Post: React.FC<{ post: any; session: any; setShowModal: any }> = ({

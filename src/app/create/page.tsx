@@ -1,17 +1,17 @@
 "use client";
 
-import CreateForm from "@/app/_ui/components/CreateForm";
-import ImageUploader from "@/app/_ui/components/ImageUploader";
-import PostPreview from "../_ui/components/PostPreview";
+import CreateForm from "@/components/ui/CreateForm";
+import ImageUploader from "@/components/ui/ImageUploader";
+import PostPreview from "../../components/ui/PostPreview";
 import { useState } from "react";
-import { FormData } from "../_lib/interfaces";
-import { uploadFile, getIdFromUser } from "../_lib/data";
-import CreatePostSuccess from "../_ui/components/CreatePostSuccess";
-import { supabase } from "../_lib/server";
-import { navLargeWidth, navMediumWidth } from "../_ui/util/sizes";
-import { all_routes } from "../_lib/model";
-import { useAuth } from "../_ui/provider/AuthProvider";
-import LoginModal from "../_ui/components/LoginModal";
+import { FormData } from "../../lib/interfaces";
+import { uploadFile, getIdFromUser } from "../../lib/data";
+import CreatePostSuccess from "../../components/ui/CreatePostSuccess";
+import { supabase } from "../../lib/server";
+import { navLargeWidth, navMediumWidth } from "../../components/util/sizes";
+import { all_routes } from "../../lib/model";
+import { useAuth } from "../../components/context/AuthProvider";
+import LoginModal from "../../components/ui/LoginModal";
 
 export default function Page() {
 	const { session } = useAuth();
