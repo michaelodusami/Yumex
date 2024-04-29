@@ -2,10 +2,8 @@
 
 import { useEffect, useState, useContext } from "react";
 import { fetchPostsFromDatabase, fetchPostsFromDatabaseByCategory } from "@/lib/data";
-import Post from "./Post";
-import { SearchContext } from "../context/SearchContext";
-import { Squares2X2Icon } from "@heroicons/react/16/solid";
-import { navMediumWidth, navLargeWidth, singleColWidth } from "../util_ui/sizes";
+import Post from "@/components/ui/Post";
+import { SearchContext } from "@/components/context/SearchContext";
 import CategorySelector from "./CategorySelector";
 import { useAuth } from "../context/AuthProvider";
 import LoginModal from "./LoginModal";
