@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { inter, poppins } from "@/components/util/fonts";
 import "./globals.css";
-import { AuthProvider } from "../components/context/AuthProvider";
-import { SearchProvider } from "../components/context/SearchContext";
-import Nav from "../components/ui/nav";
+import { AuthProvider } from "@/components/context/AuthProvider";
+import { SearchProvider } from "@/components/context/SearchContext";
+import Nav from "@/components/ui/nav";
 
 export const metadata: Metadata = {
 	title: "Yumex",
