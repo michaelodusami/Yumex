@@ -2,16 +2,15 @@
 
 import CreateForm from "@/components/ui/CreateForm";
 import ImageUploader from "@/components/ui/ImageUploader";
-import PostPreview from "../../components/ui/PostPreview";
+import PostPreview from "@/components/ui/PostPreview";
 import { useState } from "react";
-import { FormData } from "../../lib/interfaces";
-import { uploadFile, getIdFromUser } from "../../lib/data";
-import CreatePostSuccess from "../../components/ui/CreatePostSuccess";
-import { supabase } from "../../lib/server";
-import { navLargeWidth, navMediumWidth } from "../../components/util/sizes";
-import { all_routes } from "../../lib/model";
-import { useAuth } from "../../components/context/AuthProvider";
-import LoginModal from "../../components/ui/LoginModal";
+import { FormData } from "@/lib/interfaces";
+import { uploadFile, getIdFromUser } from "@/lib/data";
+import CreatePostSuccess from "@/components/ui/CreatePostSuccess";
+import { supabase } from "@/lib/server";
+import { all_routes } from "@/lib/model";
+import { useAuth } from "@/components/context/AuthProvider";
+import LoginModal from "@/components/ui/LoginModal";
 
 export default function Page() {
 	const { session } = useAuth();
