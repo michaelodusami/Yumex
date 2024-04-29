@@ -4,7 +4,7 @@ import Search from "./components/Search";
 import Link from "next/link";
 import { PlusCircleIcon, HomeIcon, ArrowRightEndOnRectangleIcon } from "@heroicons/react/24/solid";
 import { ProfileDropDown } from "./components/ProfileDropdown";
-import { supabase } from "../lib/server";
+import { supabase } from "../_lib/server";
 import { useState } from "react";
 import { phoneIconWH, navLargeWidth, navMediumWidth } from "./util/sizes";
 import { useAuth } from "./provider/AuthProvider";

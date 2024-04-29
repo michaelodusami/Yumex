@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useContext } from "react";
-import { fetchPostsFromDatabase, fetchPostsFromDatabaseByCategory } from "@/app/lib/data";
+import { fetchPostsFromDatabase, fetchPostsFromDatabaseByCategory } from "@/app/_lib/data";
 import Post from "./components/Post";
 import { SearchContext } from "./context/SearchContext";
 import { Squares2X2Icon } from "@heroicons/react/16/solid";

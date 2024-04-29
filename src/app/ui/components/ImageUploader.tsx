@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpTrayIcon } from "@heroicons/react/24/solid";
-import { FormData } from "@/app/lib/interfaces";
+import { FormData } from "@/app/_lib/interfaces";
 
 interface ImageUploaderProps {
 	setFormData: React.Dispatch<React.SetStateAction<FormData>>;

@@ -1,14 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 
-import { fetchPost } from "@/app/lib/data";
+import { fetchPost } from "@/app/_lib/data";
 import AvatarLogo from "@/app/ui/components/AvatarLogo";
 import { AsyncUserEmail, AsyncImage } from "@/app/ui/components/async_components";
-import { getFormattedDate } from "@/app/lib/utils";
+import { getFormattedDate } from "@/app/_lib/utils";
 import Category from "@/app/ui/components/Category";
 import { UpvoteSymbol } from "@/app/ui/components/symbols";
-import { increaseUpvotes, addComment, getComments } from "@/app/lib/data";
-import { getIdFromUser, deletePost } from "@/app/lib/data";
+import { increaseUpvotes, addComment, getComments } from "@/app/_lib/data";
+import { getIdFromUser, deletePost } from "@/app/_lib/data";
 import Comment from "@/app/ui/components/Comment";
 
 import { useAuth } from "@/app/ui/provider/AuthProvider";
@@ -26,7 +26,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { all_routes } from "@/app/lib/model";
+import { all_routes } from "@/app/_lib/model";
 
 import { navLargeWidth, navMediumWidth, singleColWidth } from "@/app/ui/util/sizes";
 

@@ -3,7 +3,7 @@
 import { AsyncUserEmail } from "./async_components";
 import AvatarLogo from "./AvatarLogo";
 import { useEffect, useState } from "react";
-import { getIdFromUser, deleteCommentFromDatabase } from "@/app/lib/data";
+import { getIdFromUser, deleteCommentFromDatabase } from "@/app/_lib/data";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import {
 	DropdownMenu,

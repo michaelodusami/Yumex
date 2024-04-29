@@ -1,9 +1,9 @@
 "use client";
 
-import { food_categories } from "@/app/lib/model";
+import { food_categories } from "@/app/_lib/model";
 import { categoryColors } from "../util/colors";
 import { useState } from "react";
-import { FormData } from "@/app/lib/interfaces";
+import { FormData } from "@/app/_lib/interfaces";
 
 interface CreateFormProps {
 	setFormData: React.Dispatch<React.SetStateAction<FormData>>;

@@ -4,12 +4,12 @@ import CreateForm from "@/app/ui/components/CreateForm";
 import ImageUploader from "@/app/ui/components/ImageUploader";
 import PostPreview from "../ui/components/PostPreview";
 import { useState } from "react";
-import { FormData } from "../lib/interfaces";
-import { uploadFile, getIdFromUser } from "../lib/data";
+import { FormData } from "../_lib/interfaces";
+import { uploadFile, getIdFromUser } from "../_lib/data";
 import CreatePostSuccess from "../ui/components/CreatePostSuccess";
-import { supabase } from "../lib/server";
+import { supabase } from "../_lib/server";
 import { navLargeWidth, navMediumWidth } from "../ui/util/sizes";
-import { all_routes } from "../lib/model";
+import { all_routes } from "../_lib/model";
 import { useAuth } from "../ui/provider/AuthProvider";
 import LoginModal from "../ui/components/LoginModal";
 
