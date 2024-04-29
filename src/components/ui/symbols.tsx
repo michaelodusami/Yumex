@@ -3,7 +3,12 @@ import {
 	ChatBubbleBottomCenterTextIcon,
 	MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { PlusCircleIcon, HomeIcon, ArrowRightEndOnRectangleIcon } from "@heroicons/react/24/solid";
+import {
+	PlusCircleIcon,
+	HomeIcon,
+	ArrowRightEndOnRectangleIcon,
+	TrashIcon,
+} from "@heroicons/react/24/solid";
 
 export const UpvoteSymbol: React.FC<{ styles: string }> = ({ styles = "" }) => {
 	return <HandThumbUpIcon className={styles} />;
@@ -29,4 +34,8 @@ export const ArrowRightEndOnRectangleIconSymbol: React.FC<{ styles: string }> = 
 	styles = "",
 }) => {
 	return <ArrowRightEndOnRectangleIcon className={styles} />;
+};
+
+export const TrashIconSymbol: React.FC<{ styles: string }> = ({ styles = "" }) => {
+	return <TrashIcon className={styles} />;
 };
