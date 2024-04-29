@@ -3,7 +3,7 @@ import { inter, poppins } from "@/components/util/fonts";
 import "./globals.css";
 import { AuthProvider } from "../components/context/AuthProvider";
 import { SearchProvider } from "../components/context/SearchContext";
-import Nav from "./nav";
+import Nav from "../components/ui/nav";
 
 export const metadata: Metadata = {
 	title: "Yumex",
