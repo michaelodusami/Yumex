@@ -47,11 +47,7 @@ export const Commment: React.FC<{ comment: any; setCommentList: any }> = ({
 	return (
 		<div className="bg-white shadow-md rounded-lg p-6 mb-4">
 			<div className="flex items-center mb-4">
-				<AvatarLogo
-					src="/userlogo.png"
-					styles="w-10 h-10 rounded-full mr-4"
-					fallback={""}
-				/>
+				<AvatarLogo src="" styles="w-10 h-10 rounded-full mr-4" fallback={""} />
 				<div>
 					<AsyncUserEmail user_id={comment.user_id} />
 				</div>
