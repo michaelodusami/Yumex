@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
 import { SearchContext } from "../context/SearchContext";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIconSymbol } from "@/components/ui/symbols";
 
 export default function Search({ placeholder }: { placeholder: string }) {
 	const { searchQuery, setSearchQuery } = useContext(SearchContext);
@@ -21,7 +21,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
 				value={searchQuery}
 				onChange={handleSearchChange}
 			/>
-			<MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+			<MagnifyingGlassIconSymbol styles="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
 		</div>
 	);
 }
