@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-
 import { fetchPost } from "@/lib/data";
 import AvatarLogo from "@/components/ui/AvatarLogo";
 import { AsyncUserEmail, AsyncImage } from "@/components/ui/async_components";
