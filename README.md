@@ -44,10 +44,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-[Link to walkthrough](https://www.youtube.com/watch?v=bsgZlgAL8XI) on Youtube
+[Link to walkthrough](https://youtu.be/qcUbhgHgbd8) on Youtube
 
-GIF created with ...
-[Kap](https://getkap.co/) for macOS
 
 ## Notes
 
